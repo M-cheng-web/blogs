@@ -24,15 +24,25 @@ module.exports = {
       },
       {
         title: "待分配",
-        path: '/unAllot/core',
+        path: '/a-un-allot/core',
       },
-      // {
-      //   title: "前端笔记",
-      //   path: '/web/to-learn',
-      //   collapsable: false,
-      //   children: [
-      //   ],
-      // },
+      {
+        title: "工具类",
+        path: '/tools/core',
+        collapsable: false,
+        children: [
+          { title: "关于", path: "/tools/core" },
+          { title: "Rollup", path: "/tools/rollup" },
+          { title: "Lerna", path: "/tools/lerna" },
+          { title: "Git", path: "/tools/git" },
+          { title: "Webpack", path: "/tools/webpack" },
+          { title: "Vite", path: "/tools/vite" },
+          { title: "EsBuild", path: "/tools/esbuild" },
+          { title: "Node", path: "/tools/node" },
+          { title: "Vuepress", path: "/tools/vuepress" },
+          { title: "发布npm插件", path: "/tools/npm-publish" },
+        ],
+      },
     ]
   }
 }
