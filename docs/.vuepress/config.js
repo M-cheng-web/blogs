@@ -1,6 +1,6 @@
 module.exports = {
   title: '个人博客', // 标题
-  description: '记录知识，记录生活',
+  description: '记录知识,记录生活',
   base: '/blogs/', // github项目名
   theme: 'reco', // 主题
   locales: {

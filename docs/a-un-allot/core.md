@@ -70,3 +70,28 @@ https://www.cnblogs.com/xulinjun/p/13932609.html
 如果太长可以写个文件来执行,然后 `node aaa.js`, 在这个文件里去加载你想做的
 
 ## git 提交规范
+
+## 导出可以这样用
+导出
+``` js
+const name = 'cccc'
+const obj = {
+  install: () => {
+    console.log(123);
+  }
+}
+
+export {
+  obj as default, // 重点!!!! 这样等同于下面的default
+  name
+}
+
+// export default obj
+```
+
+导入
+``` js
+import { name } from './aaa'
+
+import xxx from './aaa'
+```
