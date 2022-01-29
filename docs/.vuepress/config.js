@@ -40,7 +40,7 @@ module.exports = {
           { title: "EsBuild", path: "/tools/esbuild" },
           { title: "Node", path: "/tools/node" },
           { title: "Vuepress", path: "/tools/vuepress" },
-          { title: "发布npm插件", path: "/tools/npm-publish" },
+          { title: "发布npm包", path: "/tools/npm-publish" },
         ],
       },
     ]
