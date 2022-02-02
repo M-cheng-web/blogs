@@ -20,34 +20,154 @@
 + chore：构建过程或辅助工具的变动
 
 ## 常用命令
-### branch 分支
+### git clone
 ```
-// 查看所有的分支，包括本地的和远程的
-git branch -a
-
-// 重命名当前分支为 dev (如果已存在dev分支会报错)
-git branch -m dev
-
-// 删除当前分支，前提是当前不在需要删除的那个分支
-git branch -d dev
+git clone <仓库URL>                         // 拉取远程仓库全部分支(默认在本地的master分支)
+git clone -b dev <仓库URL>                  // 拉取远程仓库全部分支,且本地在dev分支下
+git clone -b dev --single--branch <仓库URL> // 获取指定分支的代码
 ```
+
+### git pull
+```
+git pull            // 拉取默认分支(当前在哪个分支就拉取哪个)
+git pull origin dev // 拉取指定分支
+```
+
+### git add
+```
+git add App.vue             // 将App.vue页面添加到暂存区(如果同时存在两个App.vue,其中一个是会有别名的,这里只添加没有别名的那个)
+git add App.vue api         // 会将 App.vue 以及 App.vue api 一起提交到暂存区
+git add App.vue api assets  // 会将 App.vue 以及 App.vue api 以及 App.vue api assets 一起提交到暂存区
+git add .                   // 将所有修改添加到暂存区
+git add -A                  // 和 git add .一样的效果,有什么差别吗
+git add -u                  // 提交被修改和被删除的文件,不包括新文件(-u == --update)
+git add *Controller         // 将以Controller结尾的文件的所有修改添加到暂存区(注意名字相同文件会有别名,会被这个所捕获)
+git add Hello*              // 将所有以Hello开头的文件的修改添加到暂存区(如果是两个App.vue文件被修改,那么第二个App.vue会有别名,就不会被这里所拿到)
+```
+
+### git commit
+```
+git commit -m                            // 提交暂存区所有文件到本地仓库
+git commit [file1] [file2] -m            // 提交暂存区指定文件到仓库
+git commit -a -m                         // 直接将工作区的修改提交到仓库
+git commit --amend                       // 修改提交信息
+git commit --amend -m '修改了最后一次提交'  // 快捷修改最后一次提交(只能修改最后一次的)
+```
+
+### git push
+```
+git push origin main = git push origin main:main  // 这两个是相同的意思
+git push origin dev:main                          // 如果当前在 dev 分支,但是想提交到 main 分支
+```
+
+### 查看
+```
+git log            // 查看提交历史(commit历史)
+git log -p <file>  // 查看指定文件的提交历史(不推荐用,内容会很多)
+git blame <file>   // 以列表方式查看指定文件的提交历史(只能查看单个)
+git branch -a      // 查看所有分支(包括远程的)
+```
+
+### git branch
+```
+git branch -a      // 查看所有的分支，包括本地的和远程的(不加 -a 代表只查询本地的)
+git branch -m dev  // 重命名当前分支为 dev (如果已存在dev分支会报错)
+git branch -d dev  // 删除 dev 分支，如果目标分支有内容未合并则需要用 -D 强行删除
+```
+
+### git reset
+```
+git reset                 // 暂存区所有文件回到工作区
+git reset <file>          // 暂存区目标文件回到工作区
+git reset --hard HEAD^    // 撤销到最近一次提交,工作区中所有未提交文件清空
+git reset --hard <commit> // 撤销到某个特定版本,工作区中所有未提交文件清空
+git reset --soft <commit> // 撤销到某个特定版本,工作区保留(内容会放在暂存区)
+
+git reset --hard ORIG_HEAD
+// 执行git pull和git merge,git reset操作时,git都会把执行操作前的HEAD放入ORIG_HEAD中,以防回滚操作
+// 但是在pull 后再执行这个命令会把工作区的代码给重置,所以用 git reset --merge ORIG_HEAD
+
+刚提交的commit想要回退到暂存区,用git reset --soft HEAD^
+用reset误删后可以用git reflog查看全部的分支,然后再用 git reset --hard 1a0053e 回滚
+```
+
++ hard(回滚后本地代码就是回退版本的代码)
+  - 移动本地库HEAD指针
+  - 重置暂存区
+  - 重置工作区
++ soft(内容会放在暂存区,不影响工作区)
+  - 移动本地库HEAD指针
++ mixed(默认参数,会将所有的改动放到工作区中,即使之前在暂存区中有改动也会一起放回工作区)
+  - 移动本地库HEAD指针
+  - 重置暂存区
++ keep(本地代码就是回退版本的代码,而暂存区是没有任何改变)(调试不通,暂不用)
+  - 移动本地库HEAD指针
+  - 暂存区不变
+  - 重置工作区
+
+### git revert
+建议加 -n 配置项,不让其自动提交
+```
+git revert <commit>        // 撤销某次历史提交(如果是比较久远的提交一般会产生冲突,届时就是与目标提交对比差异了)
+git revert <HashA> <HashB> // 撤销多个历史提交
+git revert A..B            // 撤销一连串历史提交(不包括A)
+git revert A^..B           // 撤销一连串历史提交(包括A)
+git revert --abort         // 取消撤销操作,撤回到合并之前到工作环境 
+```
+
+### git cherry-pick
+建议加 -n 配置项,不让其自动提交
+```
+git cherry-pick <commit>        // 合并某次历史提交
+git cherry-pick <HashA> <HashB> // 合并多个历史提交
+git cherry-pick A..B            // 合并一连串历史提交(不包括A)
+git cherry-pick A^..B           // 合并一连串历史提交(包括A)
+git cherry-pick --abort         // 取消合并,撤回到合并之前到工作环境 
+```
+### git remote
+```
+git remote update origin -p                                    // 更新远程分支
+git remote add origin git@github.com:M-cheng-web/git-demo.git  // 连接远程分支
+```
+
+### stash
+```
+
+```
+
 
 ## 操作场景
 ### 连接远程仓库
-> 目的是将本地的项目文件链接到远程的仓库，这里以`github`为例
+目的是将本地的项目文件链接到远程的仓库，这里以`github`为例
 
 本地文件操作
-``` json
-// 初始化
-git init 
+```
+git init  // 初始化
 
 // 将此时所在的分支重命名为 main
 // 这一步的目的是将本地的分支和远程分支设置相同名称(这里假设远程默认分支为main,如果是其他的这边也要相对应的更改)
-// 相同分支才可以提交哦
 git branch -m main
 
-// 连接远程分支
-git remote add origin git@github.com:M-cheng-web/git-demo.git
+git remote add origin git@github.com:M-cheng-web/git-demo.git  // 连接远程分支
 ```
 
 做完上面的操作后就可以正常提交代码到远程
+
+### 创建分支推送远程
+两种方式
++ 本地创建后推送到远程
+  1. git checkout -b dev
+  2. git push origin dev
++ 远程创建后本地更新下来
+  1. 远程手动创建分支(或者已由他人推送新分支)
+  2. 本地更新远程分支信息: git remote update origin -p
+
+### 合并历史 commit
+场景详情:
+我在本地历史 commit 中有一块功能,然而我目前工作区中把这个功能删掉了,我该怎么做才能把这块功能快速补回来
+
+解决:
+```
+// 可以让目标 commit 历史和当前工作区合并(前提是当前工作区是干净的)
+git cherry-pick <commit hash>
+```
