@@ -1,15 +1,5 @@
 # Git
 
-## 需掌握点
-+ 本地仓库链接远程已有仓库（一般这种情况下远程仓库是空的）
-+ git commit 命令调优相关，例如合并他人代码时减少 commit 次数
-+ 撤销刚刚拉下来的代码
-+ tag 标签的应用
-+ 临时 bug 分支的应用
-+ 本地分支新建推送的应用
-+ 正确的工作流
-+ git commit 的管理工具
-
 ## commit 类别
 + feat：新功能（feature）
 + fix：修补bug
@@ -60,22 +50,14 @@ git push origin main = git push origin main:main  // 这两个是相同的意思
 git push origin dev:main                          // 如果当前在 dev 分支,但是想提交到 main 分支
 ```
 
-### 查看
+### git log & blame
 ```
 git log            // 查看提交历史(commit历史)
 git log -p <file>  // 查看指定文件的提交历史(不推荐用,内容会很多)
 git blame <file>   // 以列表方式查看指定文件的提交历史(只能查看单个)
-git branch -a      // 查看所有分支(包括远程的)
 ```
 
-### git branch
-```
-git branch -a      // 查看所有的分支，包括本地的和远程的(不加 -a 代表只查询本地的)
-git branch -m dev  // 重命名当前分支为 dev (如果已存在dev分支会报错)
-git branch -d dev  // 删除 dev 分支，如果目标分支有内容未合并则需要用 -D 强行删除
-```
-
-### git reset
+### git reset 回滚提交
 ```
 git reset                 // 暂存区所有文件回到工作区
 git reset <file>          // 暂存区目标文件回到工作区
@@ -105,8 +87,8 @@ git reset --hard ORIG_HEAD
   - 暂存区不变
   - 重置工作区
 
-### git revert
-建议加 -n 配置项,不让其自动提交
+### git revert 撤销提交
+建议加 -n 配置项,不让其自动提交(然后选择q来退出界面)
 ```
 git revert <commit>        // 撤销某次历史提交(如果是比较久远的提交一般会产生冲突,届时就是与目标提交对比差异了)
 git revert <HashA> <HashB> // 撤销多个历史提交
@@ -115,8 +97,8 @@ git revert A^..B           // 撤销一连串历史提交(包括A)
 git revert --abort         // 取消撤销操作,撤回到合并之前到工作环境 
 ```
 
-### git cherry-pick
-建议加 -n 配置项,不让其自动提交
+### git cherry-pick 合并提交
+建议加 -n 配置项,不让其自动提交(然后选择q来退出界面)
 ```
 git cherry-pick <commit>        // 合并某次历史提交
 git cherry-pick <HashA> <HashB> // 合并多个历史提交
@@ -124,17 +106,65 @@ git cherry-pick A..B            // 合并一连串历史提交(不包括A)
 git cherry-pick A^..B           // 合并一连串历史提交(包括A)
 git cherry-pick --abort         // 取消合并,撤回到合并之前到工作环境 
 ```
-### git remote
+
+### git remote 远端
 ```
 git remote update origin -p                                    // 更新远程分支
 git remote add origin git@github.com:M-cheng-web/git-demo.git  // 连接远程分支
 ```
 
-### stash
+### git stash 临时储藏
+比如说我们在处理一个bug过程中又来了一个紧急需求,把bug处理过程中 的文件更改储藏起来(工作区和暂存区会变干净),然后开始新需求的编写
+```
+git stash -m '存储代码'  // 储藏暂存区和工作区的代码
+git stash pop          // 提取最近一次储藏的,会删除被提取的版本(当有冲突时不会删除被提取的版本)
+git stash pop n        // 提取目标储藏的版本,n代表序列号,会删除被提取的版本
+git stash apply        // 提取最近一次储藏的版本,但不会删除
+git stash apply n      // 提取目标储藏的版本,n代表序列号,例如 0 1 2 3
+git stash list         // 查看储藏的版本
+git stash drop         // 删除最近一个储藏的版本
+git stash drop n       // 删除目标储藏的版本,n代表序列号,例如 0 1 2 3
+git stash clear        // 删除所有储藏的版本
 ```
 
+### git checkout 创建/切换分支
+```
+git checkout <file>     // 切换到指定分支或标签
+git checkout -b <file>  // 创建并切换到指定分支或标签
 ```
 
+### git branch 分支
+```
+git branch -a      // 查看所有的分支，包括本地的和远程的(不加 -a 代表只查询本地的)
+git branch -m dev  // 重命名当前分支为 dev (如果已存在dev分支会报错)
+git branch -d dev  // 删除 dev 分支，如果目标分支有内容未合并则需要用 -D 强行删除
+```
+
+### git tag 打标签
+在`git checkout v0.0.3`后如果想要基于此tag进行一些功能扩展,应该执行`git checkout -b newBranch`来创建一个新分支然后基于此分支开发,因为在tag上进行的commit会被丢弃
+```
+git tag                              // 列出所有本地标签
+git tag -l 'v0.0.*'                  // 列出筛选后的标签
+git show v0.0.1                      // 查看目标tag的信息
+git tag v0.0.1                       // 创建标签(基于最新提交创建标签)
+git tag -a 'v0.0.1' -m '备注说明'     // -a指定标签名称,-m附加备注信息
+git tag -a v0.0.3 07289a6 -m 'tag-3' // 为指定的 commithash 创建tag
+git push origin v0.0.3               // 将目标tag推送到远端
+git push origin --tags               // 将所有tag推送到远端
+git checkout v0.0.3                  // 切换到目标tag
+git checkout -                       // 切换到目标tag后想切回来用这个命令
+git tag -d v0.0.1                    // 删除标签
+git push origin :refs/tags/v0.0.1    // 删除远程标签(只能这样删)
+```
+
+### git merge 合并分支
+建议加 -n 配置项,不让其自动提交(然后选择q来退出界面)
+```
+git merge <branch>        // 合并指定分支到当前分支
+git merge --abort         // 取消当前合并,重建合并前状态
+git merge dev -n -Xtheirs // 以合并dev分支到当前分支,有冲突则以dev分支为准
+git rebase # 衍合指定分支到当前分支
+```
 
 ## 操作场景
 ### 连接远程仓库
