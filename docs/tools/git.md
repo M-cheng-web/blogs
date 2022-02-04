@@ -201,3 +201,6 @@ git remote add origin git@github.com:M-cheng-web/git-demo.git  // 连接远程�
 // 可以让目标 commit 历史和当前工作区合并(前提是当前工作区是干净的)
 git cherry-pick <commit hash>
 ```
+
+注意: 如果只想要获取历史某次提交的某几个文件,参照此文章的解决方案
+[https://www.itranslater.com/qa/details/2103374620475786240](https://www.itranslater.com/qa/details/2103374620475786240)
