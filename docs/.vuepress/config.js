@@ -20,11 +20,15 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "介绍", path: "/" },
+          {
+            title: "待分配",
+            path: '/a-un-allot/core',
+          },
+          {
+            title: "待学习",
+            path: '/a-un-allot/learn',
+          },
         ]
-      },
-      {
-        title: "待分配",
-        path: '/a-un-allot/core',
       },
       {
         title: "工具类",
@@ -37,10 +41,19 @@ module.exports = {
           { title: "Git", path: "/tools/git" },
           { title: "Webpack", path: "/tools/webpack" },
           { title: "Vite", path: "/tools/vite" },
-          { title: "EsBuild", path: "/tools/esbuild" },
-          { title: "Node", path: "/tools/node" },
+          // { title: "EsBuild", path: "/tools/esbuild" },
+          // { title: "Node", path: "/tools/node" },
           { title: "Vuepress", path: "/tools/vuepress" },
-          { title: "发布npm包", path: "/tools/npm-publish" },
+          { title: "npm", path: "/tools/npm" },
+        ],
+      },
+      {
+        title: "JavaScript",
+        path: '/javascript/core',
+        collapsable: false,
+        children: [
+          { title: "关于", path: "/javascript/core" },
+          { title: "小技巧", path: "/javascript/skill" },
         ],
       },
     ]
