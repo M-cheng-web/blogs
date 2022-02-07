@@ -24,11 +24,7 @@ module.exports = {
           {
             title: "待分配",
             path: '/a-un-allot/core',
-          },
-          {
-            title: "待学习",
-            path: '/a-un-allot/learn',
-          },
+          }
         ]
       },
       {
