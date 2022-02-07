@@ -35,7 +35,7 @@ module.exports = {
         path: '/tools/core',
         collapsable: false,
         children: [
-          { title: "关于", path: "/tools/core" },
+          { title: "介绍", path: "/tools/core" },
           { title: "Rollup", path: "/tools/rollup" },
           { title: "Lerna", path: "/tools/lerna" },
           { title: "Git", path: "/tools/git" },
@@ -44,7 +44,8 @@ module.exports = {
           // { title: "EsBuild", path: "/tools/esbuild" },
           // { title: "Node", path: "/tools/node" },
           { title: "Vuepress", path: "/tools/vuepress" },
-          { title: "npm", path: "/tools/npm" },
+          { title: "Npm", path: "/tools/npm" },
+          { title: "Commit", path: "/tools/commit" },
         ],
       },
       {
@@ -52,8 +53,9 @@ module.exports = {
         path: '/javascript/core',
         collapsable: false,
         children: [
-          { title: "关于", path: "/javascript/core" },
+          { title: "介绍", path: "/javascript/core" },
           { title: "小技巧", path: "/javascript/skill" },
+          { title: "正则", path: "/javascript/regular" },
         ],
       },
     ]
