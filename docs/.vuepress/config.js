@@ -3,6 +3,7 @@ module.exports = {
   description: '记录知识,记录生活',
   base: '/blogs/', // github项目名
   theme: 'reco', // 主题
+  plugins: [['vuepress-plugin-code-copy', true]], // 复制代码块插件
   locales: {
     '/': {
       lang: 'zh-CN' // 时间格式转换 1/1/2022 => 2022/1/1
@@ -45,7 +46,7 @@ module.exports = {
           // { title: "Node", path: "/tools/node" },
           { title: "Vuepress", path: "/tools/vuepress" },
           { title: "Npm", path: "/tools/npm" },
-          { title: "Commit", path: "/tools/commit" },
+          { title: "Commit规范化", path: "/tools/commit" },
         ],
       },
       {
