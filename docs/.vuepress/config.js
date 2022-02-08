@@ -43,6 +43,7 @@ module.exports = {
           { title: "Vuepress", path: "/tools/vuepress" },
           { title: "Npm", path: "/tools/npm" },
           { title: "Commit规范化", path: "/tools/commit" },
+          { title: "Vscode", path: "/tools/vscode" },
         ],
       },
       {
@@ -53,6 +54,7 @@ module.exports = {
           { title: "介绍", path: "/javascript/core" },
           { title: "小技巧", path: "/javascript/skill" },
           { title: "正则", path: "/javascript/regular" },
+          { title: "设计模式", path: "/javascript/design-mode" },
         ],
       },
     ]
