@@ -32,7 +32,7 @@ module.exports = {
         path: '/tools/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/tools/core" },
+          // { title: "介绍", path: "/tools/core" },
           { title: "Rollup", path: "/tools/rollup" },
           { title: "Lerna", path: "/tools/lerna" },
           { title: "Git", path: "/tools/git" },
@@ -51,8 +51,9 @@ module.exports = {
         path: '/javascript/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/javascript/core" },
+          // { title: "介绍", path: "/javascript/core" },
           { title: "小技巧", path: "/javascript/skill" },
+          { title: "数组方法总结", path: "/javascript/array" },
           { title: "正则", path: "/javascript/regular" },
           { title: "设计模式", path: "/javascript/design-mode" },
         ],
