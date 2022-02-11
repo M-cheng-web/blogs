@@ -55,6 +55,22 @@ module.exports = {
           { title: "设计模式", path: "/javascript/design-mode" },
         ],
       },
+      {
+        title: "Typescript",
+        path: '/typescript/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/typescript/core" },
+        ],
+      },
+      {
+        title: "手写",
+        path: '/writingcode/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/writingcode/core" },
+        ],
+      },
     ]
   }
 }
