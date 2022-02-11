@@ -1,13 +1,15 @@
 # 待分配
 
 ## 待学习
++ 英语
 + 算法
++ 手写
++ promise任务调度
 + vue源码总结
 + vite
 + webpack
 + node
 + esbuild
-+ 正则
 + 总结js模块
 
 ## 埋点插件

@@ -1,5 +1,3 @@
-const str = "abc,12,s,b,abc,abc12"
-
 // var str = "F:\\study\\javascript\\regex\\regular expression.pdf"
 // '02:03' '2:3' '0:3' '0001-02-03'
 // var patt1 = /^(?:[0-1][0-9]|2[0-3]):(?:[0-5][0-9])$/;
@@ -9,17 +7,25 @@ const str = "abc,12,s,b,abc,abc12"
 
 // var patt1 = /^[a-zA-Z]:\\(?:[^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/
 
-// var patt1 = /^\d+(?<numb>,\d+)*$/  命名捕获组 / 捕获组 / 非捕获组
+const str = "1hell2"
+// const patt = /(?=.+)hell/;
+const patt = /(?<=.+)hell/;
+// const patt = /(?<=.+)hell(?=.+)/;
+// console.log(str.match(patt))
 
-// var patt1 = /^(?<num>\d{2}),\k<num>$/  命名捕获组反向使用
-// var patt1 = /^(?<num>\d{2}),\k<num>$/
-
-const patt = /(?<firstName>\w{3}),(\w{2}),(?:\w{1}),(\w{1}),\k<firstName>,\1\2/
+// var result = "123456781235".replace(/(?=\d{3}$)/g, ',')
 
 
-console.log(str.match(patt))
-// console.log(Array.from(str.match(patt)))
+// var string = "abc";
+// var regex = /([abc]{3})+/;
+// console.log( string.match(regex) );
 
+
+
+var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/g;
+var string = "2017-06-26";
+console.log(string.match(regex));
+console.log(regex.exec(string));
 
 
 
