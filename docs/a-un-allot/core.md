@@ -22,6 +22,9 @@ node 执行 node aaa.js 时  aaa.js文件不能有 require (node版本为 16.13.
 
 inquirer 在Mac m1系统有点问题，暂时不清楚什么原因导致的，后续提issues，现在发布流程：先运行命令更换版本号，然后再执行npm publish
 
+## vuepress 图标地址
+[https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json](https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json)
+
 ## mk文档输出目录树
 mddir
 
