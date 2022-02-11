@@ -21,15 +21,12 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "介绍", path: "/" },
-          {
-            title: "待分配",
-            path: '/a-un-allot/core',
-          }
+          { title: "待分配", path: '/a-un-allot/core' },
         ]
       },
       {
         title: "工具类",
-        path: '/tools/core',
+        path: '/tools/rollup',
         collapsable: false,
         children: [
           // { title: "介绍", path: "/tools/core" },
@@ -48,7 +45,7 @@ module.exports = {
       },
       {
         title: "JavaScript",
-        path: '/javascript/core',
+        path: '/javascript/skill',
         collapsable: false,
         children: [
           // { title: "介绍", path: "/javascript/core" },
