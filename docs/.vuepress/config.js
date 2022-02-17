@@ -69,6 +69,7 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "介绍", path: "/writingcode/core" },
+          { title: "Promise", path: "/writingcode/promise" },
         ],
       },
     ]
