@@ -1,38 +1,42 @@
-// var str = "F:\\study\\javascript\\regex\\regular expression.pdf"
-// '02:03' '2:3' '0:3' '0001-02-03'
-// var patt1 = /^(?:[0-1][0-9]|2[0-3]):(?:[0-5][0-9])$/;
-// var patt1 = /^(?:[0-1][0-9]|2[0-3]|[0-9]):(?:[0-5][0-9]|[0-9])$/;
+class Scheduler {
+  constructor(max) {
+    this.max = max;
+    this.count = 0;
+    this.taskList = [];
+  }
 
-// var patt1 = /^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2][0-9]|3[0-1])$/;
+  async add(fun) {
+    if (this.count >= this.max) {
+      await new Promise(reslove => this.taskList.push(reslove))
+    }
+    this.count++
+    const res = await fun()
+    this.count--
+    this.taskList.length && this.taskList.shift()()
+    return res
+  }
+}
 
-// var patt1 = /^[a-zA-Z]:\\(?:[^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/
+// 延迟函数
+const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
-const str = "1hell2"
-// const patt = /(?=.+)hell/;
-const patt = /(?<=.+)hell/;
-// const patt = /(?<=.+)hell(?=.+)/;
-// console.log(str.match(patt))
+// 同时进行的任务最多2个
+const scheduler = new Scheduler(2);
 
-// var result = "123456781235".replace(/(?=\d{3}$)/g, ',')
+// 添加异步任务
+// time: 任务执行的时间
+// val: 参数
+const addTask = (time, val) => {
+  scheduler.add(() => {
+    return sleep(time).then(() => console.log(val));
+  });
+};
 
-
-// var string = "abc";
-// var regex = /([abc]{3})+/;
-// console.log( string.match(regex) );
-
-
-
-var regex = /^(\d{4})\D(\d{2})\D(\d{2})$/g;
-var string = "2017-06-26";
-console.log(string.match(regex));
-console.log(regex.exec(string));
-
-
-
-// 这两种有什么区别
-
-// var regex = /^[a-zA-Z]:\\([^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/;
-// console.log( regex.test("F:\\study\\javascript\\regex\\regular expression.pdf") ); 
-// console.log( regex.test("F:\\study\\javascript\\regex\\") ); 
-// console.log( regex.test("F:\\study\\javascript") ); 
-// console.log( regex.test("F:\\") ); 
+addTask(1000, '1');
+addTask(500, '2');
+addTask(300, '3');
+addTask(400, '4');
+// 2
+// 3
+// 1
+// 4

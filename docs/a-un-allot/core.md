@@ -4,12 +4,8 @@
 + 英语
 + 算法
 + 手写
-+ promise任务调度
 + vue源码总结
 + vite
-+ webpack
-+ node
-+ esbuild
 + 总结js模块
 + 总结ts
 
