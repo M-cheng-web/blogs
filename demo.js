@@ -1,7 +1,6 @@
-const a = ['john-reese', 'harold-finch', 'sameen-shaw'];
-const fun = (name, arr) => {
-  return a.map((item) => { return { [name]: item.split('-').join(' ') }})
-}
-const b = fun('name', a);
-
-console.log(b);
+function Person() { }
+Person.prototype.age = [1, 2, 3]
+let a = new Person()
+let b = new Person()
+a.age.push(4)
+console.log(b.age) 

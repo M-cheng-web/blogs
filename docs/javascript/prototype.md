@@ -1,9 +1,8 @@
 # 原型
-
 ## 构造函数 & 原型对象 & 实例对象
 + 构造函数指的是函数,可以被new的,有prototype属性的
 + 原型对象指的是构造函数的prototype(默认这个属性有constructor属性,且这个属性指针指向构造函数对象),手动向构造函数的prototype属性添加属性,那么原型对象会有这个添加的属性
-+ 实例对象时对构造函数 new 之后所得到的对象
++ 实例对象指的是对构造函数 new 之后所得到的对象
 ``` js
 let A = function() { // 构造函数
   this.name = 'xin'
@@ -19,7 +18,7 @@ let person1 = new A() // 此时的person1 称为A的一个实例对象 { name: '
 
 ## 构造函数的一些问题
 像下面这种问题,调用了两次构造函数,但是sayName不是同一个Function实例<br>
-这是执行了两次一样的代码且结果都是做了一样的事,而且还在实例对象中添加了`sayName`方法,这都是没有必要的
+这是执行了两次一样的代码且结果都是做了一样的事,而且还在实例对象中添加了 `sayName` 方法,这都是没有必要的
 ``` js
 let Person = function(name, age, job) {
   this.name = name;
@@ -57,8 +56,8 @@ Person.prototype.sayName = function() {
 
 ## new操作符做了什么
 1. 在内存中创建一个新对象
-2. 让新对象的`_proto_`指向构造函数的`prototype`
-3. 把新对象的`this`赋值给构造函数内部的`this`(即this指向新对象)
+2. 让新对象的 `__proto__` 指向构造函数的 `prototype`
+3. 把新对象的 `this` 赋值给构造函数内部的 `this`(即this指向新对象)
 4. 执行构造函数内部的代码(即给新对象添加属性)
 5. 如果构造函数返回对象,则返回该对象(无论这个对象是否为空); 否则返回刚创建的对象
 ``` js
@@ -82,7 +81,7 @@ return new F()
 ## 原型相关方法
 + delete
 如果想要一个实例对象不使用本身的属性,而是想用原型链上的属性<br>
-可以用`delete`删除自身的这个属性,然后再去调用这个属性的时候会顺着`__proto__`去查找这个属性
+可以用 `delete` 删除自身的这个属性,然后再去调用这个属性的时候会顺着 `__proto__` 去查找这个属性
 + isPrototypeOf()
 确定两个对象之间的关系,判断原型链中是否包含某个实例对象<br>
 **instanceof是判断某个实例对象是否能指向某个构造函数,但是instanceof在多窗口的情况下(例如iframe)并不是一个可靠的数组检测方法**
@@ -98,7 +97,7 @@ console.log(Array.prototype.isPrototypeOf([])); // true
 ```
 
 + Object.getPrototypeOf()
-获取实例对象的`__proto__`,也就是构造函数的`prototype`
+获取实例对象的 `__proto__`,也就是构造函数的`prototype`
 ``` js
 let a = new Person()
 let b = {}
@@ -107,7 +106,7 @@ console.log(Object.getPrototypeOf(a) === a.__proto__); // true
 ```
 
 + Object.create(a)
-创建一个新对象,且将这个新对象的__proto__指向a<br>
+创建一个新对象,且将这个新对象的 `__proto__` 指向a
 ``` js
 let a = {
   name: 'cheng'
@@ -177,7 +176,7 @@ console.log(b.age) // [1, 2, 3, 4]
 
 ### 盗用构造函数(解决问题一以及问题二)
 解决问题一
-> 这样的写法很糙,很符合"盗用"这个词,就是让父级构造函数替子级构造函数往this赋值而已~
+> 这样的写法很糙,很符合"盗用"这个词,就是让父级构造函数替子级构造函数往this赋值而已~<br>
 > 这样写是没有灵魂的,本质上每开辟一个新的实例都会在内部创建一个自身的color属性,没有原型链的灵魂了,但好像也没啥办法
 ``` js
 function SuperType() {
@@ -197,7 +196,7 @@ console.log(instance2.colors); // "red,blue,green"
 ```
 
 解决问题二
-> 同理,加上参数即刻食用
+> 同理,加上参数即可食用
 ``` js
 function SuperType(name) {
   this.name = name
@@ -229,7 +228,7 @@ console.log(instance1.sub); // undefined
 + 使用盗用构造函数解决实例间原型链属性互相影响问题
 + 使用原型链指向解决盗用构造函数不能访问父类原型对象问题
 
-**核心是将SubType.prototype.__proto__指向了SuperType.prototype,这样实例对象就能找到SuperType.prototype上的方法**
+**核心是将 SubType.prototype.__proto__ 指向了 SuperType.prototype,这样实例对象就能找到 SuperType.prototype 上的方法**
 ``` js
 function SuperType(name) {
   this.name = name
@@ -247,5 +246,4 @@ console.log(instance1.sub); // 1
 
 ## 总结
 盗用构造函数和组合继承都不能解决某个实例改变原型对象上的属性而不影响其他实例的问题,没办法就是引用传递,除非给每个
-实例创建这个属性,看取舍,如果是一定要隔离的那就在构造函数中直接写属性,如果是要共享的可以接受被其他实例更改那就写在原型对象上
-(除非是方法,某个实例更改原型对象上的方法不会影响其他实例)
+实例创建这个属性,看取舍,如果是一定要隔离的那就在构造函数中直接写属性,如果是要共享的可以接受被其他实例更改那就写在原型对象上(除非是方法,某个实例更改原型对象上的方法不会影响其他实例)
