@@ -48,9 +48,13 @@ module.exports = {
         path: '/javascript/skill',
         collapsable: false,
         children: [
-          // { title: "介绍", path: "/javascript/core" },
+          { title: "基础", path: "/javascript/core" },
           { title: "小技巧", path: "/javascript/skill" },
           { title: "数组方法总结", path: "/javascript/array" },
+          { title: "promise", path: "/javascript/promise" },
+          { title: "原型", path: "/javascript/prototype" },
+          { title: "变量提升", path: "/javascript/var-top" },
+          { title: "函数式编程", path: "/javascript/function-pro" },
           { title: "正则", path: "/javascript/regular" },
           { title: "设计模式", path: "/javascript/design-mode" },
         ],
@@ -70,6 +74,40 @@ module.exports = {
         children: [
           { title: "介绍", path: "/writingcode/core" },
           { title: "Promise", path: "/writingcode/promise" },
+          { title: "Call/apply/bind", path: "/writingcode/call-apply-bind" },
+          { title: "深浅拷贝", path: "/writingcode/copy" },
+        ],
+      },
+      {
+        title: "Css",
+        path: '/css/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/css/core" },
+        ],
+      },
+      {
+        title: "Vue",
+        path: '/vue/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/vue/core" },
+        ],
+      },
+      {
+        title: "性能优化",
+        path: '/optimize/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/optimize/core" },
+        ],
+      },
+      {
+        title: "网络",
+        path: '/network/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/network/core" },
         ],
       },
     ]
