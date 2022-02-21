@@ -52,7 +52,7 @@ module.exports = {
           { title: "小技巧", path: "/javascript/skill" },
           { title: "数组方法总结", path: "/javascript/array" },
           { title: "promise", path: "/javascript/promise" },
-          { title: "原型", path: "/javascript/prototype" },
+          { title: "prototype", path: "/javascript/prototype" },
           { title: "变量提升", path: "/javascript/var-top" },
           { title: "函数式编程", path: "/javascript/function-pro" },
           { title: "正则", path: "/javascript/regular" },
@@ -74,8 +74,9 @@ module.exports = {
         children: [
           { title: "介绍", path: "/writingcode/core" },
           { title: "Promise", path: "/writingcode/promise" },
-          { title: "Call/apply/bind", path: "/writingcode/call-apply-bind" },
+          { title: "call/apply/bind", path: "/writingcode/call-apply-bind" },
           { title: "深浅拷贝", path: "/writingcode/copy" },
+          { title: "节流防抖", path: "/writingcode/throttle" },
         ],
       },
       {
