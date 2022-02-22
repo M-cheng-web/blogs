@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="./demo.js"></script>
 
-<script src="./demo.js"></script>
+  <body>
+    <div class="name">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+  </body>
 
-<body>
-  
-</body>
+  <style type="text/css">
+    .name {
+      display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-content: center;
+    }
+    .name div {
+      float: left;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid red;
+    }
+  </style>
 </html>
