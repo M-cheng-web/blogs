@@ -17,8 +17,6 @@ div的宽高 = width + padding + border<br>
 2. 块级元素的宽高: 高度是由内部文档流元素的高度总和,宽度默认为父元素的100%
 
 ## flex
-https://zhuanlan.zhihu.com/p/25303493
-### 介绍一下flex布局
 基本属性
 1. flex-direction `row | row-reverse | column | column-reverse` 项目的排列方向
 2. flex-wrap `nowrap | wrap | wrap-reverse` 项目内是否可以换行
