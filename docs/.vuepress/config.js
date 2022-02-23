@@ -93,6 +93,7 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "介绍", path: "/vue/core" },
+          { title: "MVVM", path: "/vue/mvvm" },
         ],
       },
       {
