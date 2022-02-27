@@ -6,6 +6,7 @@
 ## webpack优化
 参考`webpack`的笔记,这边不做总结
 
+## axios 封装优化
 
 ## vue中的代码优化
 https://juejin.cn/post/6850037281559543821 

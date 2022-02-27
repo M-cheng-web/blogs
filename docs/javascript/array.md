@@ -337,11 +337,15 @@ const sum = arr.reverse() // sum = arr = ['Mango', 'Apple', 'Orange', 'Banana']
 2. Math.max.apply(null, arr)
 3. Math.min.apply(null, arr)
 
+### 数组去重
++ Set
++ for循环,includes判断有没有重复的,重新push进一个新的
+
 ### 识别数组
 + Array.isArray
 + Object.prototype.toString.call(arr) === '[object Array]'
 + [] instanceof Array (局限性,在iframe中的父子页面的Array的引用地址是不一样的)
-+ [].constructor.toString().indexOf("Array") > -1 (同上有局限性)
++ Array.prototype.isPrototypeOf(arr) 也有上面的局限性问题
 
 ### 删除数组
 + splice

@@ -1,42 +1,61 @@
 # css
 
 ## 行内元素/块级元素
-### 有哪些
-行内: a img span b strong input select<br>
+行内: a img span b strong input select
+
 块级: div p table ul lo li h1-h6
-### 俩者的区别
+
+俩者的区别
 1. 行内元素会在一条直线上排列(默认宽度只与内容相关)
 2. 块级元素各占据一行(默认宽度是它父级容器的100%)
 3. 块级元素可以包含行内元素和块级元素,行内元素不能包含块级元素,只能包含文本或者其它行内元素(如果包含了会出现溢出的情况,且本身宽高不会扩大)
 4. 行内元素设置`width`,`height`,`margin上下`,`padding上下`都是无效的
 
-## div的宽高由什么决定
+## div的宽高
 div的宽高 = width + padding + border<br>
 如果padding大了或者是border很大,只会往外部扩展,不会压缩内部设置的width
 1. 行内元素的宽高: 高度是由行高决定的,宽度=内容+border+margin+padding
 2. 块级元素的宽高: 高度是由内部文档流元素的高度总和,宽度默认为父元素的100%
 
-## flex
-基本属性
-1. flex-direction `row | row-reverse | column | column-reverse` 项目的排列方向
-2. flex-wrap `nowrap | wrap | wrap-reverse` 项目内是否可以换行
-4. justify-content `flex-start | flex-end | center | space-between | space-around` 水平对齐方式(会受排列方向影响)
-5. align-items `flex-start | flex-end | center | baseline` 垂直对齐方式(会受排列方向的影响)
-6. align-content `flex-start | flex-end | center | space-between | space-around` 定义多根轴线的对齐方式(也就是当可以换行时有多根轴线,操作的就是这些轴线的对齐方式)
+## 清除浮动
++ 父级 `overflow: hidden`
++ 子级末尾添加元素以及设置样式 `clear: both`
++ 父级添加伪元素
+``` css
+.box::after {
+  content: '.';
+  height: 0;
+  display: block;
+  clear: both;
+}
+```
 
-flex子元素属性
-1. order 定义项目在容器中排列顺序,数值越小越靠前(-1, -10这些)
-2. align-self `auto | flex-start | flex-end | center | baseline` 允许单个项目有与其他项目不一样的对齐方式
+## BFC
+CSS将HTML的每一个元素都当成一个盒子,而且它进一步的认为每一个盒子里面都有一套正常的语法规则或者叫渲染规则,它能根据这个规则将写的HTML元素绘制出来,但是我们可以通过一些特定的手段触发BFC,让其遵循另一套语法规则
 
-### flex实现九宫格布局
+解决了 margin 的塌陷问题
 
-不保证有九个格子且最后一行左对齐
-1. flex,父级 `display: flex; flex-warp: warp;`,然后子元素 `width: 30%`
-3. 浮动,父级 `overflow: hidden`, 子级 `float: left; width: 30%`
-2. 强行补齐源数据,并且给出属性标识,然后在渲染的时候设内容为空(额,还是用上面的套路)
+触发BFC
++ float: left/right
++ overflow: hidden
++ position: absolute/fixed
++ display: inline-block
 
-### 圣杯布局
-两边固定宽度,中间设置 `flex: 1`
+## margin 塌陷
+父子级关系中子级 `margin-top` 会导致作用到父级上,解决:
+1. 子级用padding
+2. 父级添加 border
+3. 父级添加 overflow: hidden
+4. 父级添加 position: fixed/absolute
+
+兄弟级关系中,垂直方向的互相 `margin-bottom margin-top` 会导致重叠,解决:
+1. 用padding避免
+2. 设置 float: left/right
+
+## 自适应
++ 媒体查询 @media 适合小型网页,交互较少的页面,页面多了不方便维护
++ GitHub上有个项目,将vue分为移动端和手机端
++ rem vm vh (搭配媒体查询来达到动态适配)
 
 ## rem
 ::: tip
@@ -52,7 +71,7 @@ font-size = 20 * (clientWidth / 375) + 'px'
 在 375 屏中 1rem = 20px,往后就会根据这个动态调整
 ```
 
-### vm
+## vm
 vm表示的是相对于屏幕的百分之一宽度,还有vh是百分之一高度,用以解决多层元素带来的百分号不确定关系
 
 ## 浏览器渲染过程
@@ -77,11 +96,11 @@ vm表示的是相对于屏幕的百分之一宽度,还有vh是百分之一高度
 浏览器会维护一个队列,把所有引起回流和重绘的操作放入队列中,如果队列中的任务数量或者时间间隔达到一个阈值的,浏览器就会将队列清空,进行一次批处理,这样可以把多次回流和重绘变成一次
 
 ### 如何避免重绘和回流
-**CSS**
+css:
 + 避免使用table布局
 + 避免设置多层内联样式
 + 将动画效果应用到position属性为absolute或fixed的元素上
 
-**JS**
+js:
 + 避免频繁操作样式,或者最好一次性重写style
 + 避免频繁操作DOM,创建一个documentFragment,在上面做一些操作,最后才把它添加到文档中

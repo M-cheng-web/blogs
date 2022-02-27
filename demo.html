@@ -8,8 +8,24 @@
   </head>
   <script src="./demo.js"></script>
 
+  <script></script>
+
   <body>
-    <div class="name">
+    <div class="box1">
+      <div class="box2"></div>
+      <div class="box3"></div>
+    </div>
+    123131
+    <div>
+      <div>123</div>
+      <div>123</div>
+    </div>
+    <!-- <div class="content">
+      <div class="left"></div>
+      <div class="cen"></div>
+      <div class="right"></div>
+    </div> -->
+    <!-- <div class="name">
       <div>1</div>
       <div>2</div>
       <div>3</div>
@@ -18,15 +34,63 @@
       <div>6</div>
       <div>7</div>
       <div>8</div>
-    </div>
+    </div> -->
   </body>
 
   <style type="text/css">
+    .box1 {
+      display: inline-block;
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      /* border: 1px solid red; */
+      /* overflow: hidden; */
+      /* 或者 fixed */
+      /* position: absolute; */
+    }
+    .box2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            overflow: hidden;
+          }
+          
+.box3 {
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* float: left; */
+        }
+
+    .content {
+      display: flex;
+      width: 100px;
+      height: 200px;
+      border: 1px solid red;
+    }
+    .left {
+      flex-grow: 1;
+      flex-basis: 0%;
+      width: 20px;
+      background-color: green;
+    }
+    .cen {
+      width: 30px;
+      background-color: yellow;
+    }
+    .right {
+      width: 40px;
+      background-color: red;
+    }
+
     .name {
       display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
-align-content: center;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: center;
     }
     .name div {
       float: left;

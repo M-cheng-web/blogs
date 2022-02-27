@@ -10,7 +10,6 @@
 + 总结js模块
 + 总结ts
 + 总结vue3+admin的关键点知识
-+ map set 以及 weekmap
 
 ## 埋点插件
 

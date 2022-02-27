@@ -41,6 +41,7 @@ module.exports = {
           { title: "Npm", path: "/tools/npm" },
           { title: "Commit规范化", path: "/tools/commit" },
           { title: "Vscode", path: "/tools/vscode" },
+          { title: "Axios", path: "/tools/axios" },
         ],
       },
       {
@@ -51,6 +52,7 @@ module.exports = {
           { title: "基础", path: "/javascript/core" },
           { title: "小技巧", path: "/javascript/skill" },
           { title: "数组方法总结", path: "/javascript/array" },
+          { title: "Map/Set/WeakMap", path: "/javascript/map" },
           { title: "promise", path: "/javascript/promise" },
           { title: "prototype", path: "/javascript/prototype" },
           { title: "变量提升", path: "/javascript/var-top" },
@@ -68,23 +70,12 @@ module.exports = {
         ],
       },
       {
-        title: "手写",
-        path: '/writingcode/core',
-        collapsable: false,
-        children: [
-          { title: "介绍", path: "/writingcode/core" },
-          { title: "Promise", path: "/writingcode/promise" },
-          { title: "call/apply/bind", path: "/writingcode/call-apply-bind" },
-          { title: "深浅拷贝", path: "/writingcode/copy" },
-          { title: "节流防抖", path: "/writingcode/throttle" },
-        ],
-      },
-      {
         title: "Css",
         path: '/css/core',
         collapsable: false,
         children: [
           { title: "介绍", path: "/css/core" },
+          { title: "flex", path: "/css/flex" },
         ],
       },
       {
@@ -95,6 +86,18 @@ module.exports = {
           { title: "介绍", path: "/vue/core" },
           { title: "渲染", path: "/vue/render" },
           { title: "MVVM", path: "/vue/mvvm" },
+        ],
+      },
+      {
+        title: "手写",
+        path: '/writingcode/core',
+        collapsable: false,
+        children: [
+          { title: "介绍", path: "/writingcode/core" },
+          { title: "Promise", path: "/writingcode/promise" },
+          { title: "call/apply/bind", path: "/writingcode/call-apply-bind" },
+          { title: "深浅拷贝", path: "/writingcode/copy" },
+          { title: "节流防抖", path: "/writingcode/throttle" },
         ],
       },
       {

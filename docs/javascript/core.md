@@ -1,6 +1,6 @@
 # JS 基础
 
-![JS基础简图](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/71e30bdc18b44272b5fa0e16b9c3f2e8_tplv-k3u1fbpfcp-watermark.webp)
+<!-- ![JS基础简图](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/71e30bdc18b44272b5fa0e16b9c3f2e8_tplv-k3u1fbpfcp-watermark.webp) -->
 
 ## 执行上下文/作用域/闭包
 ### JS执行上下文
@@ -70,7 +70,7 @@ bar.[[scope]] = [
 应用场景: 私有变量,工程函数,vue中watch监听,promise等等
 
 
-## this/call/apply/bind
+## this
 ### JS里的this
 this为当前的执行环境,根据this可以拿到属性和函数,分为全局this和函数中的this
 + 全局的this指向它本身
@@ -85,39 +85,124 @@ call,apply,bind,以及箭头函数
 + call和apply功能一样,只是传参的方式不一样,一个接收多个字符串,一个接收数组,bind会返回函数并不是运行
 + 箭头函数是在函数创建时就会绑定确定函数内容中的this指向,而不是在运行时确定
 
-## 原型/继承
-参考 [对象](./object.md)
+## 作用域
++ 全局作用域
++ 函数作用域
++ 块级作用域
+    - if switch try-catch内定义的不能在外部使用
+    - var定义的可以在外部使用(var没有块级作用域概念), const let不可以在外部使用
 
-## 深浅拷贝
-参考 [ 手写深浅拷贝 ](../writingcode/copy.md)
+## 自由变量
+在A函数中要用到的变量x并没有在A中声明,要到别的作用域中找到它,那么x就是自由变量
+``` js
+var x = 20
+function A (b) { return x + b }
+A(10)  // 30
+```
+
+这个x值是到父执行环境中找,指的是创建函数时候的父执行环境,而不是调用时候的父执行环境
+``` js
+var x = 10
+function fn() { console.log(x) } // x 是自由变量
+function show(f) {
+  var x = 20
+  f()
+}
+// 这里的自执行函数调用的 x是创建函数时候的父作用域的值 结果为10
+show(fn) // 10
+```
+
+## Object 方法
++ hasOwnProperty
++ isPrototypeOf
++ toLocaleString
++ toString 返回类似于这样的字符串[object, Object]
++ setPrototypeOf(a,b) 将a的__proto__指向b
++ create(a) 创建一个新对象,且将这个新对象的__proto__指向a(比setPrototypeOf性能好)
+
+## 判断数据类型
++ 判断对象 ( typeof, instanceof, isPrototypeOf )
++ 判断数组 ( isArray, toString, instanceof, isPrototypeOf )
++ 判断字符串 ( typeof )
++ 判断是否为自身属性 ( hasOwnProperty )
+
+> 多个窗口意味着多个全局环境,不同的全局环境拥有不同的全局对象,从而拥有不同的内置类型构造函数,所以会导致 instanceof 和 isPrototypeOf 不确定性,所以数组用专门的方法进行判断
+
+### 判断数组
++ Array.isArray(myObj)
++ Object.prototype.toString.call(myObj) === "[object Array]"
+
+``` js
+var iframe = document.createElement("iframe");
+document.body.appendChild(iframe);
+xArray = window.frames[window.frames.length - 1].Array;
+var arr = new xArray(1, 2, 3);
+Array.isArray(arr); // true
+arr instanceof Array; // false
+console.log(Array.prototype.isPrototypeOf(arr)); // false
+```
+
+### instanceof
+instanceof 检查一个对象的原型是否存在于另一个对象的原型链上
+
+### isPrototypeOf
+isPrototypeOf 检查一个对象是否存在于另一个对象的原型链上
+
+``` js
+function Say() { this.age = 123 }
+const sa = new Say()
+Say.prototype.isPrototypeOf(sa) // true
+```
+
+和 instanceof 的差异
+> "object instanceof AFunction"中,object 的原型链是针对 AFunction.prototype 进行检查的,而不是针对 AFunction 本身
+``` js
+var super = {}
+var sub = Object.create(super);
+sub.someProp = 5;
+
+var sub = Object.create(sub);
+
+console.log(super.isPrototypeOf(sub));  // true
+console.log(sub instanceof super);      // TypeError
+```
+
+
+
+## 双等与三等
+`==`比较过程
+1. 类型相同,再进行三等比较
+2. 类型不同
+   1. 一个是null,一个是undefined,那么相等
+   2. 一个是字符串,一个是数值,把字符串转成数字再进行三等比较
+
+`===`就是比较值了,类型不同也不会转换(除非是 `null === undefined`),也会比较引用地址
 
 ## 事件机制/Event Loop
 ### 如何实现一个事件的发布订阅
 
 ### 事件循环
-JS是单线程的并且JS单线程执行方式是基于事件循环的,因为它在执行任务的时候会产生一个任务队列
-
+JS是单线程的并且JS单线程执行方式是基于事件循环的,因为它在执行任务的时候会产生一个任务队列<br>
 这个任务队列是先进先出的,分为宏任务和微任务,在遇到异步事件时会将事件先存入这个任务队列,在同步事件
-
 都完成后才会开始执行任务队列,当这个任务队列里还存在异步事件还会接着存入任务队列,这个过程就是事件循环
 
-### 宏任务和微任务有什么区别
+### 宏任务和微任务区别
 + 宏任务与微任务都是异步队列,区别在于微任务比宏任务的优先级高,如果是在同一层级的话微任务是会在任务队列的最前面
 + 宏任务会在最后面,比如setTimeOut,setInterVal, 微任务比如Promise
 
-## 函数式编程
-这里只是打个样,网上有很多方式
-### 函数柯里化
-``` js
-var person = [{name: 'kevin'}, {name: 'daisy'}]
-curry = function(fn) {
-  return function(key) {
-    return (item) => item[key];
-  }
-}
-var prop = curry(function (key, obj) {
-  return obj[key]
-});
-var name = person.map(prop('name'))
-console.log('name', name); // kevin,daisy
-```
+## 字符串的一些方法
++ indexof search 以及差别
++ slice substring sunstr 以及差别
++ replace /i /g
++ toUpperCase toLowerCase
++ split concat
+
+## es6 常用方法
++ Object.assign()
++ 解构赋值
++ repeat(n) 字符串重复n次
++ 模板字符串
++ 扩展运算符
+
+## 计算小数的解决方案
+先把小数扩大至10的倍数,转为整数进行计算,计算好之后再缩写扩大的倍数就可以解决了
