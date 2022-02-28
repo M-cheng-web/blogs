@@ -66,7 +66,7 @@ module.exports = {
         path: '/typescript/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/typescript/core" },
+          { title: "基础", path: "/typescript/core" },
         ],
       },
       {
@@ -74,7 +74,7 @@ module.exports = {
         path: '/css/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/css/core" },
+          { title: "基础", path: "/css/core" },
           { title: "flex", path: "/css/flex" },
         ],
       },
@@ -83,7 +83,7 @@ module.exports = {
         path: '/vue/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/vue/core" },
+          { title: "基础", path: "/vue/core" },
           { title: "渲染", path: "/vue/render" },
           { title: "MVVM", path: "/vue/mvvm" },
         ],
@@ -105,7 +105,7 @@ module.exports = {
         path: '/optimize/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/optimize/core" },
+          { title: "基础", path: "/optimize/core" },
         ],
       },
       {
@@ -113,7 +113,8 @@ module.exports = {
         path: '/network/core',
         collapsable: false,
         children: [
-          { title: "介绍", path: "/network/core" },
+          { title: "基础", path: "/network/core" },
+          { title: "TCP", path: "/network/tcp" },
         ],
       },
     ]
