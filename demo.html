@@ -7,98 +7,43 @@
     <title>Document</title>
   </head>
   <script src="./demo.js"></script>
+  <!-- <script type="module" src="./demo.js"></script> -->
 
   <script></script>
 
   <body>
-    <div class="box1">
-      <div class="box2"></div>
-      <div class="box3"></div>
+    <div class="content">
+      <!-- <div class="left"></div>
+      <div class="right"></div> -->
     </div>
-    123131
-    <div>
-      <div>123</div>
-      <div>123</div>
-    </div>
-    <!-- <div class="content">
-      <div class="left"></div>
-      <div class="cen"></div>
-      <div class="right"></div>
-    </div> -->
-    <!-- <div class="name">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-    </div> -->
   </body>
 
   <style type="text/css">
-    .box1 {
-      display: inline-block;
-      width: 300px;
-      height: 300px;
-      background-color: yellow;
-      /* border: 1px solid red; */
-      /* overflow: hidden; */
-      /* 或者 fixed */
-      /* position: absolute; */
-    }
-    .box2 {
-            margin-top: 30px;
-            margin-bottom: 10px;
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            overflow: hidden;
-          }
-          
-.box3 {
-            margin-top: 10px;
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            /* float: left; */
-        }
-
     .content {
-      display: flex;
-      width: 100px;
-      height: 200px;
+      width: 100%;
+      /* padding-bottom: 100%; */
       border: 1px solid red;
     }
-    .left {
-      flex-grow: 1;
-      flex-basis: 0%;
-      width: 20px;
-      background-color: green;
-    }
-    .cen {
-      width: 30px;
-      background-color: yellow;
-    }
-    .right {
-      width: 40px;
-      background-color: red;
+    .content::after {
+      content: '';
+      display: block;
+      margin-top: 100%;
     }
 
-    .name {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-content: center;
-    }
-    .name div {
+
+    .left {
       float: left;
       width: 30px;
-      height: 30px;
-      text-align: center;
-      line-height: 40px;
-      border: 1px solid red;
+      height: 100%;
+      background-color: green;
+    }
+    .right {
+      float: left;
+      /* box-sizing: border-box; */
+      /* margin-left: 30px; */
+      width: calc(100% - 30px);
+      height: 100%;
+      background-color: red;
     }
   </style>
 </html>

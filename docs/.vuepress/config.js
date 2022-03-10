@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         title: "JavaScript",
-        path: '/javascript/skill',
+        path: '/javascript/core',
         collapsable: false,
         children: [
           { title: "基础", path: "/javascript/core" },
@@ -101,20 +101,20 @@ module.exports = {
         ],
       },
       {
-        title: "性能优化",
-        path: '/optimize/core',
-        collapsable: false,
-        children: [
-          { title: "基础", path: "/optimize/core" },
-        ],
-      },
-      {
         title: "网络",
         path: '/network/core',
         collapsable: false,
         children: [
           { title: "基础", path: "/network/core" },
           { title: "TCP", path: "/network/tcp" },
+        ],
+      },
+      {
+        title: "性能优化",
+        path: '/optimize/core',
+        collapsable: false,
+        children: [
+          { title: "基础", path: "/optimize/core" },
         ],
       },
     ]

@@ -37,9 +37,9 @@ CSS将HTML的每一个元素都当成一个盒子,而且它进一步的认为每
 
 触发BFC
 + float: left/right
-+ overflow: hidden
-+ position: absolute/fixed
-+ display: inline-block
++ overflow: hidden (父级设置)
++ position: absolute/fixed (父级设置)
++ display: inline-block (父级设置)
 
 ## margin 塌陷
 父子级关系中子级 `margin-top` 会导致作用到父级上,解决:
