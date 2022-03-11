@@ -194,3 +194,18 @@ if (a == 1 && a == 2 && a == 3) {
   console.log("Hi Eno!");
 }
 ```
+
+### 光云
++ v-if 和 v-show的差别
++ 重绘和回流是什么
++ v-if 会触发回流吗
++ history和hash的差别
+
+### 鲁尔物联
++ 哪些微任务,宏任务
++ 浏览器异步和node异步
+
+### 图书
++ promise为什么不支持ie8, 用了babel-loader也不支持,这是为什么
++ babel-loader的原理是什么
++ 组件平级传递数据
