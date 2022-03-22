@@ -89,6 +89,15 @@ module.exports = {
         ],
       },
       {
+        title: "React",
+        path: '/react/core',
+        collapsable: false,
+        children: [
+          { title: "基础", path: "/react/core" },
+          { title: "react-router", path: "/react/react-router" },
+        ],
+      },
+      {
         title: "手写",
         path: '/writingcode/core',
         collapsable: false,
