@@ -16,12 +16,13 @@ module.exports = {
     ],
     sidebar: [ // 标签页
       {
-        title: '关于作者',
+        title: '前置',
         path: '/',
         collapsable: false, // 不折叠
         children: [
           { title: "介绍", path: "/" },
           { title: "待分配", path: '/a-un-allot/core' },
+          { title: "小知识点", path: '/a-un-allot/tips' },
         ]
       },
       {
