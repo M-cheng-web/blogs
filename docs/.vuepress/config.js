@@ -90,6 +90,14 @@ module.exports = {
         ],
       },
       {
+        title: "Canvas",
+        path: '/canvas/core',
+        collapsable: false,
+        children: [
+          { title: "基础", path: "/canvas/core" },
+        ],
+      },
+      {
         title: "React",
         path: '/react/core',
         collapsable: false,
