@@ -71,3 +71,30 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 6. 在对比过程中发现新旧虚拟DOM只是内容发生了变化
 7. 将新虚拟DOM的内容赋值给旧虚拟DOM,并不会重新创建个新元素
 8. 也就是这样的操作: `oldVnode.elm.innerText = newVnode.text`
+
+## 其他
+### v2 和 v3 的 slot
++ 在vue2.0中,被解析到 this.$slots.default[0].data.attrs 这个对象中
++ 在vue3.0中,被解析到 this.$slots.default()[0].props 这个对象中
+
+像这个组件的默认插槽里面还有默认插槽
+
++ 在vue2.0中,会被解析到 this.$slots.default[0].data.scopedSlots 这个对象中
++ 在vue3.0中,会被解析到 this.$slots.default()[0].children 这个数组中
+
+错误场景:
+``` html
+// 父级
+<slot :selfTextArr="selfTextArr" :fontStyle="fontStyle" :isCenterLine="isCenterLine" />
+
+// 子级
+<template v-slot:default="slotProps">
+  <div class="drag-area">
+    <div v-show="slotProps.selfTextArr.length === 0" :class="{'drag-area-text': slotProps.isCenterLine}" :style="slotProps.fontStyle">
+      点击输入文字
+    </div>
+  </div>
+</template>
+```
+
+父级通过 `this.$slots.default()[0]` 语句发现会报错, `isCenterLine is undefined` 这样的,无奈只能给父级 slot 外层加个 div,然后通过那个div去获取到插槽作用域
