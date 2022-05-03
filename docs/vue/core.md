@@ -98,3 +98,5 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 ```
 
 父级通过 `this.$slots.default()[0]` 语句发现会报错, `isCenterLine is undefined` 这样的,无奈只能给父级 slot 外层加个 div,然后通过那个div去获取到插槽作用域
+
+后续: 可以通过 `useSlots` hook函数获取到(没试过,应该可以)
