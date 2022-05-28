@@ -21,8 +21,9 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "介绍", path: "/" },
-          { title: "待分配", path: '/a-un-allot/core' },
-          { title: "小知识点", path: '/a-un-allot/tips' },
+          { title: "灵感", path: '/first/core' },
+          { title: "每日记录", path: '/first/every' },
+          { title: "小知识点", path: '/first/tips' },
         ]
       },
       {
@@ -43,6 +44,7 @@ module.exports = {
           { title: "Commit规范化", path: "/tools/commit" },
           { title: "Vscode", path: "/tools/vscode" },
           { title: "Axios", path: "/tools/axios" },
+          { title: "脚本加密", path: "/tools/encrypt" },
         ],
       },
       {
