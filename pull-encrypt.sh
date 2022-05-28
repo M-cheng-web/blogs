@@ -1,0 +1,1 @@
+sh SELF_ENCRYPT/index.sh pull

@@ -22,8 +22,15 @@ module.exports = {
         children: [
           { title: "介绍", path: "/" },
           { title: "灵感", path: '/first/core' },
-          { title: "每日记录", path: '/first/every' },
           { title: "小知识点", path: '/first/tips' },
+        ]
+      },
+      {
+        title: '加密信息',
+        path: '/encrypt/every',
+        collapsable: false, // 不折叠
+        children: [
+          { title: "每日记录", path: '/encrypt/every' },
         ]
       },
       {
