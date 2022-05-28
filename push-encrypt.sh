@@ -1,9 +1,12 @@
-sh SELF_ENCRYPT/index.sh on docs/encrypt
+# sh SELF_ENCRYPT/index.sh on docs/encrypt
 
-sh deploy.sh
+sed -i "s/\/encrypt\/every/abc/g" docs/.vuepress/config.js
 
-git add .
-git commit -m 'feat'
-git push
 
-sh SELF_ENCRYPT/index.sh off docs/encrypt
+# sh deploy.sh
+
+# git add .
+# git commit -m 'feat'
+# git push
+
+# sh SELF_ENCRYPT/index.sh off docs/encrypt
