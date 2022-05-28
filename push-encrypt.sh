@@ -8,6 +8,8 @@ git add .
 git commit -m 'feat'
 git push
 
+sed -i "" "s/\encrypt\/every.encrypt/encrypt\/every/g" docs/.vuepress/config.js
+
 sh SELF_ENCRYPT/index.sh off docs/encrypt
 
 git add .
