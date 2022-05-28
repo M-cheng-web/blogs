@@ -4,8 +4,8 @@ sed -i "" "s/\encrypt\/every/encrypt\/every.encrypt.md/g" docs/.vuepress/config.
 
 sh deploy.sh
 
-# git add .
-# git commit -m 'feat'
-# git push
+git add .
+git commit -m 'feat'
+git push
 
-# sh SELF_ENCRYPT/index.sh off docs/encrypt
+sh SELF_ENCRYPT/index.sh off docs/encrypt
