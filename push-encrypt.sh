@@ -5,3 +5,5 @@ sh deploy.sh
 git add .
 git commit -m 'feat'
 git push
+
+sh SELF_ENCRYPT/index.sh off docs/encrypt
