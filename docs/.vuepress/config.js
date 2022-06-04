@@ -34,6 +34,16 @@ module.exports = {
         ]
       },
       {
+        title: '算法',
+        path: '/arithmetic/core',
+        collapsable: false,
+        children: [
+          { title: "每日算法", path: '/arithmetic/core' },
+          { title: "进制", path: '/arithmetic/system' },
+          { title: "位运算", path: '/arithmetic/bit-operation' },
+        ]
+      },
+      {
         title: "工具类",
         path: '/tools/rollup',
         collapsable: false,
