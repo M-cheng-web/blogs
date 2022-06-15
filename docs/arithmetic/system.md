@@ -54,6 +54,23 @@ num.toString(2)
 Number(num).toString(2)
 ```
 
+字符串转二进制
+``` js
+function strToBinary(str) {
+  const result = [];
+  const list = str.split('');
+  for (let i = 0; i < list.length; i++) {
+    if (i != 0) {
+      result.push(' ');
+    }
+    const binaryStr = list[i].charCodeAt().toString(2);
+    result.push(binaryStr);
+  }
+  return result.join('');
+}
+console.log(strToBinary('我们')) //110001000010001 100111011101100
+```
+
 ### 二进制转十进制
 分两种情况,一个是整数的二进制转十进制,一个是带小数的二进制转十进制
 
