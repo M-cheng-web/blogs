@@ -153,3 +153,5 @@ newCh = [
 
 ## 流程图
 ![DIFF算法流程图](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/diff%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+
+[DIFF算法流程图https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/diff%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE.png](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/diff%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE.png)

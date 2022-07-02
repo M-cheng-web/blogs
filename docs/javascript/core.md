@@ -192,7 +192,22 @@ JS是单线程的并且JS单线程执行方式是基于事件循环的,因为它
 
 ## 字符串的一些方法
 + indexof search 以及差别
-+ slice substring sunstr 以及差别
+
++ slice(indexStart, indexEnd)
+  1. 若 indexStart 为负数,则将该值加上字符串长度后再进行计算,如果加上字符串的长度后还是负数则从0开始截取
+  2. 若 indexStart 为正且大于字符串长度,则返回空字符串
+  3. 如果 indexEnd 为负它被视为 strLength + indexEnd (strLength是字符串的长度)
+
++ substring(indexStart, indexEnd)
+  1. 两个参数总是小的作为第一个参数,大的是第二个参数
+  2. 两个参数当出现负数则视为0,出现大于最大长度的则被视为最大长度
+  3. 如果 indexStart == indexEnd,返回一个空字符串
+
++ substr(indexStart, length)
+  1. length 为负数则返回空字符串
+  2. 如果 indexStart 是正的并且大于或等于字符串的长度,则返回空字符串
+  3. 若 indexStart 为负数,则将该值加上字符串长度后再进行计算如果加上字符串的长度后还是负数则从0开始截取
+
 + replace /i /g
 + toUpperCase toLowerCase
 + split concat
