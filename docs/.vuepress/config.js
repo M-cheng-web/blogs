@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt' },
         ]
       },
       {
@@ -60,7 +60,7 @@ module.exports = {
           { title: "Npm", path: "/tools/npm" },
           { title: "Commit规范化", path: "/tools/commit" },
           { title: "Vscode", path: "/tools/vscode" },
-          { title: "Axios", path: "/tools/axios" },
+          { title: "Axios配置模板", path: "/tools/axios" },
           { title: "脚本加密", path: "/tools/encrypt" },
         ],
       },
@@ -152,6 +152,14 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "基础", path: "/optimize/core" },
+        ],
+      },
+      {
+        title: "面筋",
+        path: '/interview/core',
+        collapsable: false,
+        children: [
+          { title: "筋道", path: "/interview/core" },
         ],
       },
     ]
