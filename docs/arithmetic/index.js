@@ -1,11 +1,13 @@
-function foo(...args) {
-  const add = (...newArgs) => foo(add.sum, ...newArgs);
-  add.sum = args.reduce((pre, num) => pre + num, 0)
-  add.getValue = () => add.sum;
-  return add
+
+
+const fun = (...args) => {
+  const sum = args.reduce((pre, item) => pre += item, 0)
+  return function(...newArgs) {
+    return newArgs.length ? fun(sum, ...newArgs) : sum
+  }
 }
 
-console.log(foo(1, 2)(3, 4).getValue());
+console.log(fun(1, 2, 3)(4, 5)());
 
 
 
