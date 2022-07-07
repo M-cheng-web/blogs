@@ -167,7 +167,16 @@ console.log(super.isPrototypeOf(sub));  // true
 console.log(sub instanceof super);      // TypeError
 ```
 
+## forof & forin
+### `for..of`
++ 遍历的是 value
++ 要求遍历对象实现了迭代器对象 (比如 {} 没有实现则会报错)
 
+### `for...in`
++ 遍历的是 key
++ 会顺着原型链一直遍历出 key,但是也分情况
+  1. 遍历普通 `const b = {}` 这样的对象不会出现遍历出 object 对象的属性
+  2. 对于 new 出来的对象则会将构造函数的原型链遍历出
 
 ## 双等与三等
 `==`比较过程

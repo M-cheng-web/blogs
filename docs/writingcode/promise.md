@@ -11,7 +11,7 @@ class promise {
   constructor(executor) {
     this.callbacks = [] // 回调
     this.status = 'pedding' // pedding resolve reject
-    this.result = undefined // 结果    
+    this.result = undefined // 结果
 
     const self = this
 

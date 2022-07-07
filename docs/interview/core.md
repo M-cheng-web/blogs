@@ -19,6 +19,7 @@
 + new 操作符做了什么
 + 原型链的缺陷,解决办法
 + 设计模式讲几个
++ forin forof
 
 ### css
 + rem 怎么用
@@ -89,6 +90,20 @@ console.log(add(1, 2, 3)(4)()) // 10
 
 就是后端在请求的返回头部添加:
 Access-Control-Max-Age:时间, 这个时间代表预检结果可以被缓存多久,这样在第一次请求时会先请求option,其他就不用了 (只针对请求url以及参数完全相同的请求)
+
+### 大杂烩
++ 对token 的看法
++ history 和 hash 模式的区别
++ http状态码
++ 跨域
++ jsonp原理
++ cookie 和本地的区别
++ react useContext 是什么
++ react keep-alive 怎么实现
++ 多个tab页切换通信的方案
++ react class 生命周期, useEffect对应什么
++ interface 和 type 区别
+
 
 ### bitmart
 + flex 左边固定,右边自适应 (calc, flex)
