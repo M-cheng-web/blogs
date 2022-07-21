@@ -144,3 +144,141 @@ const d1 = makeDate(12345678);
 const d2 = makeDate(5, 5, 5);
 const d3 = makeDate(1, 3);
 ```
+
+## 对象类型
+### readonly
+对于声明了只读的属性是不能再更改的
+``` ts
+interface SomeType {
+  readonly prop: string;
+}
+function doSomething(obj: SomeType) {
+  obj.prop = "hello";
+  // Cannot assign to 'prop' because it is a read-only property.
+}
+```
+
+不过对于对象的只读是可以更改其内部的值
+``` ts
+interface Home {
+  readonly resident: { name: string; age: number };
+}
+
+function visitForBirthday(home: Home) {
+  home.resident.age++;
+}
+
+function evict(home: Home) {
+  // Cannot assign to 'resident' because it is a read-only property.
+  home.resident = {
+    name: "Victor the Evictor",
+    age: 42,
+  };
+}
+```
+
+对于普通属性也可以通过别名来修改
+``` ts
+interface Person {
+  name: string;
+  age: number;
+}
+interface ReadonlyPerson {
+  readonly name: string;
+  readonly age: number;
+}
+let writablePerson: Person = {
+  name: "Person McPersonface",
+  age: 42,
+};
+let readonlyPerson: ReadonlyPerson = writablePerson;
+console.log(readonlyPerson.age); // prints '42'
+writablePerson.age++;
+console.log(readonlyPerson.age); // prints '43'
+```
+
+### 索引签名
+有的时候不能提前知道一个类型里的所有属性的名字,但是知道这些值的特征就可以用上索引签名
+
+``` ts
+interface StringArray {
+  [index: number]: string;
+  name: string;
+}
+const myArray: StringArray = getStringArray();
+const secondItem = myArray[1]; // const secondItem: string
+
+// 这样也行
+const obj: StringArray = { 1: 'c' }
+
+// 这样也行
+const obj: StringArray = ['a', 'b']
+```
+
+### 属性继承
+能够对当前定义的类型再次扩展
+``` ts
+interface Colorful {
+  color: string;
+}
+interface Circle {
+  radius: number;
+}
+interface ColorfulCircle extends Colorful, Circle {
+  sss: number
+}
+const cc: ColorfulCircle = {
+  color: "red",
+  radius: 42,
+  sss: 22
+};
+```
+
+### 交叉类型
+可以融合两种类型
+``` ts
+interface Colorful {
+  color: string;
+}
+interface Circle {
+  radius: number;
+}
+type ColorfulCircle = Colorful & Circle;
+```
+
+与继承的差异:
+``` ts
+// 这种情况则会报错,因为相冲突了
+interface Colorful {
+  color: string;
+}
+interface ColorfulSub extends Colorful { // error
+  color: number
+}
+
+// 用交叉的方式则不会报错,此时 color 类型是 never,取得是 string 和 number 的交集
+interface Colorful {
+  color: string;
+}
+type ColorfulSub = Colorful & {
+  color: number
+}
+```
+
+### 对象泛型
+当不确定某个参数的类型的时候,并且内部也依赖此类型时,可以用上泛型
+``` ts
+interface Box<Type> {
+  contents: Type;
+}
+let boxA: Box<string> = { contents: "hello" };
+```
+
+### 元组类型
+明确知道数组包含多少个元素,并且每个位置元素的类型都明确知道的时候,就适合使用元组类型
+``` ts
+type StringNumberPair = [string, number];
+
+// readonly 元组类型
+type StringNumberPair = readonly [string, number];
+```

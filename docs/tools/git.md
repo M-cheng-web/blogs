@@ -166,6 +166,13 @@ git merge dev -n -Xtheirs // 以合并dev分支到当前分支,有冲突则以de
 git rebase # 衍合指定分支到当前分支
 ```
 
+强制覆盖分支,再强制提交分支
+````
+git checkout b    //切换到需要被覆盖的分支
+git reset --hard a//把分支覆盖到b分支
+git push origin b --force
+``
+
 ## 操作场景
 ### 连接远程仓库
 目的是将本地的项目文件链接到远程的仓库，这里以`github`为例
