@@ -282,3 +282,92 @@ type StringNumberPair = [string, number];
 // readonly 元组类型
 type StringNumberPair = readonly [string, number];
 ```
+
+## 泛型
+可以支持多种类型,可以限制入参和出参相同
+``` ts
+function identity<Type>(arg: Type[]): Type[] {
+  console.log(arg.length);
+  return arg.slice(1);
+}
+
+identity<number>([123, 345]) // 正确
+identity<string>([123, 345]) // 错误
+```
+
+类型参数推断: 编辑器能基于我们传入的参数自动推断和设置type值
+``` ts
+function identity<Type>(arg: Type): Type {
+  return arg;
+}
+
+let output = identity("myString"); // 自动判断为 string 类型
+```
+
+但如果是复杂的情况,类型参数推断就不能正确识别
+``` ts
+function identity<Type>(arg: Type[]): Type[] {
+  console.log(arg.length);
+  return arg.slice(0);
+}
+
+identity(['345', 123]) // ts 在这里就不回正确推断
+```
+
+### 泛型类
+确保类中的所有属性都使用了相同的类型
+``` ts
+class GenericNumber<NumType> {
+  zeroValue: NumType;
+  add: (x: NumType, y: NumType) => NumType;
+}
+
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function (x, y) {
+  return x + y;
+};
+```
+
+### 泛型约束
+如果想早一些获取到泛型的属性,或者是提前断言会有此属性,可以用上泛型约束(也可以理解为,此泛型对应的实际类型一定是有哪些属性的)
+``` ts
+function loggingIdentity<Type>(arg: Type): Type {
+  console.log(arg.length); // 这里会报错,因为ts不知道arg有length属性
+  return arg;
+}
+
+interface Lengthwise {
+  length: number;
+}
+function loggingIdentity<Type extends Lengthwise>(arg: Type): Type {
+  console.log(arg.length);
+  return arg;
+}
+loggingIdentity(3); // 这样也会报错,因为3并没有length属性
+```
+
+### 泛型约束使用类型参数
+如果想要约束某个入参为另一个入参的属性,那么就用此方法来约束
+``` ts
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key];
+}
+let x = { a: 1, b: 2, c: 3, d: 4 };
+getProperty(x, "a");
+getProperty(x, "m"); // error: m 不在 x属性中
+```
+
+### 泛型中使用类类型
+限制参数必须是类,且返回值也是这个类的实例
+``` ts
+function create<Type>(c: { new(): Type }): Type {
+  return new c();
+}
+class B {
+  xxxx: boolean = true;
+}
+create(B)
+create(2) // error
+```
+
