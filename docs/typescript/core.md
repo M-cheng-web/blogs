@@ -371,5 +371,26 @@ create(B)
 create(2) // error
 ```
 
+## 命名空间
+内部模块,主要用于组织代码避免命名冲突
+``` ts
+namespace a {
+    export class Pr {
+        cheng(): void {
+            console.log(1)
+        }
+    }
+}
+namespace b {
+    export class Pr {
+        cheng(): void {
+            console.log(2)
+        }
+    }
+}
+export {a, b}
+```
+
+
 
 
