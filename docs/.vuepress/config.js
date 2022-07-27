@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt' },
         ]
       },
       {
@@ -53,7 +53,6 @@ module.exports = {
           { title: "Lerna", path: "/tools/lerna" },
           { title: "Git", path: "/tools/git" },
           { title: "Webpack", path: "/tools/webpack" },
-          { title: "Vite", path: "/tools/vite" },
           // { title: "EsBuild", path: "/tools/esbuild" },
           // { title: "Node", path: "/tools/node" },
           { title: "Vuepress", path: "/tools/vuepress" },
@@ -88,6 +87,14 @@ module.exports = {
         children: [
           { title: "开始", path: "/typescript/start" },
           { title: "基础", path: "/typescript/core" },
+        ],
+      },
+      {
+        title: "Vite",
+        path: '/vite/core',
+        collapsable: false,
+        children: [
+          { title: "基础", path: "/css/core" },
         ],
       },
       {
