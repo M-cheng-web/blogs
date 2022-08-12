@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt' },
         ]
       },
       {
@@ -94,7 +94,10 @@ module.exports = {
         path: '/vite/core',
         collapsable: false,
         children: [
-          { title: "基础", path: "/css/core" },
+          { title: "基础", path: "/vite/core" },
+          { title: "预构建", path: "/vite/prebuild" },
+          { title: "esbuild", path: "/vite/esbuild" },
+          { title: "基础配置", path: "/vite/configuration" },
         ],
       },
       {
