@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt.encrypt' },
         ]
       },
       {
@@ -142,6 +142,7 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "介绍", path: "/writingcode/core" },
+          { title: "算法", path: "/writingcode/roth" },
           { title: "Promise", path: "/writingcode/promise" },
           { title: "call/apply/bind", path: "/writingcode/call-apply-bind" },
           { title: "深浅拷贝", path: "/writingcode/copy" },

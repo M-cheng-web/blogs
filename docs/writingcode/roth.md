@@ -65,26 +65,14 @@ console.log(fib(10, false));
 ``` js
 {
   chidren: [
+      { value: 1 },
+      { value: 2 },
+      { value: 3 },
       {
-          value: 1
-      },
-      {
-          value: 2
-      },
-      {
-          value: 3
-      },
-      {
-          children: [
-              {
-                  {
-                      value: 4
-                  },
-                  {
-                      value: 5
-                  }
-              }
-          ]
+        children: [
+          { value: 4 },
+          { value: 5 },
+        ]
       }
   ]
 }
