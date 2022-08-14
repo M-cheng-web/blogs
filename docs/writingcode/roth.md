@@ -117,3 +117,63 @@ function max(str) {
 
 max(str)
 ```
+
+``` ts
+// 这种方式较于上面那种更直观一些，上面那种实际上还是双重循环
+var str = 'abbbccccccxxxxxx';
+
+function max(str) {
+  let obj = {};
+  for (let index = 0; index < str.length; index++) {
+    const res = obj[str[index]];
+    obj[str[index]] = res ? res+1 : 1;
+  }
+  let max = { value: '', len: 1 };
+  Object.keys(obj).forEach(key => {
+    if (obj[key] > max.len) {
+      max.value = key;
+      max.len = obj[key];
+    }
+  })
+  return max
+}
+
+console.log(max(str));
+```
+
+## 颗粒化控制请求
+``` ts
+function limitRequest(urls = [], limit = 3) {
+  return new Promise((resolve, reject) => {
+    const len = urls.length
+    let count = 0
+
+    while (limit > 0) {
+      start()
+      limit -= 1
+    }
+
+    function start() {
+      const url = urls.shift()
+      if (url) {
+        axios.post(url).then(res => {
+          // todo
+        }).catch(err => {
+          // todo
+        }).finally(() => {
+          if (count == len - 1) {
+            resolve()
+          } else {
+            count++
+            start()
+          }
+        })
+      }
+    }
+
+  })
+}
+
+// 测试
+limitRequest(['http://xxa', 'http://xxb', 'http://xxc', 'http://xxd', 'http://xxe'])
+```
