@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./demo.js"></script>
+  <style>
+    canvas {
+      box-shadow: 0px 0px 5px #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="1000">
+    当前浏览器不支持canvas元素，请升级或更换浏览器！
+  </canvas>
+
+  <script>
+    let canvas = document.getElementById("canvas");
+
+    if (canvas.getContext) {
+      let ctx = canvas.getContext("2d");
+      ctx.beginPath();
+      const gradient1 = ctx.createRadialGradient(100, 100, 100, 100, 100, 60);
+      gradient1.addColorStop(0, '#000');
+      gradient1.addColorStop(1, '#ff0000');
+      ctx.fillStyle = gradient1;
+      ctx.fillRect(0,0,600,600);
+    }
+  </script>
+</body>
+</html>
