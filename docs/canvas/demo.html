@@ -23,12 +23,12 @@
 
     if (canvas.getContext) {
       let ctx = canvas.getContext("2d");
-      ctx.beginPath();
-      const gradient1 = ctx.createRadialGradient(100, 100, 100, 100, 100, 60);
-      gradient1.addColorStop(0, '#000');
-      gradient1.addColorStop(1, '#ff0000');
-      ctx.fillStyle = gradient1;
-      ctx.fillRect(0,0,600,600);
+      ctx.font = "50px serif"; // 设置文案大小和字体
+      ctx.direction = 'ltr'
+      ctx.shadowColor = "#cccccc"; //  设置阴影颜色
+      ctx.shadowOffsetX = 10; // X轴上的阴影
+      ctx.shadowOffsetY = 10; // X轴上的阴影
+      ctx.fillText('123', 100, 100);
     }
   </script>
 </body>
