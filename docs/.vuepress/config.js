@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt' },
         ]
       },
       {
@@ -61,6 +61,7 @@ module.exports = {
           { title: "Vscode", path: "/tools/vscode" },
           { title: "Axios配置模板", path: "/tools/axios" },
           { title: "脚本加密", path: "/tools/encrypt" },
+          { title: "Charles", path: "/tools/charles" },
         ],
       },
       {

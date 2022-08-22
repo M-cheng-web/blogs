@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./demo.js"></script>
+  <title>canvas - 裁剪</title>
   <style>
+    /* 给画布增加一个阴影和圆角的样式 */
     canvas {
       box-shadow: 0px 0px 5px #ccc;
       border-radius: 8px;
@@ -14,31 +14,54 @@
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="1000" height="1000">
+  <canvas id="canvas" width="500" height="500">
     当前浏览器不支持canvas元素，请升级或更换浏览器！
   </canvas>
-
   <script>
-    let canvas = document.getElementById("canvas");
-    const imgsrc = 'https://file.shangjinuu.com/image/lxcloud-vhr/user/icon202208/20220808152731000566293.jpg'
-
-    if (canvas.getContext) {
+    // 获取 canvas 元素
+    var canvas = document.getElementById('canvas');
+    // 通过判断getContext方法是否存在来判断浏览器的支持性
+    if(canvas.getContext) {
+      // 获取绘图上下文
       var ctx = canvas.getContext('2d');
-      ctx.fillStyle = "#ee7034";
-      ctx.translate(250, 250);
-      var sin = Math.sin(Math.PI / 6);
-      var cos = Math.cos(Math.PI / 6);
-      let c = 0;
-      for (let i = 0; i <= 12; i++) {
-        ctx.beginPath();
-        c = Math.floor(255 / 12 * i);
-        ctx.fillStyle = `rgba(${c}, ${c}, ${c})`
-        ctx.arc(100, 100, 100, 0, Math.PI*2, false);
-        // ctx.transform(cos, sin, -sin, cos, 0, 0);
-        // ctx.transform(0.5, 0.1, -0.1, 0.5, 0, 0);
-        ctx.transform(1, 0.1, -0.1, 1, 100, 10);
-        ctx.fill()
+      var ball = {
+        x: 100,
+        y: 100,
+        vx: 10,
+        vy: 3,
+        radius: 25,
+        color: 'blue',
+        draw: function() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.closePath();
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      };
+      function draw() {
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ball.draw();
+
+        // 添加加速度
+        // ball.vy *= .99;
+        // ball.vy += .25; // 设置重力值，越大掉的越快
+        // 添加速率
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        // 添加边界
+        if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+          ball.vy = -ball.vy;
+        }
+        if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+          ball.vx = -ball.vx;
+        }
+       window.requestAnimationFrame(draw);
       }
+      window.requestAnimationFrame(draw);
+      ball.draw();
     }
   </script>
 </body>
