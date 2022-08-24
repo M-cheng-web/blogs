@@ -416,7 +416,7 @@ function draw() {
   ctx.drawImage(earth, -20, -20, 40, 40);
 
   // 月亮
-  var moonDeg = ((2 * Math.PI) / 2) * time.getSeconds() + ((2 * Math.PI) / 2000) * time.getMilliseconds() 
+  var moonDeg = ((2 * Math.PI) / 2) * time.getSeconds() + ((2 * Math.PI) / 2000) * time.getMilliseconds()
   ctx.rotate(moonDeg);
   ctx.translate(0, 40);
   ctx.drawImage(moon, -10, -10, 20, 20);

@@ -33,3 +33,7 @@ canvas 在不支持其平台的体现效果是直接体现内容，比如
   当前浏览器不支持canvas元素，请升级或更换浏览器！
 </canvas>
 ```
+
+translate 要在 arc 或者 fillRect 这种之前才有效
+
+beginPath 更新不了旋转位移
