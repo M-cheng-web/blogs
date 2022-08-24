@@ -27,10 +27,10 @@ module.exports = {
       },
       {
         title: '加密信息',
-        path: '/encrypt/every',
+        path: '/encrypt/every.encrypt',
         collapsable: false, // 不折叠
         children: [
-          { title: "每日记录", path: '/encrypt/every' },
+          { title: "每日记录", path: '/encrypt/every.encrypt' },
         ]
       },
       {
@@ -121,20 +121,22 @@ module.exports = {
         ],
       },
       {
-        title: "Canvas",
-        path: '/canvas/core',
-        collapsable: false,
-        children: [
-          { title: "基础", path: "/canvas/core" },
-        ],
-      },
-      {
         title: "React",
         path: '/react/core',
         collapsable: false,
         children: [
           { title: "基础", path: "/react/core" },
           { title: "react-router", path: "/react/react-router" },
+        ],
+      },
+      {
+        title: "Canvas",
+        path: '/canvas/core',
+        collapsable: false,
+        children: [
+          { title: "基础", path: "/canvas/core" },
+          { title: "API", path: "/canvas/api" },
+          { title: "Demo", path: "/canvas/demo" },
         ],
       },
       {

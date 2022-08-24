@@ -9,59 +9,24 @@
     /* 给画布增加一个阴影和圆角的样式 */
     canvas {
       box-shadow: 0px 0px 5px #ccc;
-      border-radius: 8px;
+      /* border-radius: 8px; */
     }
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="500" height="500">
+  <canvas id="canvas" width="650" height="650">
     当前浏览器不支持canvas元素，请升级或更换浏览器！
   </canvas>
   <script>
-    // 获取 canvas 元素
-    var canvas = document.getElementById('canvas');
-    // 通过判断getContext方法是否存在来判断浏览器的支持性
-    if(canvas.getContext) {
-      // 获取绘图上下文
-      var ctx = canvas.getContext('2d');
-      var ball = {
-        x: 100,
-        y: 100,
-        vx: 10,
-        vy: 3,
-        radius: 25,
-        color: 'blue',
-        draw: function() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-          ctx.closePath();
-          ctx.fillStyle = this.color;
-          ctx.fill();
-        }
-      };
-      function draw() {
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ball.draw();
-
-        // 添加加速度
-        // ball.vy *= .99;
-        // ball.vy += .25; // 设置重力值，越大掉的越快
-        // 添加速率
-        ball.x += ball.vx;
-        ball.y += ball.vy;
-        // 添加边界
-        if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
-          ball.vy = -ball.vy;
-        }
-        if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
-          ball.vx = -ball.vx;
-        }
-       window.requestAnimationFrame(draw);
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    for (let x = 1; x < 25; x++) {
+      for (let y = 1; y < 25; y++) {
+        ctx.beginPath()
+        ctx.strokeStyle = `rgb(${255-y*10},${255-x*10},100)`
+        ctx.arc(25*x, 25*y, 12, 0, Math.PI*2);
+        ctx.stroke()
       }
-      window.requestAnimationFrame(draw);
-      ball.draw();
     }
   </script>
 </body>

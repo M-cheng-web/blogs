@@ -1,20 +1,6 @@
-# canvas
+# canvas 具体API
 
-canvas 在不支持其平台的体现效果是直接体现内容，比如
-``` html
-<canvas width="200" height="200">
-  当前浏览器不支持canvas元素，请升级或更换浏览器！
-</canvas>
-```
-
-## 公共知识
-+ moveTo() 移动画笔，一开始就需要加上的
-+ stroke() 使图形闭合，只有闭合了才能显现出之前画的图形
-+ beginPath() 新建一条路径，也就是重开一个绘画
-+ closePath() 闭合绘画，如果是半圆添加了闭合也会把口封掉
-+ fill() 与上同理，但是会填充
-+ fillStyle() 设置填充色
-+ clearRect() 清除一片区域
+> 本文是对 https://juejin.cn/post/7119495608938790942#heading-97 的总结
 
 ## 绘制形状
 ### 直线
@@ -574,6 +560,3 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 > 舍弃 ctx.clearRect() 的方式去清除上一帧画面，采用 ctx.fillRect() + 背景0.3透明 的方式去达到残影的效果
 
 暂时不懂为什么能达到此效果，后面会跟进研究，只知道 `ctx.fillStyle = 'rgba(255, 255, 255, 0.3)'` 中的 0.3 是个临界点，如果设置为 0.2 那么拖影会更长，但是会有副作用(画布的背景色会被影响到)，反之设置 0.4 不会有这样的效果，但是拖影会更短
-
-## 应用
-
