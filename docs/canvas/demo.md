@@ -1,8 +1,26 @@
 # Demo 编写
 
+## 在线ps功能点
++ 保存图片到本地下载 + 生成链接
++ 吸色笔
++ 反相颜色图片
++ 抠图(也就是白底图)
++ 旋转+裁剪(要带有量线)
++ 橡皮擦
++ 合成多个图片
++ 调整多个图片的层级
++ 添加文字(双指操作等等)
++ 添加水印 (考虑是否做暗水印)
++ 消除笔
++ 添加贴纸(上传图片然后以特定形状展示合成)
++ 回退前进功能
++ 饱和度 + 清晰度 + 亮度 + 对比度 + 色温 + 色调
++ 滤镜
++ 生成svg(是否生成动画，如果要做拼成动画的又是另外一个大类了)
+
 ## 待完成
-+ 琉璃灯
 + ps调色盘 (正放形 / 圆形)
+
 
 ## 三角形 (填充三角形,描边三角形,拼接一起的正方形)
 ![](https://s6.jpg.cm/2022/08/23/PVSGyi.png)
@@ -119,11 +137,124 @@ window.requestAnimationFrame(draw);
 
 
 
-## 区域内的球的运动
+## 区域内的球的运动(变色+反弹+拖影+重力)
+![](https://s6.jpg.cm/2022/08/25/PVZVey.gif)
 ``` ts
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
+const ball = {
+  x: 0,
+  y: 0,
+  vx: 4,
+  vy: 5,
+  rgbaX: 0,
+  rgbaY: 0,
+  rgbaZ: 0,
+  rgbaV: 1,
+  draw: function () {
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, 20, 0, Math.PI*2)
+    ctx.fillStyle = `rgba(${this.rgbaX}, ${this.rgbaY}, ${this.rgbaZ}, ${1})`
+    const max = this.rgbaV === 1 ? 255 : 0;
+    if (this.rgbaX === max && this.rgbaY === max && this.rgbaZ === max) {
+      this.rgbaV = this.rgbaV === 1 ? -1 : 1
+    } else if (this.rgbaY === max && this.rgbaZ === max) {
+      this.rgbaX += this.rgbaV
+    } else if (this.rgbaZ === max) {
+      this.rgbaY += this.rgbaV
+    } else {
+      this.rgbaZ += this.rgbaV
+    }
+    ctx.fill()
+    ctx.beginPath()
+  }
+}
+
+function draw() {
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.3)'
+  ctx.fillRect(0, 0, 700, 700)
+  ball.x += ball.vx
+  ball.y += ball.vy
+  if (ball.x > 700 || ball.x < 0) {
+    ball.vx = -ball.vx
+  }
+  if (ball.y > 300 || ball.y < 0) {
+    ball.vy = -ball.vy
+  }
+  // ball.vy *= .99 // 重力
+  // ball.vy += 0.25
+  ball.draw()
+  window.requestAnimationFrame(draw);
+}
+window.requestAnimationFrame(draw);
 ```
 
-## asdasd
+## 琉璃灯
+``` ts
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let activeX = 1
+let activeY = 1
+let vx = 1
+let vy = 1
+let down = true
+let color = 0
+const num = 15
+changeColor = () => {
+  color = color > 255 ? 0 : color + num
+}
+
+for (let x = 1; x <= num; x++) {
+  for (let y = 1; y <= num; y++) {
+    ctx.beginPath()
+    ctx.strokeStyle = `rgb(${255-y*10},${255-x*10},255)`
+    ctx.arc(30*x, 30*y, 15, 0, Math.PI*2)
+    ctx.stroke()
+  }
+}
+
+function draw() {
+  for (let y = 1; y <= num; y++) {
+    for (let x = 1; x <= num; x++) {
+      if (x === activeX && y === activeY) {
+        ctx.beginPath()
+        ctx.arc(30*x, 30*y, 15, 0, Math.PI*2)
+        ctx.fillStyle = down
+          ? `rgb(${255-y*Math.floor(color/num)}, ${255-x*Math.floor(color/num)}, 255)`
+          : `rgb(${255-y*Math.floor(color/num)}, ${255-x*Math.floor(color/num)}, 255)`
+        ctx.fill()
+      }
+    }
+  }
+
+  if (activeX === num+1) {
+    activeY += vy
+    vx = -1
+  } else if (activeX === 0) {
+    activeY += vy
+    vx = 1
+  }
+
+  if (activeY === num+1) {
+    changeColor()
+    down = false
+    vy = -1
+  } else if (activeY === 0) {
+    changeColor()
+    down = true
+    vy = 1
+  }
+
+  activeX += vx
+
+  ctx.beginPath()
+  window.requestAnimationFrame(draw);
+}
+window.requestAnimationFrame(draw);
+```
+
+
 ## asdasd
 ## asdasd

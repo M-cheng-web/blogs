@@ -14,31 +14,68 @@
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="700" height="700">
+  <canvas id="canvas" width="800" height="800">
     当前浏览器不支持canvas元素，请升级或更换浏览器！
   </canvas>
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    const earth = new Image();
-    earth.src = 'https://www.freepnglogos.com/uploads/moon-png/moon-png-annual-celestial-overview-simone-matthews-18.png';
 
-    const ball = {
-      x: 0,
-      y: 0,
-      vx: 0,
-      vy: 0,
-      draw: () => {
+    let activeX = 1
+    let activeY = 1
+    let vx = 1
+    let vy = 1
+    let down = true
+    let color = 0
+    const num = 15
+    changeColor = () => {
+      color = color > 255 ? 0 : color + num
+    }
+
+    for (let x = 1; x <= num; x++) {
+      for (let y = 1; y <= num; y++) {
         ctx.beginPath()
-        ctx.arc()
-        ctx.beginPath()
+        ctx.strokeStyle = `rgb(${255-y*10},${255-x*10},255)`
+        ctx.arc(30*x, 30*y, 15, 0, Math.PI*2)
+        ctx.stroke()
       }
     }
 
     function draw() {
-      ctx.clearRect(0, 0, 700, 700)
-      
+      for (let y = 1; y <= num; y++) {
+        for (let x = 1; x <= num; x++) {
+          if (x === activeX && y === activeY) {
+            ctx.beginPath()
+            ctx.arc(30*x, 30*y, 15, 0, Math.PI*2)
+            ctx.fillStyle = down
+              ? `rgb(${255-y*Math.floor(color/num)}, ${255-x*Math.floor(color/num)}, 255)`
+              : `rgb(${255-y*Math.floor(color/num)}, ${255-x*Math.floor(color/num)}, 255)`
+            ctx.fill()
+          }
+        }
+      }
 
+      if (activeX === num+1) {
+        activeY += vy
+        vx = -1
+      } else if (activeX === 0) {
+        activeY += vy
+        vx = 1
+      }
+
+      if (activeY === num+1) {
+        changeColor()
+        down = false
+        vy = -1
+      } else if (activeY === 0) {
+        changeColor()
+        down = true
+        vy = 1
+      }
+
+      activeX += vx
+
+      ctx.beginPath()
       window.requestAnimationFrame(draw);
     }
     window.requestAnimationFrame(draw);
