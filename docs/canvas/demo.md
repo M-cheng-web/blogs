@@ -1,8 +1,6 @@
 # Demo 编写
 
 ## 待完成
-+ 太阳系地球月亮以及其他行星
-+ 区域内的球的运动
 + 琉璃灯
 + ps调色盘 (正放形 / 圆形)
 
@@ -118,3 +116,14 @@ function draw() {
 }
 window.requestAnimationFrame(draw);
 ```
+
+
+
+## 区域内的球的运动
+``` ts
+
+```
+
+## asdasd
+## asdasd
+## asdasd
