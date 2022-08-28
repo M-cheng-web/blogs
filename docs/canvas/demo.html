@@ -14,19 +14,96 @@
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="800" height="800">
+  <canvas id="canvas" width="500" height="500">
     当前浏览器不支持canvas元素，请升级或更换浏览器！
   </canvas>
+  <div>asd</div>
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
+    ctx.globalCompositeOperation = 'destination-over';
 
+    const colorObj = {
+      rgbx: 255,
+      rgby: 0,
+      rgbz: 0,
+      step: 1,
+      lucid: 1,
+      changeRGB() {
+        // 颜色周期变化规则为:
+        // 1: 255,0,0
+        // 2: 255,255,0
+        // 3: 0,255,0
+        // 4: 0,255,255
+        // 5: 0,0,255
+        // 6: 255,0,255
+        // 7: 255,0,0
+        switch (this.step) {
+          case 1:
+            this.rgby++
+            if (this.rgby === 255) this.step = 2
+            break;
+          case 2:
+            this.rgbx--
+            if (this.rgbx === 0) this.step = 3
+            break;
+          case 3:
+            this.rgbz++
+            if (this.rgbz === 255) this.step = 4
+            break;
+          case 4:
+            this.rgby--
+            if (this.rgby === 0) this.step = 5
+            break;
+            case 5:
+              this.rgbx++
+              if (this.rgbx === 255) this.step = 6
+            break;
+          case 6:
+            this.rgbz--
+            if (this.rgbz === 0) this.step = 1
+            break;
+        }
+      },
+      draw() {
+        ctx.clearRect(0, 0, 500, 500)
+
+        const gradient1 = ctx.createLinearGradient(0, 0, 500, 0)
+        gradient1.addColorStop(0, '#fff');
+        gradient1.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = gradient1;
+        ctx.fillRect(0, 0, 500, 500);
+
+        ctx.beginPath();
+        const gradient2 = ctx.createLinearGradient(0, 0, 0, 500)
+        gradient2.addColorStop(0, `rgb(${this.rgbx}, ${this.rgby}, ${this.rgbz})`);
+        gradient2.addColorStop(1, '#000000');
+        ctx.fillStyle = gradient2;
+        ctx.fillRect(0, 0, 500, 500);
+      }
+    }
 
     function draw() {
-      
+      colorObj.changeRGB()
+      colorObj.draw()
       window.requestAnimationFrame(draw);
     }
-    window.requestAnimationFrame(draw);
+    // window.requestAnimationFrame(draw);
+
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, 500, 500)
+
+    function drawBall(x, y) {
+      console.log(2);
+      
+      ctx.clearRect(0, 0, 500, 500)
+      ctx.beginPath()
+      ctx.arc(x, y, 10, 0, Math.PI*2)
+      ctx.stroke()
+    }
+    canvas.addEventListener('mousemove', function (e) {
+      drawBall(e.offsetX, e.offsetY)
+    })
   </script>
 </body>
 </html>

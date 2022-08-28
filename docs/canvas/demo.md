@@ -1,41 +1,5 @@
 # Demo 编写
 
-## 在线ps功能点
-+ 吸色笔
-+ 反相颜色图片
-+ 移动图片
-+ 坐标线
-+ 缩小放大
-+ 抠图(也就是白底图)
-+ 旋转+裁剪(要带有量线)
-+ 橡皮擦
-+ 合成多个图片
-+ 调整多个图片的层级(多图层)
-+ 添加文字(双指操作等等)
-+ 添加水印 (考虑是否做暗水印)
-+ 消除笔
-+ 添加贴纸(上传图片然后以特定形状展示合成)
-+ 回退前进功能
-+ 饱和度 + 清晰度 + 亮度 + 对比度 + 色温 + 色调
-+ 滤镜
-+ 添加一些自有的动画？webgl封装的？
-+ 生成svg(是否生成动画,如果要做拼成动画的又是另外一个大类了)
-+ 转换格式
-+ 支持不同格式图片渲染,导出不同格式+生成链接的形式
-+ 压缩图片
-+ 快速选中区域
-+ 粘贴转图片
-+ 右键菜单功能
-+ 曲面贴图
-+ 提供快捷形状
-
-### 一期
-1. 导入导出
-2. 拖动放大缩小
-3. 裁剪
-4. 回退 + 前进
-5. 反相颜色图片
-
 ## 待完成
 + ps调色盘 (正放形 / 圆形)
 
@@ -273,6 +237,79 @@ function draw() {
 window.requestAnimationFrame(draw);
 ```
 
+## 颜色动态渐变
+``` ts
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+const colorObj = {
+  rgbx: 255,
+  rgby: 0,
+  rgbz: 0,
+  step: 1,
+  lucid: 1,
+  changeRGB() {
+    // 颜色周期变化规则为:
+    // 1: 255,0,0
+    // 2: 255,255,0
+    // 3: 0,255,0
+    // 4: 0,255,255
+    // 5: 0,0,255
+    // 6: 255,0,255
+    // 7: 255,0,0
+    switch (this.step) {
+      case 1:
+        this.rgby++
+        if (this.rgby === 255) this.step = 2
+        break;
+      case 2:
+        this.rgbx--
+        if (this.rgbx === 0) this.step = 3
+        break;
+      case 3:
+        this.rgbz++
+        if (this.rgbz === 255) this.step = 4
+        break;
+      case 4:
+        this.rgby--
+        if (this.rgby === 0) this.step = 5
+        break;
+        case 5:
+          this.rgbx++
+          if (this.rgbx === 255) this.step = 6
+        break;
+      case 6:
+        this.rgbz--
+        if (this.rgbz === 0) this.step = 1
+        break;
+    }
+  },
+  draw() {
+    ctx.clearRect(0, 0, 500, 500)
+
+    ctx.globalCompositeOperation = 'destination-over';
+    const gradient1 = ctx.createLinearGradient(0, 0, 500, 0)
+    gradient1.addColorStop(0, '#fff');
+    gradient1.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = gradient1;
+    ctx.fillRect(0, 0, 500, 500);
+
+    ctx.beginPath();
+    const gradient2 = ctx.createLinearGradient(0, 0, 0, 500)
+    gradient2.addColorStop(0, `rgb(${this.rgbx}, ${this.rgby}, ${this.rgbz})`);
+    gradient2.addColorStop(1, '#000000');
+    ctx.fillStyle = gradient2;
+    ctx.fillRect(0, 0, 500, 500);
+  }
+}
+
+function draw() {
+  colorObj.changeRGB()
+  colorObj.draw()
+  window.requestAnimationFrame(draw);
+}
+window.requestAnimationFrame(draw);
+```
 
 ## ps调色盘
 

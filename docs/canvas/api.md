@@ -141,9 +141,7 @@ ctx.fill();
 ```
 
 ### 渐变
-
 #### 线性渐变
-
 + ctx.createLinearGradient(x1, y1, x2, y2) 设置渐变范围,参数分别为 起点的坐标和终点的坐标
 + ctx.gradient.addColorStop(offset, color) 设置渐变颜色,color就是颜色,offset 则是颜色的偏移值(0-1)
 
