@@ -17,11 +17,27 @@
   <canvas id="canvas" width="500" height="500">
     当前浏览器不支持canvas元素，请升级或更换浏览器！
   </canvas>
-  <div>asd</div>
+  <div id="rgb">rgb</div>
+  <div id="rgba">rgba</div>
+  <div id="hex">hex</div>
+  <br>
+  <div>设置主题色</div>
+  R:<input id="r" oninput="changInput(event, 'r')" type="number" min="0" max="255" style="width: 100px;">
+  G:<input id="g" oninput="changInput(event, 'g')" type="number" min="0" max="255" style="width: 100px;">
+  B:<input id="b" oninput="changInput(event, 'b')" type="number" min="0" max="255" style="width: 100px;">
+
+  <script>
+    const r = document.getElementById('r')
+    const g = document.getElementById('g')
+    const b = document.getElementById('b')
+    r.value = 255
+    g.value = 0
+    b.value = 0
+  </script>
+
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    ctx.globalCompositeOperation = 'destination-over';
 
     const colorObj = {
       rgbx: 255,
@@ -74,6 +90,8 @@
         ctx.fillStyle = gradient1;
         ctx.fillRect(0, 0, 500, 500);
 
+        ctx.globalCompositeOperation = 'destination-over';
+
         ctx.beginPath();
         const gradient2 = ctx.createLinearGradient(0, 0, 0, 500)
         gradient2.addColorStop(0, `rgb(${this.rgbx}, ${this.rgby}, ${this.rgbz})`);
@@ -83,27 +101,72 @@
       }
     }
 
-    function draw() {
-      colorObj.changeRGB()
-      colorObj.draw()
-      window.requestAnimationFrame(draw);
-    }
-    // window.requestAnimationFrame(draw);
-
-    ctx.fillStyle = 'red';
-    ctx.fillRect(0, 0, 500, 500)
+    colorObj.draw()
 
     function drawBall(x, y) {
-      console.log(2);
-      
       ctx.clearRect(0, 0, 500, 500)
+      colorObj.draw()
       ctx.beginPath()
+      ctx.globalCompositeOperation = 'source-over'
       ctx.arc(x, y, 10, 0, Math.PI*2)
       ctx.stroke()
+      getColor(x, y)
     }
     canvas.addEventListener('mousemove', function (e) {
       drawBall(e.offsetX, e.offsetY)
     })
+
+    function getColor(x, y) {
+      const imageData = ctx.getImageData(x, y, 1, 1);
+      const pixel = imageData.data;
+      const rs = pixel[0];
+      const gs = pixel[1];
+      const bs = pixel[2];
+      let as = pixel[3] / 255;
+      as = Math.round(as * 100) / 100;
+
+      let rHex = rs.toString(16);
+      let gHex = gs.toString(16);
+      let bHex = bs.toString(16);
+      rs < 16 && (rHex = '0' + rHex);
+      gs < 16 && (gHex = '0' + gHex);
+      bs < 16 && (bHex = '0' + bHex);
+
+      const rgbaColor = 'rgba(' + rs + ',' + gs + ',' + bs + ',' + as + ')';
+      const rgbColor = 'rgb(' + rs + ',' + gs + ',' + bs + ')';
+      const hexColor = '#' + rHex + gHex + bHex
+
+      setText(rgbColor, rgbaColor, hexColor)
+    }
+    function setText(rgb, rgba, hex) {
+      const a = document.getElementById('rgb')
+      const b = document.getElementById('rgba')
+      const c = document.getElementById('hex')
+      a.textContent = rgb
+      b.textContent = rgba
+      c.textContent = hex
+    }
+
+    function changInput(e, type) {
+      const value = Number(e.target.value)
+      if (value >= 0 && value <= 255) {
+        switch (type) {
+          case 'r':
+            colorObj.rgbx = value
+            break;
+          case 'g':
+            colorObj.rgby = value
+            break;
+          case 'b':
+            colorObj.rgbz = value
+            break;
+        }
+        // 这里暂时不改 step
+        colorObj.draw()
+      } else {
+        e.target.value = ''
+      }
+    }
   </script>
 </body>
 </html>
