@@ -1,10 +1,8 @@
 # Demo 编写
 
 ## 待完成
-+ ps调色盘 (正放形 / 圆形)
-+ 刮刮乐
++ 刮刮乐(待完善)
 + 如何在动画上面加跟随鼠标移动的圆?
-
 
 ## 三角形 (填充三角形,描边三角形,拼接一起的正方形)
 ![](https://s6.jpg.cm/2022/08/23/PVSGyi.png)
@@ -601,5 +599,40 @@ window.requestAnimationFrame(draw);
 </html>
 ```
 
-## 刮刮乐
+## 刮刮乐(待完善)
+``` html
+ <body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="canvasText" width="500" height="500"></canvas>
 
+<script>
+  const canvasText = document.getElementById("canvasText");
+  const ctxText = canvasText.getContext("2d");
+  ctxText.font = "40px 微软雅黑";
+  ctxText.strokeText("zxczxc", 200, 200);
+  ctxText.fill();
+</script>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  ctx.beginPath();
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, 500, 500);
+
+  canvas.addEventListener("mousemove", function (e) {
+    ctx.clearRect(e.offsetX, e.offsetY, 50, 50)
+  });
+</script>
+</body>
+
+<style>
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+</style>
+```
