@@ -487,5 +487,145 @@
 ```
 
 ## 反相颜色
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas - 保存图片</title>
+  <style>
+    /* 给画布增加一个阴影和圆角的样式 */
+    canvas {
+      box-shadow: 0px 0px 5px #ccc;
+      border-radius: 8px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="500">
+  </canvas>
+  <button id="original">原本</button>
+  <button id="grayscale">黑白</button>
+  <button id="inverted">反相</button>
+  <script>
+    // 获取 canvas 元素
+    const canvas = document.getElementById('canvas')
+    const originalEl = document.getElementById('original')
+    const grayscaleEl = document.getElementById('grayscale')
+    const invertedEl = document.getElementById('inverted')
+    const ctx = canvas.getContext('2d')
+
+    const img = new Image()
+    img.crossOrigin = 'anonymous' // 设置可以读取跨域图片的像素信息
+    img.src = 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF'
+
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0)
+      drawImg.original = () => {
+        ctx.drawImage(img, 0, 0)
+      }
+    }
+
+    const drawImg = {
+      original() {},
+      grayscale() {
+        this.original()
+        const img = ctx.getImageData(0, 0, canvas.width, canvas.height)
+        const data = img.data
+        for (let i = 0; i < data.length; i += 4) {
+          const arg = (data[i] + data[i + 1] + data[i + 2]) / 3
+          data[i] = arg
+          data[i + 1] = arg
+          data[i + 2] = arg
+        }
+        ctx.putImageData(img, 0, 0)
+      },
+      inverted() {
+        this.original()
+        const img = ctx.getImageData(0, 0, canvas.width, canvas.height)
+        const data = img.data
+        for (let i = 0; i < data.length; i += 4) {
+          data[i] = 255 - data[i]
+          data[i + 1] = 255 - data[i + 1]
+          data[i + 2] = 255 - data[i + 2]
+        }
+        ctx.putImageData(img, 0, 0)
+      }
+    }
+
+    originalEl.addEventListener('click', () => {
+      drawImg.original()
+    })
+    grayscaleEl.addEventListener('click', () => {
+      drawImg.grayscale()
+    })
+    invertedEl.addEventListener('click', () => {
+      drawImg.inverted()
+    })
+  </script>
+</body>
+</html>
+```
 
 ## 像素数据
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas - 保存图片</title>
+  <style>
+    canvas {
+      box-shadow: 0px 0px 5px #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="500"></canvas>
+  <div style="display: flex">
+    <div id="bg" style="width: 200px; height: 500px;">划过的颜色</div>
+    <div id="clickBg" style="width: 200px; height: 500px;">选中的颜色</div>
+  </div>
+  <script>
+    // 获取 canvas 元素
+    const canvas = document.getElementById('canvas')
+    const bg = document.getElementById('bg')
+    const clickBg = document.getElementById('clickBg')
+    const ctx = canvas.getContext('2d')
+
+    const img = new Image()
+    img.crossOrigin = 'anonymous' // 设置可以读取跨域图片的像素信息
+    img.src = 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF'
+
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0)
+    }
+
+    const drawBG = (x, y, type) => {
+      const data = ctx.getImageData(x, y, 1, 1).data
+      const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`
+      bg.textContent = `划过的颜色: ${rgba}`
+      bg.style.backgroundColor = rgba
+
+      if (type === 'click') {
+        clickBg.textContent = `选中的颜色: ${rgba}`
+        clickBg.style.backgroundColor = rgba
+      }
+    }
+
+    canvas.addEventListener('mousemove', e => {
+      drawBG(e.offsetX, e.offsetY, 'move')
+    })
+    canvas.addEventListener('click', e => {
+      drawBG(e.offsetX, e.offsetY, 'click')
+    })
+  </script>
+</body>
+</html>
+```
