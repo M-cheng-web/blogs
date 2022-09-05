@@ -26,6 +26,9 @@
 + 快速选中区域
 + 粘贴转图片
 + 右键菜单功能
++ 图片AI分类 (https://github.com/alibaba/pipcook)
++ 图片转pdf (https://github.com/foliojs/pdfkit)
+
 
 ### 一期
 1. 导入导出
@@ -35,9 +38,8 @@
 5. 反相颜色图片
 
 ## 待完成
-+ 反相颜色
-+ 像素数据
 + 刮刮乐(待完善)
++ 签名功能
 
 ## ps调色盘(当前颜色，更换主题色，浮动的圆圈)
 ![P899Ge.png](https://s6.jpg.cm/2022/08/30/P899Ge.png)
@@ -366,6 +368,9 @@
 ```
 
 ## 保存图片
+> 注意：下载的步骤可以这样写获取下载地址便捷一些
+> canvas.toBlob(e => { let url = URL.createObjectURL(e) })
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -570,7 +575,7 @@
 </html>
 ```
 
-## 像素数据
+## 获取图片中的像素数据
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -629,3 +634,6 @@
 </body>
 </html>
 ```
+
+## 图片-拖动&缩放&旋转
+记得加上在缩放时，根据鼠标所在点进行放大缩小
