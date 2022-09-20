@@ -186,6 +186,8 @@ git init  // 初始化
 git branch -m main
 
 git remote add origin git@github.com:M-cheng-web/git-demo.git  // 连接远程分支
+
+git remote update origin -p // 更新远程分支
 ```
 
 做完上面的操作后就可以正常提交代码到远程
