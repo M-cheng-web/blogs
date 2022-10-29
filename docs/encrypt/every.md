@@ -332,6 +332,15 @@
 + 【规划师】1.0.1 bug解决并上线
 + 【虚拟面试官】 小程序bug解决并提测
 
+### 1029
+【周末计划】
++ 正常使用 morehook 文档，移植一半hooks+到新项目中
++ 观看 webgl 7篇（先大概看7篇，再详细总结三篇）
+
+### 1030
+【周末计划】
++ 改造博客至 vitepress，原因是不支持 vue demo 渲染(想把canvas直接展示，而不是gif图，以后方便可视化学习!!)，而且vuepress太慢了
+
 ## uniapp
 + click.stop 是无效的, 要用 click.native.stop
 + input type = number 时, 设置 maxlength 会出错,但是不报错 (在支付宝小程序)
