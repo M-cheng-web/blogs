@@ -15,4 +15,4 @@ sh SELF_ENCRYPT/index.sh off docs/encrypt
 git add .
 git commit -m 'encrypt'
 
-yarn dev
+# yarn dev
