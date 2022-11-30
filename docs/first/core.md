@@ -9,3 +9,4 @@
 + qq音乐: 在播放音乐时,有个3d的跳动,很有意思
 + readme 改造 https://juejin.cn/post/7022299474458312718
 + 自动把后端提供的api文档转为 ts，用node可以做吗，探索下
++ 面试最应该问的几个问题：https://www.ruanyifeng.com/blog/2012/08/questions_you_need_to_ask_in_an_interview.html
