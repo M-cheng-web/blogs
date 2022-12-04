@@ -7,7 +7,7 @@ export default defineConfig({
   description: '个人博客',
 
   lastUpdated: true,
-  base: '/blog',
+  base: '/blogs',
   cleanUrls: 'without-subfolders',
 
   themeConfig: {
