@@ -1,0 +1,343 @@
+[
+  {
+    "title": "web-basics",
+    "link": "web-basics",
+    "children": [
+      {
+        "title": "JavaScript",
+        "link": "javascript",
+        "children": [
+          {
+            "title": "promise",
+            "link": "promise"
+          },
+          {
+            "title": "array",
+            "link": "array"
+          },
+          {
+            "title": "design-mode",
+            "link": "design-mode"
+          },
+          {
+            "title": "function-pro",
+            "link": "function-pro"
+          },
+          {
+            "title": "index",
+            "link": "index"
+          },
+          {
+            "title": "map",
+            "link": "map"
+          },
+          {
+            "title": "prototype",
+            "link": "prototype"
+          },
+          {
+            "title": "regular",
+            "link": "regular"
+          },
+          {
+            "title": "skill",
+            "link": "skill"
+          },
+          {
+            "title": "var-top",
+            "link": "var-top"
+          }
+        ]
+      },
+      {
+        "title": "arithmetic",
+        "link": "arithmetic",
+        "children": [
+          {
+            "title": "bit-operation",
+            "link": "bit-operation"
+          },
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "system",
+            "link": "system"
+          }
+        ]
+      },
+      {
+        "title": "canvas",
+        "link": "canvas",
+        "children": [
+          {
+            "title": "api",
+            "link": "api"
+          },
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "demo-up",
+            "link": "demo-up"
+          },
+          {
+            "title": "demo",
+            "link": "demo"
+          }
+        ]
+      },
+      {
+        "title": "css",
+        "link": "css",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "flex",
+            "link": "flex"
+          }
+        ]
+      },
+      {
+        "title": "interview",
+        "link": "interview",
+        "children": [
+          {
+            "title": "index",
+            "link": "index"
+          },
+          {
+            "title": "optimize",
+            "link": "optimize"
+          }
+        ]
+      },
+      {
+        "title": "network",
+        "link": "network",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "tcp",
+            "link": "tcp"
+          }
+        ]
+      },
+      {
+        "title": "react",
+        "link": "react",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "react-router",
+            "link": "react-router"
+          }
+        ]
+      },
+      {
+        "title": "typescript",
+        "link": "typescript",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "start",
+            "link": "start"
+          }
+        ]
+      },
+      {
+        "title": "vite",
+        "link": "vite",
+        "children": [
+          {
+            "title": "configuration",
+            "link": "configuration"
+          },
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "esbuild",
+            "link": "esbuild"
+          },
+          {
+            "title": "prebuild",
+            "link": "prebuild"
+          }
+        ]
+      },
+      {
+        "title": "vue",
+        "link": "vue",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "mvvm",
+            "link": "mvvm"
+          },
+          {
+            "title": "render",
+            "link": "render"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "books",
+    "link": "books",
+    "children": [
+      {
+        "title": "JavaScript高级程序设计",
+        "link": "javascript-design",
+        "children": []
+      },
+      {
+        "title": "你不知道的JavaScript",
+        "link": "javascript-unknown",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "mine",
+    "link": "mine",
+    "children": [
+      {
+        "title": "other",
+        "link": "other",
+        "children": []
+      },
+      {
+        "title": "plan",
+        "link": "plan",
+        "children": []
+      },
+      {
+        "title": "saying",
+        "link": "saying",
+        "children": []
+      },
+      {
+        "title": "tips",
+        "link": "tips",
+        "children": []
+      },
+      {
+        "title": "work-tips",
+        "link": "work-tips",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "tools",
+    "link": "tools",
+    "children": [
+      {
+        "title": "axios",
+        "link": "axios",
+        "children": []
+      },
+      {
+        "title": "charles",
+        "link": "charles",
+        "children": []
+      },
+      {
+        "title": "commit",
+        "link": "commit",
+        "children": []
+      },
+      {
+        "title": "encrypt",
+        "link": "encrypt",
+        "children": []
+      },
+      {
+        "title": "git",
+        "link": "git",
+        "children": []
+      },
+      {
+        "title": "lerna",
+        "link": "lerna",
+        "children": []
+      },
+      {
+        "title": "npm",
+        "link": "npm",
+        "children": []
+      },
+      {
+        "title": "rollup",
+        "link": "rollup",
+        "children": []
+      },
+      {
+        "title": "vscode",
+        "link": "vscode",
+        "children": []
+      },
+      {
+        "title": "vuepress",
+        "link": "vuepress",
+        "children": []
+      },
+      {
+        "title": "webpack",
+        "link": "webpack",
+        "children": []
+      }
+    ]
+  },
+  {
+    "title": "writingcode",
+    "link": "writingcode",
+    "children": [
+      {
+        "title": "call-apply-bind",
+        "link": "call-apply-bind",
+        "children": []
+      },
+      {
+        "title": "copy",
+        "link": "copy",
+        "children": []
+      },
+      {
+        "title": "promise",
+        "link": "promise",
+        "children": []
+      },
+      {
+        "title": "roth",
+        "link": "roth",
+        "children": []
+      },
+      {
+        "title": "throttle",
+        "link": "throttle",
+        "children": []
+      }
+    ]
+  }
+]

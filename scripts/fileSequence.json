@@ -1,0 +1,17 @@
+[
+  {
+    "link": "web-basics",
+    "children": [
+      {
+        "link": "javascript",
+        "children": [
+          { "link": "promise" },
+          { "link": "array" }
+        ]
+      }
+    ]
+  },
+  {
+    "link": "books"
+  }
+]
