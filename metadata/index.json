@@ -1,5 +1,36 @@
 [
   {
+    "title": "mine",
+    "link": "mine",
+    "children": [
+      {
+        "title": "plan",
+        "link": "plan",
+        "children": []
+      },
+      {
+        "title": "saying",
+        "link": "saying",
+        "children": []
+      },
+      {
+        "title": "tips",
+        "link": "tips",
+        "children": []
+      },
+      {
+        "title": "work-tips",
+        "link": "work-tips",
+        "children": []
+      },
+      {
+        "title": "other",
+        "link": "other",
+        "children": []
+      }
+    ]
+  },
+  {
     "title": "web-basics",
     "link": "web-basics",
     "children": [
@@ -58,8 +89,8 @@
             "link": "bit-operation"
           },
           {
-            "title": "core",
-            "link": "core"
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "system",
@@ -76,16 +107,16 @@
             "link": "api"
           },
           {
-            "title": "core",
-            "link": "core"
-          },
-          {
             "title": "demo-up",
             "link": "demo-up"
           },
           {
             "title": "demo",
             "link": "demo"
+          },
+          {
+            "title": "index",
+            "link": "index"
           }
         ]
       },
@@ -94,12 +125,12 @@
         "link": "css",
         "children": [
           {
-            "title": "core",
-            "link": "core"
-          },
-          {
             "title": "flex",
             "link": "flex"
+          },
+          {
+            "title": "index",
+            "link": "index"
           }
         ]
       },
@@ -122,8 +153,8 @@
         "link": "network",
         "children": [
           {
-            "title": "core",
-            "link": "core"
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "tcp",
@@ -136,8 +167,8 @@
         "link": "react",
         "children": [
           {
-            "title": "core",
-            "link": "core"
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "react-router",
@@ -150,8 +181,8 @@
         "link": "typescript",
         "children": [
           {
-            "title": "core",
-            "link": "core"
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "start",
@@ -168,12 +199,12 @@
             "link": "configuration"
           },
           {
-            "title": "core",
-            "link": "core"
-          },
-          {
             "title": "esbuild",
             "link": "esbuild"
+          },
+          {
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "prebuild",
@@ -186,8 +217,8 @@
         "link": "vue",
         "children": [
           {
-            "title": "core",
-            "link": "core"
+            "title": "index",
+            "link": "index"
           },
           {
             "title": "mvvm",
@@ -202,51 +233,9 @@
     ]
   },
   {
-    "title": "books",
-    "link": "books",
-    "children": [
-      {
-        "title": "JavaScript高级程序设计",
-        "link": "javascript-design",
-        "children": []
-      },
-      {
-        "title": "你不知道的JavaScript",
-        "link": "javascript-unknown",
-        "children": []
-      }
-    ]
-  },
-  {
-    "title": "mine",
-    "link": "mine",
-    "children": [
-      {
-        "title": "other",
-        "link": "other",
-        "children": []
-      },
-      {
-        "title": "plan",
-        "link": "plan",
-        "children": []
-      },
-      {
-        "title": "saying",
-        "link": "saying",
-        "children": []
-      },
-      {
-        "title": "tips",
-        "link": "tips",
-        "children": []
-      },
-      {
-        "title": "work-tips",
-        "link": "work-tips",
-        "children": []
-      }
-    ]
+    "title": "encrypt",
+    "link": "encrypt",
+    "children": []
   },
   {
     "title": "tools",

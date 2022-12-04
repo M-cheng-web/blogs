@@ -14,12 +14,8 @@ export default defineConfig({
     logo: 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/logo.ocqmygd2csw.webp',
     nav: nav(),
     sidebar: getSideBar(),
-    editLink: {
-      pattern: 'https://github.com/FastUse/morehook/tree/main/packages/:path',
-      text: 'Suggest changes to this page'
-    },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/FastUse/morehook' }
+      { icon: 'github', link: 'https://github.com/M-cheng-web/blogs' }
     ],
   },
   head: [
