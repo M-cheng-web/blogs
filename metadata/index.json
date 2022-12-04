@@ -27,6 +27,11 @@
         "title": "other",
         "link": "other",
         "children": []
+      },
+      {
+        "title": "encrypt",
+        "link": "encrypt",
+        "children": []
       }
     ]
   },
@@ -231,11 +236,6 @@
         ]
       }
     ]
-  },
-  {
-    "title": "encrypt",
-    "link": "encrypt",
-    "children": []
   },
   {
     "title": "tools",
