@@ -2,9 +2,10 @@ import fs from 'fs-extra'
 import fg from 'fast-glob'
 import Git from 'simple-git'
 import matter from 'gray-matter'
-import { join, resolve } from 'path'
 import consola from 'consola'
 import fileSequence from './fileSequence.json'
+import { join, resolve } from 'path'
+import { type DefaultTheme } from 'vitepress'
 
 export const DOCS_URL = 'https://fastuse.github.io/morehook'
 const DIR_ROOT = resolve(__dirname, '..')
@@ -82,7 +83,7 @@ async function getRouterList() {
  * 将得到的路由表按照 fileSequence.json 中定义的排序,如果没有定义则按照默认
  */
 function routerSequence(originList, sequenceList) {
-  for (let i = sequenceList.length - 1; i >= 0 ; i--) {
+  for (let i = sequenceList.length - 1; i >= 0; i--) {
     const { link, children } = sequenceList[i]
     const childrenIndex = originList.findIndex(item => item.link === link)
     if (childrenIndex === -1) {
@@ -100,10 +101,83 @@ function routerSequence(originList, sequenceList) {
   }
 }
 
+/**
+ * 获取页面顶部栏 nav
+ */
+function getNav(router): DefaultTheme.NavItem[] {
+  return router.map(item => ({
+    text: item.title,
+    activeMatch: undefined,
+    items: item.children.map(i => {
+      const subLink = i.children.length ? i.children[0].link : 'index'
+      return {
+        text: i.title,
+        link: `/${item.title}/${i.link}/${subLink}`
+      }
+    })
+  }))
+}
+
+/**
+ * 获取页面侧边栏 sidebar
+ */
+function getSidebar(router): DefaultTheme.Sidebar {
+  const slidebar = {}
+
+  for (let x = 0; x < router.length; x++) {
+    const { title: category, children } = router[x]
+    const links:object[] = []
+    for (let y = 0; y < children.length; y++) {
+      const { title, children, link } = router[x].children[y]
+      const value: {
+        text: string,
+        items: { text: string, link: string }[],
+        link: string
+      } = { text: title, items: [], link: '' }
+
+      if (children.length) {
+        for (let z = 0; z < children.length; z++) {
+          if (children[z].title === 'index') {
+            value.items.unshift({
+              text: children[z].title,
+              link: `/${category}/${link}/${children[z].link}`
+            })
+          } else {
+            value.items.push({
+              text: children[z].title,
+              link: `/${category}/${link}/${children[z].link}`
+            })
+          }
+        }
+      } else {
+        value.items = [{
+          text: 'index',
+          link: `/${category}/${link}/index`
+        }]
+      }
+
+      links.push(value)
+    }
+    slidebar[`/${category}/`] = links
+  }
+  return slidebar
+}
+
 async function run() {
+  // 生成路由 json
   const router = await getRouterList()
+
+  // 对生成的路由进行排序
   routerSequence(router, fileSequence)
+
+  // 放置路由
   await fs.writeJSON(join(DIR_PACKAGE, 'index.json'), router, { spaces: 2 })
+
+  // 根据路由生成 nav
+  await fs.writeJSON(join(DIR_PACKAGE, 'nav.json'), getNav(router), { spaces: 2 })
+
+  // 根据路由生成 sidebar
+  await fs.writeJSON(join(DIR_PACKAGE, 'sidebar.json'), getSidebar(router), { spaces: 2 })
 }
 
 run()

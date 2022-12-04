@@ -1,0 +1,159 @@
+[
+  {
+    "text": "mine",
+    "items": [
+      {
+        "text": "plan",
+        "link": "/mine/plan/index"
+      },
+      {
+        "text": "saying",
+        "link": "/mine/saying/index"
+      },
+      {
+        "text": "tips",
+        "link": "/mine/tips/index"
+      },
+      {
+        "text": "work-tips",
+        "link": "/mine/work-tips/index"
+      },
+      {
+        "text": "other",
+        "link": "/mine/other/index"
+      },
+      {
+        "text": "encrypt",
+        "link": "/mine/encrypt/index"
+      }
+    ]
+  },
+  {
+    "text": "web-basics",
+    "items": [
+      {
+        "text": "JavaScript",
+        "link": "/web-basics/javascript/promise"
+      },
+      {
+        "text": "arithmetic",
+        "link": "/web-basics/arithmetic/bit-operation"
+      },
+      {
+        "text": "canvas",
+        "link": "/web-basics/canvas/api"
+      },
+      {
+        "text": "css",
+        "link": "/web-basics/css/flex"
+      },
+      {
+        "text": "interview",
+        "link": "/web-basics/interview/index"
+      },
+      {
+        "text": "network",
+        "link": "/web-basics/network/index"
+      },
+      {
+        "text": "react",
+        "link": "/web-basics/react/index"
+      },
+      {
+        "text": "typescript",
+        "link": "/web-basics/typescript/index"
+      },
+      {
+        "text": "vite",
+        "link": "/web-basics/vite/configuration"
+      },
+      {
+        "text": "vue",
+        "link": "/web-basics/vue/index"
+      }
+    ]
+  },
+  {
+    "text": "server",
+    "items": [
+      {
+        "text": "nestjs",
+        "link": "/server/nestjs/index"
+      }
+    ]
+  },
+  {
+    "text": "tools",
+    "items": [
+      {
+        "text": "axios",
+        "link": "/tools/axios/index"
+      },
+      {
+        "text": "charles",
+        "link": "/tools/charles/index"
+      },
+      {
+        "text": "commit",
+        "link": "/tools/commit/index"
+      },
+      {
+        "text": "encrypt",
+        "link": "/tools/encrypt/index"
+      },
+      {
+        "text": "git",
+        "link": "/tools/git/index"
+      },
+      {
+        "text": "lerna",
+        "link": "/tools/lerna/index"
+      },
+      {
+        "text": "npm",
+        "link": "/tools/npm/index"
+      },
+      {
+        "text": "rollup",
+        "link": "/tools/rollup/index"
+      },
+      {
+        "text": "vscode",
+        "link": "/tools/vscode/index"
+      },
+      {
+        "text": "vuepress",
+        "link": "/tools/vuepress/index"
+      },
+      {
+        "text": "webpack",
+        "link": "/tools/webpack/index"
+      }
+    ]
+  },
+  {
+    "text": "writingcode",
+    "items": [
+      {
+        "text": "call-apply-bind",
+        "link": "/writingcode/call-apply-bind/index"
+      },
+      {
+        "text": "copy",
+        "link": "/writingcode/copy/index"
+      },
+      {
+        "text": "promise",
+        "link": "/writingcode/promise/index"
+      },
+      {
+        "text": "roth",
+        "link": "/writingcode/roth/index"
+      },
+      {
+        "text": "throttle",
+        "link": "/writingcode/throttle/index"
+      }
+    ]
+  }
+]

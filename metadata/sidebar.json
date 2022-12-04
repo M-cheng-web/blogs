@@ -1,0 +1,438 @@
+{
+  "/mine/": [
+    {
+      "text": "plan",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/plan/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "saying",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/saying/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "tips",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/tips/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "work-tips",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/work-tips/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "other",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/other/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "encrypt",
+      "items": [
+        {
+          "text": "index",
+          "link": "/mine/encrypt/index"
+        }
+      ],
+      "link": ""
+    }
+  ],
+  "/web-basics/": [
+    {
+      "text": "JavaScript",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/javascript/index"
+        },
+        {
+          "text": "promise",
+          "link": "/web-basics/javascript/promise"
+        },
+        {
+          "text": "array",
+          "link": "/web-basics/javascript/array"
+        },
+        {
+          "text": "design-mode",
+          "link": "/web-basics/javascript/design-mode"
+        },
+        {
+          "text": "function-pro",
+          "link": "/web-basics/javascript/function-pro"
+        },
+        {
+          "text": "map",
+          "link": "/web-basics/javascript/map"
+        },
+        {
+          "text": "prototype",
+          "link": "/web-basics/javascript/prototype"
+        },
+        {
+          "text": "regular",
+          "link": "/web-basics/javascript/regular"
+        },
+        {
+          "text": "skill",
+          "link": "/web-basics/javascript/skill"
+        },
+        {
+          "text": "var-top",
+          "link": "/web-basics/javascript/var-top"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "arithmetic",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/arithmetic/index"
+        },
+        {
+          "text": "bit-operation",
+          "link": "/web-basics/arithmetic/bit-operation"
+        },
+        {
+          "text": "system",
+          "link": "/web-basics/arithmetic/system"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "canvas",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/canvas/index"
+        },
+        {
+          "text": "api",
+          "link": "/web-basics/canvas/api"
+        },
+        {
+          "text": "demo-up",
+          "link": "/web-basics/canvas/demo-up"
+        },
+        {
+          "text": "demo",
+          "link": "/web-basics/canvas/demo"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "css",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/css/index"
+        },
+        {
+          "text": "flex",
+          "link": "/web-basics/css/flex"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "interview",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/interview/index"
+        },
+        {
+          "text": "optimize",
+          "link": "/web-basics/interview/optimize"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "network",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/network/index"
+        },
+        {
+          "text": "tcp",
+          "link": "/web-basics/network/tcp"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "react",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/react/index"
+        },
+        {
+          "text": "react-router",
+          "link": "/web-basics/react/react-router"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "typescript",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/typescript/index"
+        },
+        {
+          "text": "start",
+          "link": "/web-basics/typescript/start"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "vite",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/vite/index"
+        },
+        {
+          "text": "configuration",
+          "link": "/web-basics/vite/configuration"
+        },
+        {
+          "text": "esbuild",
+          "link": "/web-basics/vite/esbuild"
+        },
+        {
+          "text": "prebuild",
+          "link": "/web-basics/vite/prebuild"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "vue",
+      "items": [
+        {
+          "text": "index",
+          "link": "/web-basics/vue/index"
+        },
+        {
+          "text": "mvvm",
+          "link": "/web-basics/vue/mvvm"
+        },
+        {
+          "text": "render",
+          "link": "/web-basics/vue/render"
+        }
+      ],
+      "link": ""
+    }
+  ],
+  "/server/": [
+    {
+      "text": "nestjs",
+      "items": [
+        {
+          "text": "index",
+          "link": "/server/nestjs/index"
+        }
+      ],
+      "link": ""
+    }
+  ],
+  "/tools/": [
+    {
+      "text": "axios",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/axios/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "charles",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/charles/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "commit",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/commit/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "encrypt",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/encrypt/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "git",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/git/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "lerna",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/lerna/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "npm",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/npm/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "rollup",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/rollup/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "vscode",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/vscode/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "vuepress",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/vuepress/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "webpack",
+      "items": [
+        {
+          "text": "index",
+          "link": "/tools/webpack/index"
+        }
+      ],
+      "link": ""
+    }
+  ],
+  "/writingcode/": [
+    {
+      "text": "call-apply-bind",
+      "items": [
+        {
+          "text": "index",
+          "link": "/writingcode/call-apply-bind/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "copy",
+      "items": [
+        {
+          "text": "index",
+          "link": "/writingcode/copy/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "promise",
+      "items": [
+        {
+          "text": "index",
+          "link": "/writingcode/promise/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "roth",
+      "items": [
+        {
+          "text": "index",
+          "link": "/writingcode/roth/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "throttle",
+      "items": [
+        {
+          "text": "index",
+          "link": "/writingcode/throttle/index"
+        }
+      ],
+      "link": ""
+    }
+  ]
+}
