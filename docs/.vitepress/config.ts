@@ -4,7 +4,7 @@ import sidebar from '../../metadata/sidebar.json'
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'Blog',
+  title: 'M-cheng-Blog',
   description: '个人博客',
 
   lastUpdated: true,
@@ -12,7 +12,7 @@ export default defineConfig({
   cleanUrls: 'without-subfolders',
 
   themeConfig: {
-    logo: 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/logo.ocqmygd2csw.webp',
+    logo: 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/icon.3so9gi79i940.webp',
     nav,
     sidebar,
     socialLinks: [
@@ -20,6 +20,6 @@ export default defineConfig({
     ],
   },
   head: [
-    ['link', { rel: 'icon', href: 'logo.svg' }],
+    ['link', { rel: 'icon', href: 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/icon.3so9gi79i940.webp' }],
   ]
 })

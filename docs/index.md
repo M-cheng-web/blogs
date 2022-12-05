@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: MoreHooks
+title: Blog
 titleTemplate: vue-hook & vue 组件
 
 hero:
@@ -9,7 +9,7 @@ hero:
   text: vue-hook & vue 组件
   tagline: 基于日常业务开发所总结出的一套hooks以及业务属性很重的组件
   image:
-    src: https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/logo.ocqmygd2csw.webp
+    src: https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/icon.3so9gi79i940.webp
     alt: VitePress
   actions:
     - theme: brand
