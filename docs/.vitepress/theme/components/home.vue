@@ -1,21 +1,43 @@
 <template>
   <div class='home' ref="homeRef">
     <canvas id="canvas" scale-50 origin-top-left />
-    <!-- <div class="content">
-      <div>期待每一天的清晨</div>
-      <div>让我们开始吧！</div>
-      <div>
-      程序员，就像诗人一样，几乎仅仅工作在单纯的思考中。
-      程序员凭空地运用自己的想象，来建造自己的“城堡”。很少有这样的介质 —— 创造的方式如此得灵活，
-      如此得易于精炼和重建，如此得容易实现概念上的设想。"
-      —— 《人月神话》
-      </div>
-    </div> -->
+    <div class="content">
+      <img src="../../../public/sanji.png" :style="{ opacity, width }" />
+    </div>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useMediaQueryS } from '@morehook/core'
+
+const query = {
+  xs: '(max-width:500px)',
+  sm: '(min-width:500px)',
+  md: '(min-width:700px)',
+  lg: '(min-width:900px)',
+  xl: '(min-width:1100px)',
+  xxl: '(min-width:1300px)'
+}
+const queryKey = useMediaQueryS(query)
+const width = computed(() => {
+  switch (queryKey.value) {
+    case 'xs':
+      return '100px'
+    case 'sm':
+      return '100px'
+    case 'md':
+      return '150px'
+    case 'lg':
+      return '200px'
+    case 'xl':
+      return '250px'
+    case 'xxl':
+      return '300px'
+    default:
+      return '500px'
+  }
+})
 
 interface Point {
   x: number
@@ -55,14 +77,14 @@ function step(b: Branch, depth = 0) {
   }
   lineTo(b.start, end)
 
-  if (depth < 24 || Math.random() < 0.5) {
+  if (depth < 20 || Math.random() < 0.5) {
     pendingTasks.push(() => step({
       start: end,
       length: b.length + (Math.random() * 2 - 1),
       theta: b.theta - 0.2 * Math.random(),
     }, depth + 1))
   }
-  if (depth < 2 || Math.random() < 0.5) {
+  if (depth < 1 || Math.random() < 0.5) {
     pendingTasks.push(() => step({
       start: end,
       length: b.length + (Math.random() * 2 - 1),
@@ -73,11 +95,16 @@ function step(b: Branch, depth = 0) {
 
 startFrame()
 let framesCount = 0
+const endCount = 400
+const opacity = ref(0)
 function startFrame() {
   requestAnimationFrame(() => {
     framesCount += 1
-    if (framesCount % 1 === 0) frame() // 控制生长速度
-    if (framesCount < 300) startFrame()
+    if (framesCount % 2 === 0) frame() // 控制生长速度
+    if (framesCount < endCount) {
+      startFrame()
+      opacity.value = framesCount / endCount
+    }
   })
 }
 function frame() {
@@ -111,9 +138,15 @@ function lineTo(p1: Point, p2: Point) {
   }
 
   .content {
-    border: 1px solid red;
-    width: 800px;
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    img {
+      position: absolute;
+      right: 50px;
+      bottom: 50px;
+    }
   }
 }
 </style>

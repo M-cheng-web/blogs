@@ -24,6 +24,7 @@
     "vitepress": "1.0.0-alpha.29"
   },
   "dependencies": {
+    "@morehook/core": "^1.10.8",
     "vue": "^3.2.45"
   }
 }

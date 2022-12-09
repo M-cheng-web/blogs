@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@morehook/core': ^1.10.8
   '@types/node': ^18.11.10
   consola: ^2.15.3
   fast-glob: ^3.2.12
@@ -12,6 +13,7 @@ specifiers:
   vue: ^3.2.45
 
 dependencies:
+  '@morehook/core': 1.10.8_vue@3.2.45
   vue: 3.2.45
 
 devDependencies:
@@ -226,6 +228,17 @@ packages:
   /@kwsites/promise-deferred/1.1.1:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
+
+  /@morehook/core/1.10.8_vue@3.2.45:
+    resolution: {integrity: sha512-mPaq73ShGRvgt37qNMcMaNCwvWrgQuKU8m58tthqgNOfjPqBXHwijf7gix9LXJ0qgCuH5dv8/9jFmpYk4ctO+g==}
+    peerDependencies:
+      vue: '*'
+    dependencies:
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1071,7 +1084,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.45
-    dev: true
 
   /vue/3.2.45:
     resolution: {integrity: sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==}
