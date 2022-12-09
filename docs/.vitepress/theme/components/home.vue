@@ -131,8 +131,10 @@ function lineTo(p1: Point, p2: Point) {
 
 <style lang='scss' scoped>
 .home {
-  height: calc(100vh - 72px);
-  position: relative;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 
   #canvas {
     position: absolute;
