@@ -93,7 +93,9 @@ function step(b: Branch, depth = 0) {
   }
 }
 
-startFrame()
+if (typeof window !== 'undefined') {
+  startFrame()
+}
 let framesCount = 0
 const endCount = 400
 const opacity = ref(0)

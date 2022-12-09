@@ -44,6 +44,7 @@ async function getRouterList() {
   const categoryList = await fg('*', { cwd: DIR_SRC, onlyDirectories: true })
   for (let x = 0; x < categoryList.length; x++) {
     const categoryTitle = categoryList[x]
+    if (categoryTitle === 'public') continue;
     const items = await fg('*', { cwd: `${DIR_SRC}/${categoryTitle}`, onlyDirectories: true })
     const routerItem = { title: categoryTitle, link: categoryTitle, children: [] as any[] }
 
