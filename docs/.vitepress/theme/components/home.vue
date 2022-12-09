@@ -2,7 +2,7 @@
   <div class='home' ref="homeRef">
     <canvas id="canvas" scale-50 origin-top-left />
     <div class="content">
-      <img src="../../../public/sanji.png" :style="{ opacity, width }" />
+      <img src="/sanji.png" :style="{ opacity, width }" />
     </div>
   </div>
 </template>
