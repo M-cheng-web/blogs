@@ -557,6 +557,11 @@
 + 小程序-全面UI调整
 + 小程序微信预约规划师页面UI不兼容问题处理
 
+### 1212
++ 规划师V1.9.0 历史bug更改
++ 规划师V1.8.0 需求评估时间
++ 规划师V1.8.0 管理站需求编写
+
 ## uniapp
 + click.stop 是无效的, 要用 click.native.stop
 + input type = number 时, 设置 maxlength 会出错,但是不报错 (在支付宝小程序)
