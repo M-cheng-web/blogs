@@ -8,6 +8,7 @@
 + 服务端(node, nestjs, mysql),可应用在埋点库中即可
 + morehook 的长期记录
 + 经济学
++ 把加密的脚本做成vscode插件,或者谷歌插件
 
 ## 2022
 + 服务端(node, nestjs, mysql)
