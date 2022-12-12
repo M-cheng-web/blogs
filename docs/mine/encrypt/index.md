@@ -1,26 +1,4 @@
 # 每日记录 (2022年)
-长期规划:
-1. 低代码 - 取消
-2. 重读 js 基础
-3. 想在代码之外获得一个新爱好，比如经济学？
-4. vite/vue-use
-5. three.js
-6. webgl
-7. CICD
-8. unity3D - 暂定
-9. VR - 暂定
-10. WebAssembly - 好像不错
-
-待学习
-1. https://blog.csdn.net/petertanjinjie/article/details/121690163?spm=1001.2014.3001.5502
-2. https://blog.csdn.net/petertanjinjie/article/details/125076239?spm=1001.2014.3001.5502
-3. 暗水印 https://blog.csdn.net/petertanjinjie/article/details/123887802?spm=1001.2014.3001.5502
-4. 每日代码 https://github.com/30-seconds/30-seconds-of-code/tree/master/snippets
-5. 每日react学习
-
-感悟:
-发觉自己一定要坚持某件很牛逼的事,不是想证明什么,只是单纯的想在离开这个世界的时候想起来我也牛逼过,然后笑着走
-
 
 ## 五月
 ### 0528
