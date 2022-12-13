@@ -50,6 +50,7 @@ async function getRouterList() {
 
     for (let y = 0; y < items.length; y++) {
       const childrenLink = items[y]
+      if (childrenLink === 'encrypt') continue;
       const cwd = `${DIR_SRC}/${categoryTitle}/${childrenLink}`
       const index = routerItem.children.push({
         title: transitionTitle(childrenLink),

@@ -49,16 +49,6 @@
         }
       ],
       "link": ""
-    },
-    {
-      "text": "encrypt",
-      "items": [
-        {
-          "text": "index",
-          "link": "/mine/encrypt/index"
-        }
-      ],
-      "link": ""
     }
   ],
   "/web-basics/": [
@@ -298,16 +288,6 @@
         {
           "text": "index",
           "link": "/tools/commit/index"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "encrypt",
-      "items": [
-        {
-          "text": "index",
-          "link": "/tools/encrypt/index"
         }
       ],
       "link": ""

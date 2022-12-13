@@ -27,11 +27,6 @@
         "title": "other",
         "link": "other",
         "children": []
-      },
-      {
-        "title": "encrypt",
-        "link": "encrypt",
-        "children": []
       }
     ]
   },
@@ -265,11 +260,6 @@
       {
         "title": "commit",
         "link": "commit",
-        "children": []
-      },
-      {
-        "title": "encrypt",
-        "link": "encrypt",
         "children": []
       },
       {

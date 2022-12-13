@@ -21,10 +21,6 @@
       {
         "text": "other",
         "link": "/mine/other/index"
-      },
-      {
-        "text": "encrypt",
-        "link": "/mine/encrypt/index"
       }
     ]
   },
@@ -96,10 +92,6 @@
       {
         "text": "commit",
         "link": "/tools/commit/index"
-      },
-      {
-        "text": "encrypt",
-        "link": "/tools/encrypt/index"
       },
       {
         "text": "git",
