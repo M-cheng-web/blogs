@@ -99,28 +99,6 @@
         ]
       },
       {
-        "title": "canvas",
-        "link": "canvas",
-        "children": [
-          {
-            "title": "api",
-            "link": "api"
-          },
-          {
-            "title": "demo-up",
-            "link": "demo-up"
-          },
-          {
-            "title": "demo",
-            "link": "demo"
-          },
-          {
-            "title": "index",
-            "link": "index"
-          }
-        ]
-      },
-      {
         "title": "css",
         "link": "css",
         "children": [
@@ -229,6 +207,44 @@
             "link": "render"
           }
         ]
+      }
+    ]
+  },
+  {
+    "title": "graph",
+    "link": "graph",
+    "children": [
+      {
+        "title": "canvas",
+        "link": "canvas",
+        "children": [
+          {
+            "title": "index",
+            "link": "index"
+          },
+          {
+            "title": "practice",
+            "link": "practice"
+          },
+          {
+            "title": "demo",
+            "link": "demo"
+          },
+          {
+            "title": "demoX",
+            "link": "demoX"
+          }
+        ]
+      },
+      {
+        "title": "threejs",
+        "link": "threejs",
+        "children": []
+      },
+      {
+        "title": "webgl",
+        "link": "webgl",
+        "children": []
       }
     ]
   },

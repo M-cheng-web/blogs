@@ -117,28 +117,6 @@
       "link": ""
     },
     {
-      "text": "canvas",
-      "items": [
-        {
-          "text": "index",
-          "link": "/web-basics/canvas/index"
-        },
-        {
-          "text": "api",
-          "link": "/web-basics/canvas/api"
-        },
-        {
-          "text": "demo-up",
-          "link": "/web-basics/canvas/demo-up"
-        },
-        {
-          "text": "demo",
-          "link": "/web-basics/canvas/demo"
-        }
-      ],
-      "link": ""
-    },
-    {
       "text": "css",
       "items": [
         {
@@ -244,6 +222,50 @@
         {
           "text": "render",
           "link": "/web-basics/vue/render"
+        }
+      ],
+      "link": ""
+    }
+  ],
+  "/graph/": [
+    {
+      "text": "canvas",
+      "items": [
+        {
+          "text": "index",
+          "link": "/graph/canvas/index"
+        },
+        {
+          "text": "practice",
+          "link": "/graph/canvas/practice"
+        },
+        {
+          "text": "demo",
+          "link": "/graph/canvas/demo"
+        },
+        {
+          "text": "demoX",
+          "link": "/graph/canvas/demoX"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "threejs",
+      "items": [
+        {
+          "text": "index",
+          "link": "/graph/threejs/index"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "webgl",
+      "items": [
+        {
+          "text": "index",
+          "link": "/graph/webgl/index"
         }
       ],
       "link": ""

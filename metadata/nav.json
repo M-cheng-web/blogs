@@ -36,10 +36,6 @@
         "link": "/web-basics/arithmetic/bit-operation"
       },
       {
-        "text": "canvas",
-        "link": "/web-basics/canvas/api"
-      },
-      {
         "text": "css",
         "link": "/web-basics/css/flex"
       },
@@ -66,6 +62,23 @@
       {
         "text": "vue",
         "link": "/web-basics/vue/index"
+      }
+    ]
+  },
+  {
+    "text": "graph",
+    "items": [
+      {
+        "text": "canvas",
+        "link": "/graph/canvas/index"
+      },
+      {
+        "text": "threejs",
+        "link": "/graph/threejs/index"
+      },
+      {
+        "text": "webgl",
+        "link": "/graph/webgl/index"
       }
     ]
   },

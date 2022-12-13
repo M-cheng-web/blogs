@@ -20,5 +20,19 @@
         ]
       }
     ]
+  },
+  {
+    "link": "graph",
+    "children": [
+      {
+        "link": "canvas",
+        "children": [
+          { "link": "index" },
+          { "link": "practice" },
+          { "link": "demo" },
+          { "link": "demoX" }
+        ]
+      }
+    ]
   }
 ]

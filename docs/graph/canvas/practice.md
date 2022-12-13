@@ -1,4 +1,4 @@
-# canvas 具体API
+# 实践一些简单效果
 
 > 本文是对 https://juejin.cn/post/7119495608938790942#heading-97 的总结
 
