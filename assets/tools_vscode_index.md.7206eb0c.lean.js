@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,b as o}from"./app.415fefa7.js";const q=JSON.parse('{"title":"vscode","description":"","frontmatter":{},"headers":[],"relativePath":"tools/vscode/index.md","lastUpdated":1670155339000}'),l={name:"tools/vscode/index.md"},p=o("",3),t=[p];function e(F,c,r,D,y,u){return a(),n("div",null,t)}const C=s(l,[["render",e]]);export{q as __pageData,C as default};
