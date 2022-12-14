@@ -12,14 +12,14 @@ ctx.stroke();
 " />
 
 ### 三角形
-``` ts
-let ctx = canvas.getContext("2d");
+<CanvasDemo
+code="let ctx = canvas.getContext('2d');
 ctx.moveTo(0, 0);
 ctx.lineTo(200, 0);
-ctx.lineTo(0, 200);
+ctx.lineTo(0, 100);
 ctx.lineTo(0, 0);
 ctx.stroke();
-```
+" />
 
 ### 矩形
 ``` ts
