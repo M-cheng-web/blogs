@@ -4,12 +4,12 @@
 
 ## 绘制形状
 ### 直线
-``` ts
-let ctx = canvas.getContext("2d");
-ctx.moveTo(50, 50);
-ctx.lineTo(550, 550);
-ctx.stroke()
-```
+<CanvasDemo
+code="let ctx = canvas.getContext('2d');
+ctx.moveTo(20, 20);
+ctx.lineTo(60, 60);
+ctx.stroke();
+" />
 
 ### 三角形
 ``` ts
