@@ -1,46 +1,55 @@
 <template>
-  <div class="language-ts"><button title="Copy Code" class="copy"></button><span class="lang">canvas</span>
-    <pre class="shiki"><code>{{ code }}</code></pre>
+  <div v-if="showCode" class="language-ts"><button title="Copy Code" class="copy"></button><span class="lang">canvas</span>
+    <pre class="shiki"><code>{{ displayCode }}</code></pre>
   </div>
 
   <div class='canvas-demo' id="demo">
-    <canvas :width="width" :height="height" ref="canvasRef"></canvas>
+    <canvas ref="canvasRef"></canvas>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { ref, withDefaults, onMounted, watch } from 'vue'
+import { ref, withDefaults, onMounted, watch, computed } from 'vue'
 
 interface Props {
   code: string,
+  showCode?: boolean,
   width?: string,
   height?: string,
 }
 const props = withDefaults(defineProps<Props>(), {
+  code: '',
+  showCode: true,
   width: '300',
   height: '100',
-  code: '',
 })
 
-watch(() => props.code, () => {
-  clearCanvas()
-  drawCanvas()
+const displayCode = computed(() => props.code.replace(/\n/, ''))
+
+watch(() => [props.code, props.width, props.height], () => {
+  init()
 })
 
 const canvasRef = ref()
 onMounted(() => {
-  drawCanvas()
+  init()
 })
 
+function init() {
+  clearCanvas()
+  drawCanvas()
+}
+
 function clearCanvas() {
-  // 重新赋值宽高会清空
+  // 重新赋值宽高会清空，也可以当宽高发生变化时动态更改
   const canvas = canvasRef.value
   canvas.width = props.width
   canvas.height = props.height
 }
 function drawCanvas() {
   // 不能通过 document.getid 这种方式获取 canvas，当组件被多次使用时这种方式会使得在同一个canvas上绘制
-  const code = props.code.replace("canvas.getContext('2d')", "canvasRef.value.getContext('2d')")
+  const code = props.code.replace(/canvas/g, "canvasRef.value")
+  // const code = props.code.replace(/canvas.getContext/g, "canvasRef.value.getContext")
   eval(code)
 }
 

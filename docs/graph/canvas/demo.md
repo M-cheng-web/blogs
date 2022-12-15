@@ -315,3 +315,189 @@ function draw() {
 }
 window.requestAnimationFrame(draw);
 ```
+
+
+
+
+
+
+
+
+
+
+### 暂时存放 demo
+这边直接做一个地球太阳星际图demo来演示
+``` ts
+var ctx = canvas.getContext('2d');
+var sun = new Image();
+var moon = new Image();
+var earth = new Image();
+function init(){
+  sun.src = 'https://img.lovepik.com/element/40097/4339.png_300.png';
+  moon.src = 'https://www.freepnglogos.com/uploads/moon-png/moon-png-annual-celestial-overview-simone-matthews-18.png';
+  earth.src = 'https://www.freepnglogos.com/uploads/moon-png/moon-png-annual-celestial-overview-simone-matthews-18.png';
+  window.requestAnimationFrame(draw);
+
+  var ctx = document.getElementById('canvas').getContext('2d');
+}
+
+function draw() {
+  var ctx = document.getElementById('canvas').getContext('2d');
+  ctx.globalCompositeOperation = 'destination-over'; // 让太阳为背景图的关键属性
+  ctx.clearRect(0, 0, 700, 700);
+
+  ctx.save(); // 第一次保存画布状态
+  ctx.translate(350, 350);
+
+  // 地球
+  var time = new Date();
+  var earthDeg = ((Math.PI * 2) / 60) * time.getSeconds() + ((Math.PI * 2) / 60000) * time.getMilliseconds()
+  ctx.rotate(earthDeg);
+  ctx.translate(200, 0);
+  ctx.drawImage(earth, -20, -20, 40, 40);
+
+  // 月亮
+  var moonDeg = ((2 * Math.PI) / 2) * time.getSeconds() + ((2 * Math.PI) / 2000) * time.getMilliseconds()
+  ctx.rotate(moonDeg);
+  ctx.translate(0, 40);
+  ctx.drawImage(moon, -10, -10, 20, 20);
+
+  ctx.restore();
+
+  // 海王星
+  ctx.save();
+  ctx.translate(350, 350);
+  var time2 = new Date();
+  var earthDeg = ((Math.PI * 2) / 6) * time2.getSeconds() + ((Math.PI * 2) / 6000) * time2.getMilliseconds()
+  ctx.rotate(earthDeg);
+  ctx.translate(300, 0);
+  ctx.drawImage(earth, -40, -40, 80, 80);
+
+  ctx.restore();
+
+  // 轨迹线
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(0, 153, 255, 0.4)';
+  ctx.arc(350, 350, 200, 0, 2*Math.PI )
+  ctx.stroke()
+
+  // 太阳
+  ctx.drawImage(sun, 0, 0, 700, 700);
+
+  window.requestAnimationFrame(draw);
+}
+init()
+```
+### 通过demo明确的问题
+1. 如何把太阳系图片当做背景的
+> ctx.globalCompositeOperation 属性可以规定上下层级，还可以规定显影等等
+
+2. 地球是如何绕着中心走的
+> 先旋转 + 后平移
+> 这里有两个注意点：
+> 1.旋转1度是这样写的 rotate(1*Math.PI/180),仔细思考下就知道为什么啦
+> 2.先旋转是自转多少角度，然后平移，这个水平平移不是水平平移，而是以原先点为矩形的左上角绘制一个直线来进行平移，同理垂直平移也不是真正的垂直，都是按照那个矩形来进行平移
+
+3. 月亮是如何绕着地球走的
+> 因为月亮的绘制是在地球后的，而绘制地球时的旋转以及位移我们还没有保存释放它，所以绘制月亮可以接着用它，在此基础上我们再加上月亮的自转和位移，就能达到此效果
+
+4. 地球和海王星是如何一个在内圈一个在外圈的
+> 旋转玩平移的时候x设置的大一些就能达到此效果，注意不能设置y的值，否则圆心会改变，由上面问题可知y轴的位移并不会垂直位移~
+
+5. 球体的一个快一个慢怎么搞
+> (Math.PI * 2) / 60 表示60秒转一圈
+> (Math.PI * 2) / 6 表示6秒转一圈
+> 注意: 需要加上毫秒的位移，否则会出现闪现
+
+6. 旋转加平移好像不是预想中的那样(先旋转再平移是按照普通画图那样，试着去理解)
+> 就像上面说的，起点位于矩形的左上角，然后基于此进行位移
+
+## 高级动画
+这里直接用一个 `小球移动demo` 来演示
+``` ts
+var ctx = canvas.getContext('2d');
+var ball = {
+  x: 100,
+  y: 100,
+  vx: 10,
+  vy: 3,
+  radius: 25,
+  color: 'blue',
+  draw: function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+};
+function draw() {
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ball.draw();
+
+  // 添加加速度
+  ball.vy *= .99;
+  ball.vy += .25; // 设置重力值，越大掉的越快
+  // 添加速率
+  ball.x += ball.vx;
+  ball.y += ball.vy;
+  // 添加边界
+  if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+    ball.vy = -ball.vy;
+  }
+  if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+    ball.vx = -ball.vx;
+  }
+  window.requestAnimationFrame(draw);
+}
+window.requestAnimationFrame(draw);
+ball.draw();
+```
+
+### 通过demo明确的问题
++ 如何工程化的在页面绘制一个球
+> 类似于demo一样，创建一个 ball 对象，内部有坐标的偏移量以及具体的绘制方法，外部需要更改绘制路径只需更改对象某个属性然后执行其绘制方法就可以，集中管理的效果
+
+> 需要注意的是：在不需要残影效果时，我们还是用 ctx.clearRect(0, 0, canvas.width, canvas.height) 来清除上一帧绘制的球
+
++ 怎么让这个球动起来
+``` js
+ball.x += ball.vx;
+ball.y += ball.vy;
+```
+
+> 与上个demo一样，利用 window.requestAnimationFrame() 来达到动画效果，需要注意的是要在内部对 ball 对象中的x，y进行递增,而这个递增的速度取决于 vx，vy 的大小
+
++ 怎么做到反弹的效果
+``` js
+if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+  ball.vy = -ball.vy;
+}
+if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+  ball.vx = -ball.vx;
+}
+```
+> 就上面面的关键代码，在判断触边后就使递增变量设反，因为实际的移动值会加上这个设反了的递增变量(vx,vy)，所以也巧妙的达到了触底后反向移动
+
++ 怎么做到重力(加速度)的效果
+``` js
+ball.vy *= .99; // 这个是固定不变的
+ball.vy += .25; // 这个值来控制重力值，越大则重力越大
+```
+1. 给球加上重力的效果，只需要更改 y 轴上的变量，所以只需要更改 vy 递增变量
+2. `vy *=.99` 作用是为了保证回弹时会越弹越小，如果写成 `vy *=.90` 都不行,看起来重力效果就不是很自然
+3. `vy += .25` 作用是为了能达到不匀速下降的效果，看起来像重力效果，这个值的大小会直接影响下降速度，也就是重力的大小
+4. 这两句话在一起很巧妙，因为有 `*=.99` 的存在所以最后的递增值肯定会越来越小，而因为有 `+=.25` 也造成了一开始的下降加速度的效果，再加上反弹的效果，看起来非常拟真
+
++ 怎么做残影
+``` ts
+// ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+```
+
+> 舍弃 ctx.clearRect() 的方式去清除上一帧画面，采用 ctx.fillRect() + 背景0.3透明 的方式去达到残影的效果
+
+暂时不懂为什么能达到此效果，后面会跟进研究，只知道 `ctx.fillStyle = 'rgba(255, 255, 255, 0.3)'` 中的 0.3 是个临界点，如果设置为 0.2 那么拖影会更长，但是会有副作用(画布的背景色会被影响到)，反之设置 0.4 不会有这样的效果，但是拖影会更短
