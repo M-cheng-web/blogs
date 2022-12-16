@@ -1,6 +1,14 @@
 # 进阶Demo
 
 ## ps调色盘(当前颜色，更换主题色，浮动的圆圈)
+<iframe
+  height=700
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/color.html"
+/>
+
 ``` ts
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +16,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>canvas - 裁剪</title>
     <style>
       #canvas {
         box-shadow: 0px 0px 5px #ccc;
@@ -288,46 +295,81 @@
 ```
 
 ## 刮刮乐(待完善)
+<iframe
+  height=550
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/shaving.html"
+/>
+
 ``` html
- <body>
-<canvas id="canvas" width="500" height="500"></canvas>
-<canvas id="canvasText" width="500" height="500"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #canvas {
+        box-shadow: 0px 0px 5px #ccc;
+      }
+      #canvas-color,
+      #canvas-lucid {
+        margin-left: 20px;
+        box-shadow: 0px 0px 5px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <canvas id="canvasText" width="500" height="500"></canvas>
 
-<script>
-  const canvasText = document.getElementById("canvasText");
-  const ctxText = canvasText.getContext("2d");
-  ctxText.font = "40px 微软雅黑";
-  ctxText.strokeText("zxczxc", 200, 200);
-  ctxText.fill();
-</script>
+    <script>
+      const canvasText = document.getElementById("canvasText");
+      const ctxText = canvasText.getContext("2d");
+      ctxText.font = "40px 微软雅黑";
+      ctxText.strokeText("zxczxc", 200, 200);
+      ctxText.fill();
+    </script>
 
-<script>
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
 
-  ctx.beginPath();
-  ctx.fillStyle = "red";
-  ctx.fillRect(0, 0, 500, 500);
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(0, 0, 500, 500);
 
-  canvas.addEventListener("mousemove", function (e) {
-    ctx.clearRect(e.offsetX, e.offsetY, 50, 50)
-  });
-</script>
-</body>
+      canvas.addEventListener("mousemove", function (e) {
+        ctx.clearRect(e.offsetX, e.offsetY, 50, 50);
+      });
+    </script>
+  </body>
 
-<style>
-#canvas {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 3;
-}
-</style>
+  <style>
+    #canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 3;
+    }
+  </style>
+</html>
+
 ```
 
-## 保存图片
+## 截图&下载 图片
 > 注意：下载的步骤可以这样写获取下载地址便捷一些
 > canvas.toBlob(e => { let url = URL.createObjectURL(e) })
+
+<iframe
+  height=500
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/saveImage.html"
+/>
 
 ``` html
 <!DOCTYPE html>
@@ -344,8 +386,8 @@
         border-radius: 8px;
       }
       img {
-        width: 500px;
-        height: 500px;
+        width: 250px;
+        height: 250px;
         border: 1px solid red;
       }
       #btn {
@@ -357,11 +399,12 @@
     </style>
   </head>
   <body>
-    <canvas id="canvas" width="500" height="500"> </canvas>
+    <canvas id="canvas" width="250" height="250"> </canvas>
     <img id="img" />
     <div>
       <button id="btn">转化为图片</button>
       <button id="btnDown">下载</button>
+      <button id="again">重新执行动画</button>
     </div>
 
     <script>
@@ -369,6 +412,7 @@
       const Img = document.getElementById("img");
       const Btn = document.getElementById("btn");
       const BtnDown = document.getElementById("btnDown");
+      const Again = document.getElementById("again");
       const ctx = canvas.getContext("2d");
 
       const ball = {
@@ -407,6 +451,15 @@
       }
       window.requestAnimationFrame(draw);
       ball.draw();
+
+      Again.addEventListener(
+        "click",
+        () => {
+          ball.x = 100;
+          ball.y = 100;
+        },
+        false
+      );
 
       Btn.addEventListener(
         "click",
@@ -450,6 +503,14 @@
 ```
 
 ## 反相颜色
+<iframe
+  height=550
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/opposition.html"
+/>
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -457,7 +518,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>canvas - 保存图片</title>
   <style>
     /* 给画布增加一个阴影和圆角的样式 */
     canvas {
@@ -534,6 +594,14 @@
 ```
 
 ## 获取图片中的像素数据
+<iframe
+  height=550
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/getImageColor.html"
+/>
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -541,7 +609,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>canvas - 保存图片</title>
   <style>
     canvas {
       box-shadow: 0px 0px 5px #ccc;
@@ -550,10 +617,10 @@
   </style>
 </head>
 <body>
-  <canvas id="canvas" width="1000" height="500"></canvas>
   <div style="display: flex">
-    <div id="bg" style="width: 200px; height: 500px;">划过的颜色</div>
-    <div id="clickBg" style="width: 200px; height: 500px;">选中的颜色</div>
+    <canvas id="canvas" width="400" height="500"></canvas>
+    <div id="bg" style="width: 100px; height: 200px;">划过的颜色</div>
+    <div id="clickBg" style="width: 100px; height: 100px;">点击选中的颜色</div>
   </div>
   <script>
     // 获取 canvas 元素
@@ -595,6 +662,14 @@
 
 ## 图片-拖动&缩放&旋转
 记得加上在缩放时，根据鼠标所在点进行放大缩小
+<iframe
+  height=600
+  width=100%
+  frameborder=0
+  allowfullscreen="true"
+  src="/blogs/canvasDemo/scale.html"
+/>
+
 ``` ts
 <!DOCTYPE html>
 <html lang="en">
@@ -607,7 +682,7 @@
 </head>
 
 <body>
-  <canvas width="800" height="500" style="border: 1px solid #000;" id="canvas"></canvas>
+  <canvas width="600" height="500" style="border: 1px solid #000;" id="canvas"></canvas>
 </body>
 <script>
   const canvas = document.getElementById('canvas')
@@ -616,7 +691,7 @@
   const img = new Image()
   img.src = 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF'
   const icon = new Image()
-  icon.src = 'https://s6.jpg.cm/2022/09/06/PAaKw4.png'
+  icon.src = 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/logo.ocqmygd2csw.webp'
   img.onload = () => {
     icon.onload = () => {
       obj.PO = { x: obj.imgW / 2 + 50, y: obj.imgH / 2 + 50 }

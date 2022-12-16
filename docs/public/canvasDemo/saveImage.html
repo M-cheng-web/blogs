@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas - 保存图片</title>
+    <style>
+      /* 给画布增加一个阴影和圆角的样式 */
+      canvas {
+        box-shadow: 0px 0px 5px #ccc;
+        border-radius: 8px;
+      }
+      img {
+        width: 250px;
+        height: 250px;
+        border: 1px solid red;
+      }
+      #btn {
+        margin: 50px 0 50px 50px;
+      }
+      #btnDown {
+        margin-left: 140px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="250" height="250"> </canvas>
+    <img id="img" />
+    <div>
+      <button id="btn">转化为图片</button>
+      <button id="btnDown">下载</button>
+      <button id="again">重新执行动画</button>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const Img = document.getElementById("img");
+      const Btn = document.getElementById("btn");
+      const BtnDown = document.getElementById("btnDown");
+      const Again = document.getElementById("again");
+      const ctx = canvas.getContext("2d");
+
+      const ball = {
+        x: 100,
+        y: 100,
+        vx: 1,
+        vy: 3,
+        radius: 25,
+        color: "blue",
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        },
+      };
+      function draw() {
+        // 用带透明度的矩形代替清空
+        ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ball.draw();
+        // 添加加速度
+        ball.vy *= 0.995;
+        ball.vy += 0.15;
+        // 添加速率
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        // 添加边界
+        if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+          ball.vy = -ball.vy;
+        }
+        if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+          ball.vx = -ball.vx;
+        }
+        window.requestAnimationFrame(draw);
+      }
+      window.requestAnimationFrame(draw);
+      ball.draw();
+
+      Again.addEventListener(
+        "click",
+        () => {
+          ball.x = 100;
+          ball.y = 100;
+        },
+        false
+      );
+
+      Btn.addEventListener(
+        "click",
+        () => {
+          const url = canvas.toDataURL("image/png");
+          Img.src = url;
+        },
+        false
+      );
+
+      BtnDown.addEventListener(
+        "click",
+        () => {
+          const url = Img.src;
+          if (!url) return;
+          const arr = url.split(",");
+          const mime = arr[0].match(/:(.*?);/)[1]; // 此处得到的为文件类型
+          const bstr = atob(arr[1]); // 此处将base64解码
+          let n = bstr.length;
+          const u8arr = new Uint8Array(n);
+          while (n--) {
+            u8arr[n] = bstr.charCodeAt(n); // 得到 UTF-16 字符串(例如 a -> 97)
+          }
+
+          const file = new File([u8arr], "filename", { type: mime });
+          const aDom = document.createElement("a"); // 创建一个 a 标签
+          aDom.download = file.name; // 设置文件名
+          const href = URL.createObjectURL(file); // 得到本地获取 file 的链接
+          aDom.href = href; // 放入href
+          document.body.appendChild(aDom); // 将a标签插入 body
+          aDom.click(); // 触发 a 标签的点击
+
+          document.body.removeChild(aDom); // 移除刚才插入的 a 标签
+          URL.revokeObjectURL(href); // 释放刚才生成的 UTF-16 字符串 (释放了则通过生成的 href 是拿不到图片了的)
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

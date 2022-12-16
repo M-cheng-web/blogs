@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas图片的拖动、缩放、旋转</title>
+</head>
+
+<body>
+  <canvas width="600" height="500" style="border: 1px solid #000;" id="canvas"></canvas>
+</body>
+<script>
+  const canvas = document.getElementById('canvas')
+  const ctx = canvas.getContext('2d')
+
+  const img = new Image()
+  img.src = 'https://t7.baidu.com/it/u=1819248061,230866778&fm=193&f=GIF'
+  const icon = new Image()
+  icon.src = 'https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/icon.3so9gi79i940.webp'
+  img.onload = () => {
+    icon.onload = () => {
+      obj.PO = { x: obj.imgW / 2 + 50, y: obj.imgH / 2 + 50 }
+      ctx.translate(obj.PO.x, obj.PO.y)
+      draw()
+    }
+  }
+
+  const obj = {
+    initImgW: 200,
+    initImgH: 200,
+    imgW: 200,
+    imgH: 200,
+    beginX: 0,
+    beginY: 0,
+    rotate: 0,
+    PO: { x: 0, y: 0 },
+
+    iconW: 30,
+    iconH: 30,
+
+    scale: 1,
+
+    canMove: false,
+    canRotate: false,
+    canScale: false
+  }
+
+  const draw = () => {
+    // ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(
+      -canvas.width,
+      -canvas.height,
+      canvas.width * 2,
+      canvas.height * 2
+    )
+    ctx.drawImage(img, -obj.imgW / 2, -obj.imgH / 2, obj.imgW, obj.imgH)
+    ctx.drawImage(icon, obj.imgW / 2, -obj.imgH / 2, obj.iconW, obj.iconH)
+  }
+
+  const imgIsDown = (x, y) => {
+    return (
+      -obj.imgW / 2 < x &&
+      x < obj.imgW / 2 &&
+      -obj.imgH / 2 < y &&
+      y < obj.imgH / 2
+    )
+  }
+
+  const iconIsDown = (x, y) => {
+    return (
+      obj.imgW / 2 < x &&
+      x < obj.imgW / 2 + obj.iconW &&
+      -obj.imgH / 2 < y &&
+      y < -obj.imgH / 2 + obj.iconH
+    )
+  }
+
+  // window屏幕坐标转化为canvas坐标
+  const convertPX = (x, y) => {
+    //在屏幕坐标系中，相对canvas坐标系原点PO的偏移,所以要减去canvas坐标原点
+    x = x - obj.PO.x
+    y = y - obj.PO.y
+    //如果没有旋转，那么只计算偏移量就行，不用考虑角度
+    if (obj.rotate != 0) {
+      //Math.sqrt是两点之间的距离图中OM的距离，简化版本，正确用法应该是Math.sqrt((x-0)*(x-0) + (y-0)*(y-0))
+      const len = Math.sqrt(x * x + y * y)
+      //屏幕坐标系中 PO与按下点连线 与屏幕坐标系X轴的夹角弧度
+      const oldR = Math.atan2(y, x)
+      //canvas坐标系中PO与按下点连线 与canvas坐标系x轴的夹角弧度
+      const newR = oldR - obj.rotate
+      //最终算出来canvas坐标系上的M点
+      x = len * Math.cos(newR)
+      y = len * Math.sin(newR)
+    }
+    return { x, y }
+  }
+
+  canvas.onmousedown = e => {
+    obj.beginX = e.offsetX
+    obj.beginY = e.offsetY
+    const Cp = convertPX(obj.beginX, obj.beginY)
+    obj.canMove = imgIsDown(Cp.x, Cp.y)
+    obj.canRotate = iconIsDown(Cp.x, Cp.y)
+
+    canvas.onmousemove = e => {
+      const { offsetX: x, offsetY: y } = e
+      if (obj.canMove) {
+        const movex = x - obj.beginX
+        const movey = y - obj.beginY
+        const CP0 = convertPX(movex + obj.PO.x, movey + obj.PO.y)
+        ctx.translate(CP0.x, CP0.y)
+        draw()
+        obj.PO.x += movex
+        obj.PO.y += movey
+        obj.beginX = x
+        obj.beginY = y
+      }
+      if (obj.canRotate) {
+        const CP = convertPX(x, y)
+        const Cx = CP.x
+        const Cy = CP.y
+        //根据坐标算出来旋转的角度，这里减去一个50°是因为可旋转图标在图标的右上角，往上是逆时针，所以要减去他原有的角度，根据可旋转图标的位置来更改这个初始角度
+        const newR = Math.atan2(Cx, -Cy) - (50 * Math.PI) / 180
+        //旋转canvas画布
+        ctx.rotate(newR)
+        //记录一下现在的角度
+        obj.rotate += newR
+        draw()
+      }
+    }
+  }
+
+  canvas.onmousewheel = e => {
+    const { offsetX: x, offsetY: y } = e
+    const Cp = convertPX(x, y)
+    //同样需要判断如果鼠标在图片上，才允许缩放
+    obj.canScale = imgIsDown(Cp.x, Cp.y)
+    if (obj.canScale) {
+      //e.wheelDelta如果大于0，证明鼠标是向上滚动，反之向下
+      if (e.wheelDelta > 0) {
+        //放大的倍数可以根据实际情况定义，可以丝滑一点
+        obj.scale += 0.03
+      }
+      if (e.wheelDelta < 0) {
+        obj.scale -= 0.03
+      }
+      //不管放大还是缩下，都是用初始的宽高，来放大或者缩小
+      obj.imgW = obj.scale * obj.initImgW
+      obj.imgH = obj.scale * obj.initImgH
+      draw()
+    }
+  }
+
+  canvas.onmouseup = () => {
+    obj.canMove = false
+    obj.canRotate = false
+    canvas.onmousemove = null
+    document.onmouseup = null
+  }
+</script>
+
+</html>
