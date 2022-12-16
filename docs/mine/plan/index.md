@@ -14,6 +14,9 @@
 + 服务端(node, nestjs, mysql)
 + morehook 的长期记录
 
+## 2023
++ 感觉2022年有一些闭门造车，这一年想多看看代码，丰富一些理论知识再去创造（不能只在自己的舒适圈内默默耕耘）
+
 ## 想法
 + [pc端右键](https://github.com/buuing/right-menu)
 + vscode 做一个插件 - 能自动生成一个 md 文件,里面有计划表什么的
