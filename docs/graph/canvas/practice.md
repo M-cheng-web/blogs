@@ -500,3 +500,10 @@ img.onload = function(){
 + setInterval(function, delay): 定时器，当设定好间隔时间后，function 会定期执行
 + setTimeout(function, delay): 延时器，在设定好的时间之后执行函数
 + requestAnimationFrame(callback): 告诉浏览器你希望执行一个动画，并在重绘之前，请求浏览器执行一个特定的函数来更新动画
+
+[查看Demo](/graph/canvas/demo#%E5%8C%BA%E5%9F%9F%E5%86%85%E7%9A%84%E7%90%83%E7%9A%84%E8%BF%90%E5%8A%A8-%E5%8F%98%E8%89%B2-%E5%8F%8D%E5%BC%B9-%E6%8B%96%E5%BD%B1-%E9%87%8D%E5%8A%9B)
+
+## 高级动画
+高级动画就是在初级动画的基础上加上一些符合物理的运动，这样就能使动画更生动而不是那么的呆板
+
+[查看Demo](/graph/canvas/demo#%E5%A4%AA%E9%98%B3%E7%B3%BB%E5%9C%B0%E7%90%83%E6%9C%88%E4%BA%AE%E4%BB%A5%E5%8F%8A%E5%85%B6%E4%BB%96%E8%A1%8C%E6%98%9F-%E5%8A%A8%E7%94%BB)

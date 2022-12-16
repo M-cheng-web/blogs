@@ -19,7 +19,7 @@
 ## 小知识点
 
 ### beginPath 与 closePath 的区别
-canvas 的绘制方法(比如stroke,fill)会以 `beginPath` 为分割线，在 beginPath 之前的语法并不会计入绘制，只会从 beginPath 之后开始绘制，而这就要求 beginPath 之前的语法要自己先绘制(负责会无效不显示)
+canvas 的绘制方法(比如stroke,fill)会以 `beginPath` 为分割线，在 beginPath 之前的语法并不会计入绘制，只会从 beginPath 之后开始绘制，而这就要求 beginPath 之前的语法要自己先绘制(否则会无效不显示)
 
 这也意味着如果想分段绘制的话没有 beginPath 是实现不了的(当然可以用 save)
 

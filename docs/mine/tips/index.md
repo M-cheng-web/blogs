@@ -1,6 +1,12 @@
 # 小知识点
 一些比较小的知识点备忘
 
+## 编码-btoa & 解码-atob
+``` ts
+let encodedData = window.btoa("Hello, world"); // 编码
+let decodedData = window.atob(encodedData);    // 解码
+```
+
 ## 本地端口操作
 + 查看: sudo lsof -i:`8080`
 + 终止: sudo kill -9 `<pid>`
