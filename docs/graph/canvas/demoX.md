@@ -1,7 +1,6 @@
 # 进阶Demo
 
 ## ps调色盘(当前颜色，更换主题色，浮动的圆圈)
-![P899Ge.png](https://s6.jpg.cm/2022/08/30/P899Ge.png)
 ``` ts
 <!DOCTYPE html>
 <html lang="en">
