@@ -1,0 +1,5 @@
+连小信测试02渠道地址:
+http://cbt.shangjin618.com/lianxin-botserver/openApi/gotoPsyBot?channel=02&chnlCode=8BFE42DF24C45563B5EA6E82C61E9279F0AE5235BA5392B2698BDD374FEB391B274549C0F4BB1E94&unionId=
+
+连小信正式02渠道地址:
+https://bot.biyouxinli.com/lianxin-botserver/openApi/gotoPsyBot?channel=syf02&chnlCode=8BFE42DF24C45563B5EA6E82C65DD93DECBE0372F14EDBE12599D63753F86F4E7554128AB3A806CBCE7691&unionId=
