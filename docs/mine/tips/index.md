@@ -24,3 +24,48 @@ let decodedData = window.atob(encodedData);    // 解码
 mddir
 
 https://www.cnblogs.com/xulinjun/p/13932609.html
+
+## click & touchstart
+### 前置知识点
++ click 点击事件,在H5中会有 `300ms` 的延迟 ( 为了判断双击事件 )
++ touchstart 手触碰元素事件,手在放上去时就会立即触发
++ touchmove 手移动事件
++ touchend 手放开事件
++ prevent 修饰符,阻止默认事件( 上面几个事件添加此修饰符会使click事件失效 )
++ stop 修饰符,阻止事件冒泡
+
+### 事件的 捕获阶段 & 触发阶段
+1. 事件的捕获阶段
+在事件的捕获阶段时从最外层的祖先元素,向目标元素进行实践的捕获,但是默认此时不会触发事件
+2. 事件的目标阶段
+事件捕获到目标元素,捕获结束开始在目标元素上触发事件
+3. 事件的冒泡阶段
+事件从目标元素向它的祖先元素传递,分别依次触发祖先元素上的事件
+4. 如果希望在捕获阶段就出发事件,可以将 `addEventListener()` 中第三个参数设置为true ( 一般情况下我们不会希望在补货阶段出发事件,所以这个参数一般都是false )
+
+> 在IE8及以下的浏览器中没有捕获阶段
+
+### 场景描述
+目前我们需要在一个 `div` 上添加手动拖动需求以及点击需求,可以联想到的是 `click / touchstart / touchmove / touchend` 这几个事件来满足上诉需求,目前遇到的问题是,我们给元素附上 `@touchstart.prevent.stop="handleTouchStart"` 事件
+
+已知的问题是:
+1. `click` 事件会被 `prevent` 修饰符给弄失效
+2. `click` 事件在第一次点击元素时不会触发 (因为 `touchstart.stop`,去掉 `stop` 就没有这种问题,具体我这边也不清楚为什么)
+3. 不只是针对于 `@touchstart`,目前即使不给 `@touchstart` 事件添加 `prevent & stop`,给 `touchend` 添加这俩个修饰符也会导致同样的问题 (点击元素没有移动不会触发 `touchmove`,所以给移动事件添加那俩修饰符不会影响 `click`事件,理论上如果移动了就会影响到 `click`,但是按照实际场景移动了本身就不用触发点击事件~)
+
+### 解决方案
+1. 去除 `touchstart & touchend` 的 `prevent & stop` 俩修饰符, 添加 `@click.prevent.stop` ( 但是这样的话还会有300ms延迟,这是不可控的 )
+2. 通过 `touchstart` 与 `touchend` 的时间间隔来判断用户是否点击,延迟时间也是完全可控的
+
+## uniapp
++ click.stop 是无效的, 要用 click.native.stop
++ input type = number 时, 设置 maxlength 会出错,但是不报错 (在支付宝小程序)
++ 没有改动 (由于支付宝不支持formdata格式且 uni.uploadFile 的 filePath 是必传的,所以只能用另外一个接口)
++ uniapp 原生输入框在支付宝小程序有闪动问题,用uview的组件好一些
++ 假冒的 tabbar, 如果在所有的 pages 定义之前加了个额外的登录也,那么 switchto 这种是不能正常使用了,只能当做正常的页面跳转,否则会出现底部会空出一个 tabbar 栏的高度 (但是在安卓端是没问题的,ios端看支付宝小程序才有问题)
++ textarea focus 属性内部是watch 的，如果本身为true再次置为true是不会触发获取焦点的
++ 通过路由跳转传参的 布尔值会转化为 字符串
++ new date('2000-12-04') 这样的方式可能会失败，这样的格式能保证成功 '2000/12/04'
+
+// ios screenWidth 是正常的, 安卓端 screenWidth 是不正常的,所以用 windowWidth
+  // const screenWidth = uni.getSystemInfoSync().screenWidth;

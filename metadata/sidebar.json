@@ -29,26 +29,6 @@
         }
       ],
       "link": ""
-    },
-    {
-      "text": "work-tips",
-      "items": [
-        {
-          "text": "index",
-          "link": "/mine/work-tips/index"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "other",
-      "items": [
-        {
-          "text": "index",
-          "link": "/mine/other/index"
-        }
-      ],
-      "link": ""
     }
   ],
   "/web-basics/": [

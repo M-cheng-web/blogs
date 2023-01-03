@@ -4,9 +4,7 @@
     "children": [
       { "link": "plan" },
       { "link": "saying" },
-      { "link": "tips" },
-      { "link": "work-tips" },
-      { "link": "other" }
+      { "link": "tips" }
     ]
   },
   {
