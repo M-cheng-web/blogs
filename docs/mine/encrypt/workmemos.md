@@ -3,3 +3,5 @@ http://cbt.shangjin618.com/lianxin-botserver/openApi/gotoPsyBot?channel=02&chnlC
 
 连小信正式02渠道地址:
 https://bot.biyouxinli.com/lianxin-botserver/openApi/gotoPsyBot?channel=syf02&chnlCode=8BFE42DF24C45563B5EA6E82C65DD93DECBE0372F14EDBE12599D63753F86F4E7554128AB3A806CBCE7691&unionId=
+
+规划师oss： oss://biyou-file/document/lxcloud-vhr/interviewee/resume/planner/
