@@ -4,8 +4,8 @@
       "text": "plan",
       "items": [
         {
-          "text": "index",
-          "link": "/mine/plan/index"
+          "text": "core",
+          "link": "/mine/plan/core"
         }
       ],
       "link": ""
@@ -14,8 +14,8 @@
       "text": "saying",
       "items": [
         {
-          "text": "index",
-          "link": "/mine/saying/index"
+          "text": "core",
+          "link": "/mine/saying/core"
         }
       ],
       "link": ""
@@ -24,8 +24,8 @@
       "text": "tips",
       "items": [
         {
-          "text": "index",
-          "link": "/mine/tips/index"
+          "text": "core",
+          "link": "/mine/tips/core"
         }
       ],
       "link": ""
@@ -36,8 +36,8 @@
       "text": "JavaScript",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/javascript/index"
+          "text": "core",
+          "link": "/web-basics/javascript/core"
         },
         {
           "text": "promise",
@@ -82,8 +82,8 @@
       "text": "arithmetic",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/arithmetic/index"
+          "text": "core",
+          "link": "/web-basics/arithmetic/core"
         },
         {
           "text": "bit-operation",
@@ -100,8 +100,8 @@
       "text": "css",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/css/index"
+          "text": "core",
+          "link": "/web-basics/css/core"
         },
         {
           "text": "flex",
@@ -114,8 +114,8 @@
       "text": "interview",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/interview/index"
+          "text": "core",
+          "link": "/web-basics/interview/core"
         },
         {
           "text": "optimize",
@@ -128,8 +128,8 @@
       "text": "network",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/network/index"
+          "text": "core",
+          "link": "/web-basics/network/core"
         },
         {
           "text": "tcp",
@@ -142,8 +142,8 @@
       "text": "react",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/react/index"
+          "text": "core",
+          "link": "/web-basics/react/core"
         },
         {
           "text": "react-router",
@@ -156,8 +156,8 @@
       "text": "typescript",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/typescript/index"
+          "text": "core",
+          "link": "/web-basics/typescript/core"
         },
         {
           "text": "start",
@@ -170,8 +170,8 @@
       "text": "vite",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/vite/index"
+          "text": "core",
+          "link": "/web-basics/vite/core"
         },
         {
           "text": "configuration",
@@ -192,8 +192,8 @@
       "text": "vue",
       "items": [
         {
-          "text": "index",
-          "link": "/web-basics/vue/index"
+          "text": "core",
+          "link": "/web-basics/vue/core"
         },
         {
           "text": "mvvm",
@@ -212,8 +212,8 @@
       "text": "canvas",
       "items": [
         {
-          "text": "index",
-          "link": "/graph/canvas/index"
+          "text": "core",
+          "link": "/graph/canvas/core"
         },
         {
           "text": "practice",
@@ -234,8 +234,8 @@
       "text": "threejs",
       "items": [
         {
-          "text": "index",
-          "link": "/graph/threejs/index"
+          "text": "core",
+          "link": "/graph/threejs/core"
         }
       ],
       "link": ""
@@ -244,8 +244,8 @@
       "text": "webgl",
       "items": [
         {
-          "text": "index",
-          "link": "/graph/webgl/index"
+          "text": "core",
+          "link": "/graph/webgl/core"
         }
       ],
       "link": ""
@@ -256,8 +256,8 @@
       "text": "nestjs",
       "items": [
         {
-          "text": "index",
-          "link": "/server/nestjs/index"
+          "text": "core",
+          "link": "/server/nestjs/core"
         }
       ],
       "link": ""
@@ -268,8 +268,8 @@
       "text": "axios",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/axios/index"
+          "text": "core",
+          "link": "/tools/axios/core"
         }
       ],
       "link": ""
@@ -278,8 +278,8 @@
       "text": "charles",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/charles/index"
+          "text": "core",
+          "link": "/tools/charles/core"
         }
       ],
       "link": ""
@@ -288,8 +288,8 @@
       "text": "commit",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/commit/index"
+          "text": "core",
+          "link": "/tools/commit/core"
         }
       ],
       "link": ""
@@ -298,8 +298,8 @@
       "text": "git",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/git/index"
+          "text": "core",
+          "link": "/tools/git/core"
         }
       ],
       "link": ""
@@ -308,8 +308,8 @@
       "text": "lerna",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/lerna/index"
+          "text": "core",
+          "link": "/tools/lerna/core"
         }
       ],
       "link": ""
@@ -318,8 +318,8 @@
       "text": "npm",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/npm/index"
+          "text": "core",
+          "link": "/tools/npm/core"
         }
       ],
       "link": ""
@@ -328,8 +328,8 @@
       "text": "rollup",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/rollup/index"
+          "text": "core",
+          "link": "/tools/rollup/core"
         }
       ],
       "link": ""
@@ -338,8 +338,8 @@
       "text": "vscode",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/vscode/index"
+          "text": "core",
+          "link": "/tools/vscode/core"
         }
       ],
       "link": ""
@@ -348,8 +348,8 @@
       "text": "vuepress",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/vuepress/index"
+          "text": "core",
+          "link": "/tools/vuepress/core"
         }
       ],
       "link": ""
@@ -358,8 +358,8 @@
       "text": "webpack",
       "items": [
         {
-          "text": "index",
-          "link": "/tools/webpack/index"
+          "text": "core",
+          "link": "/tools/webpack/core"
         }
       ],
       "link": ""
@@ -370,8 +370,8 @@
       "text": "call-apply-bind",
       "items": [
         {
-          "text": "index",
-          "link": "/writingcode/call-apply-bind/index"
+          "text": "core",
+          "link": "/writingcode/call-apply-bind/core"
         }
       ],
       "link": ""
@@ -380,8 +380,8 @@
       "text": "copy",
       "items": [
         {
-          "text": "index",
-          "link": "/writingcode/copy/index"
+          "text": "core",
+          "link": "/writingcode/copy/core"
         }
       ],
       "link": ""
@@ -390,8 +390,8 @@
       "text": "promise",
       "items": [
         {
-          "text": "index",
-          "link": "/writingcode/promise/index"
+          "text": "core",
+          "link": "/writingcode/promise/core"
         }
       ],
       "link": ""
@@ -400,8 +400,8 @@
       "text": "roth",
       "items": [
         {
-          "text": "index",
-          "link": "/writingcode/roth/index"
+          "text": "core",
+          "link": "/writingcode/roth/core"
         }
       ],
       "link": ""
@@ -410,8 +410,8 @@
       "text": "throttle",
       "items": [
         {
-          "text": "index",
-          "link": "/writingcode/throttle/index"
+          "text": "core",
+          "link": "/writingcode/throttle/core"
         }
       ],
       "link": ""

@@ -29,8 +29,8 @@
         "link": "javascript",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "promise",
@@ -75,8 +75,8 @@
         "link": "arithmetic",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "bit-operation",
@@ -93,8 +93,8 @@
         "link": "css",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "flex",
@@ -107,8 +107,8 @@
         "link": "interview",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "optimize",
@@ -121,8 +121,8 @@
         "link": "network",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "tcp",
@@ -135,8 +135,8 @@
         "link": "react",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "react-router",
@@ -149,8 +149,8 @@
         "link": "typescript",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "start",
@@ -163,8 +163,8 @@
         "link": "vite",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "configuration",
@@ -185,8 +185,8 @@
         "link": "vue",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "mvvm",
@@ -209,8 +209,8 @@
         "link": "canvas",
         "children": [
           {
-            "title": "index",
-            "link": "index"
+            "title": "core",
+            "link": "core"
           },
           {
             "title": "practice",

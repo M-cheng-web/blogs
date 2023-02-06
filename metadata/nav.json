@@ -4,15 +4,15 @@
     "items": [
       {
         "text": "plan",
-        "link": "/mine/plan/index"
+        "link": "/mine/plan/core"
       },
       {
         "text": "saying",
-        "link": "/mine/saying/index"
+        "link": "/mine/saying/core"
       },
       {
         "text": "tips",
-        "link": "/mine/tips/index"
+        "link": "/mine/tips/core"
       }
     ]
   },
@@ -21,39 +21,39 @@
     "items": [
       {
         "text": "JavaScript",
-        "link": "/web-basics/javascript/index"
+        "link": "/web-basics/javascript/core"
       },
       {
         "text": "arithmetic",
-        "link": "/web-basics/arithmetic/index"
+        "link": "/web-basics/arithmetic/core"
       },
       {
         "text": "css",
-        "link": "/web-basics/css/index"
+        "link": "/web-basics/css/core"
       },
       {
         "text": "interview",
-        "link": "/web-basics/interview/index"
+        "link": "/web-basics/interview/core"
       },
       {
         "text": "network",
-        "link": "/web-basics/network/index"
+        "link": "/web-basics/network/core"
       },
       {
         "text": "react",
-        "link": "/web-basics/react/index"
+        "link": "/web-basics/react/core"
       },
       {
         "text": "typescript",
-        "link": "/web-basics/typescript/index"
+        "link": "/web-basics/typescript/core"
       },
       {
         "text": "vite",
-        "link": "/web-basics/vite/index"
+        "link": "/web-basics/vite/core"
       },
       {
         "text": "vue",
-        "link": "/web-basics/vue/index"
+        "link": "/web-basics/vue/core"
       }
     ]
   },
@@ -62,15 +62,15 @@
     "items": [
       {
         "text": "canvas",
-        "link": "/graph/canvas/index"
+        "link": "/graph/canvas/core"
       },
       {
         "text": "threejs",
-        "link": "/graph/threejs/index"
+        "link": "/graph/threejs/core"
       },
       {
         "text": "webgl",
-        "link": "/graph/webgl/index"
+        "link": "/graph/webgl/core"
       }
     ]
   },
@@ -79,7 +79,7 @@
     "items": [
       {
         "text": "nestjs",
-        "link": "/server/nestjs/index"
+        "link": "/server/nestjs/core"
       }
     ]
   },
@@ -88,43 +88,43 @@
     "items": [
       {
         "text": "axios",
-        "link": "/tools/axios/index"
+        "link": "/tools/axios/core"
       },
       {
         "text": "charles",
-        "link": "/tools/charles/index"
+        "link": "/tools/charles/core"
       },
       {
         "text": "commit",
-        "link": "/tools/commit/index"
+        "link": "/tools/commit/core"
       },
       {
         "text": "git",
-        "link": "/tools/git/index"
+        "link": "/tools/git/core"
       },
       {
         "text": "lerna",
-        "link": "/tools/lerna/index"
+        "link": "/tools/lerna/core"
       },
       {
         "text": "npm",
-        "link": "/tools/npm/index"
+        "link": "/tools/npm/core"
       },
       {
         "text": "rollup",
-        "link": "/tools/rollup/index"
+        "link": "/tools/rollup/core"
       },
       {
         "text": "vscode",
-        "link": "/tools/vscode/index"
+        "link": "/tools/vscode/core"
       },
       {
         "text": "vuepress",
-        "link": "/tools/vuepress/index"
+        "link": "/tools/vuepress/core"
       },
       {
         "text": "webpack",
-        "link": "/tools/webpack/index"
+        "link": "/tools/webpack/core"
       }
     ]
   },
@@ -133,23 +133,23 @@
     "items": [
       {
         "text": "call-apply-bind",
-        "link": "/writingcode/call-apply-bind/index"
+        "link": "/writingcode/call-apply-bind/core"
       },
       {
         "text": "copy",
-        "link": "/writingcode/copy/index"
+        "link": "/writingcode/copy/core"
       },
       {
         "text": "promise",
-        "link": "/writingcode/promise/index"
+        "link": "/writingcode/promise/core"
       },
       {
         "text": "roth",
-        "link": "/writingcode/roth/index"
+        "link": "/writingcode/roth/core"
       },
       {
         "text": "throttle",
-        "link": "/writingcode/throttle/index"
+        "link": "/writingcode/throttle/core"
       }
     ]
   }

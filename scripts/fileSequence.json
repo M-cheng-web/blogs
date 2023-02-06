@@ -13,7 +13,7 @@
       {
         "link": "javascript",
         "children": [
-          { "link": "index" },
+          { "link": "core" },
           { "link": "promise" },
           { "link": "array" }
         ]
@@ -26,7 +26,7 @@
       {
         "link": "canvas",
         "children": [
-          { "link": "index" },
+          { "link": "core" },
           { "link": "practice" },
           { "link": "demo" },
           { "link": "demoX" }

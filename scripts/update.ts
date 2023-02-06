@@ -37,7 +37,7 @@ function transitionTitle(title): String {
 
 /**
  * 根据文件结构得到 router
- * 默认都会把 index 放在子类第一个
+ * 默认都会把 core 放在子类第一个
  */
 async function getRouterList() {
   const routerList: any[] = []
@@ -67,19 +67,19 @@ async function getRouterList() {
       if (subChildren.length > 1) {
         for (let z = 0; z < subChildren.length; z++) {
           const link = subChildren[z].replace('.md', '')
-          // index 统一放到下一步处理
-          if (link === 'index') continue
+          // core 统一放到下一步处理
+          if (link === 'core') continue
           const title = await getTitle(join(cwd, subChildren[z]))
           routerItem.children[index - 1].children.push({
             title: title || link,
             link,
           })
         }
-        // 将 index 文件夹总是放在第一位
-        // 因为 index 那个对象总是 { title: 'index', link: 'index' } 这样的格式，所以直接操作
-        routerItem.children[index - 1].children.unshift({ title: 'index', link: 'index' })
+        // 将 core 文件夹总是放在第一位
+        // 因为 core 那个对象总是 { title: 'core', link: 'core' } 这样的格式，所以直接添加到第一位
+        routerItem.children[index - 1].children.unshift({ title: 'core', link: 'core' })
       } else {
-        const title = await getTitle(join(cwd, 'index.md'))
+        const title = await getTitle(join(cwd, 'core.md'))
         routerItem.children[index - 1].title = title || childrenLink
       }
     }
@@ -121,7 +121,7 @@ function getNav(router): DefaultTheme.NavItem[] {
     text: item.title,
     activeMatch: undefined,
     items: item.children.map(i => {
-      const subLink = i.children.length ? i.children[0].link : 'index'
+      const subLink = i.children.length ? i.children[0].link : 'core'
       return {
         text: i.title,
         link: `/${item.title}/${i.link}/${subLink}`
@@ -149,7 +149,7 @@ function getSidebar(router): DefaultTheme.Sidebar {
 
       if (children.length) {
         for (let z = 0; z < children.length; z++) {
-          if (children[z].title === 'index') {
+          if (children[z].title === 'core') {
             value.items.unshift({
               text: children[z].title,
               link: `/${category}/${link}/${children[z].link}`
@@ -163,8 +163,8 @@ function getSidebar(router): DefaultTheme.Sidebar {
         }
       } else {
         value.items = [{
-          text: 'index',
-          link: `/${category}/${link}/index`
+          text: 'core',
+          link: `/${category}/${link}/core`
         }]
       }
 
