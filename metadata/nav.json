@@ -21,15 +21,15 @@
     "items": [
       {
         "text": "JavaScript",
-        "link": "/web-basics/javascript/promise"
+        "link": "/web-basics/javascript/index"
       },
       {
         "text": "arithmetic",
-        "link": "/web-basics/arithmetic/bit-operation"
+        "link": "/web-basics/arithmetic/index"
       },
       {
         "text": "css",
-        "link": "/web-basics/css/flex"
+        "link": "/web-basics/css/index"
       },
       {
         "text": "interview",
@@ -49,7 +49,7 @@
       },
       {
         "text": "vite",
-        "link": "/web-basics/vite/configuration"
+        "link": "/web-basics/vite/index"
       },
       {
         "text": "vue",

@@ -37,6 +37,7 @@ function transitionTitle(title): String {
 
 /**
  * 根据文件结构得到 router
+ * 默认都会把 index 放在子类第一个
  */
 async function getRouterList() {
   const routerList: any[] = []
@@ -44,12 +45,16 @@ async function getRouterList() {
   const categoryList = await fg('*', { cwd: DIR_SRC, onlyDirectories: true })
   for (let x = 0; x < categoryList.length; x++) {
     const categoryTitle = categoryList[x]
+
+    // 排除掉 public 文件夹
     if (categoryTitle === 'public') continue;
     const items = await fg('*', { cwd: `${DIR_SRC}/${categoryTitle}`, onlyDirectories: true })
     const routerItem = { title: categoryTitle, link: categoryTitle, children: [] as any[] }
 
     for (let y = 0; y < items.length; y++) {
       const childrenLink = items[y]
+
+      // 排除掉 encrypt 加密的文件夹
       if (childrenLink === 'encrypt') continue;
       const cwd = `${DIR_SRC}/${categoryTitle}/${childrenLink}`
       const index = routerItem.children.push({
@@ -62,12 +67,17 @@ async function getRouterList() {
       if (subChildren.length > 1) {
         for (let z = 0; z < subChildren.length; z++) {
           const link = subChildren[z].replace('.md', '')
+          // index 统一放到下一步处理
+          if (link === 'index') continue
           const title = await getTitle(join(cwd, subChildren[z]))
           routerItem.children[index - 1].children.push({
             title: title || link,
             link,
           })
         }
+        // 将 index 文件夹总是放在第一位
+        // 因为 index 那个对象总是 { title: 'index', link: 'index' } 这样的格式，所以直接操作
+        routerItem.children[index - 1].children.unshift({ title: 'index', link: 'index' })
       } else {
         const title = await getTitle(join(cwd, 'index.md'))
         routerItem.children[index - 1].title = title || childrenLink

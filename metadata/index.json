@@ -29,6 +29,10 @@
         "link": "javascript",
         "children": [
           {
+            "title": "index",
+            "link": "index"
+          },
+          {
             "title": "promise",
             "link": "promise"
           },
@@ -43,10 +47,6 @@
           {
             "title": "function-pro",
             "link": "function-pro"
-          },
-          {
-            "title": "index",
-            "link": "index"
           },
           {
             "title": "map",
@@ -75,12 +75,12 @@
         "link": "arithmetic",
         "children": [
           {
-            "title": "bit-operation",
-            "link": "bit-operation"
-          },
-          {
             "title": "index",
             "link": "index"
+          },
+          {
+            "title": "bit-operation",
+            "link": "bit-operation"
           },
           {
             "title": "system",
@@ -93,12 +93,12 @@
         "link": "css",
         "children": [
           {
-            "title": "flex",
-            "link": "flex"
-          },
-          {
             "title": "index",
             "link": "index"
+          },
+          {
+            "title": "flex",
+            "link": "flex"
           }
         ]
       },
@@ -163,16 +163,16 @@
         "link": "vite",
         "children": [
           {
+            "title": "index",
+            "link": "index"
+          },
+          {
             "title": "configuration",
             "link": "configuration"
           },
           {
             "title": "esbuild",
             "link": "esbuild"
-          },
-          {
-            "title": "index",
-            "link": "index"
           },
           {
             "title": "prebuild",
