@@ -119,6 +119,7 @@ show(fn) // 10
 + toString 返回类似于这样的字符串[object, Object]
 + setPrototypeOf(a,b) 将a的__proto__指向b
 + create(a) 创建一个新对象,且将这个新对象的__proto__指向a(比setPrototypeOf性能好)
++ getPrototypeOf(a) 获取对象的原型链，只支持获取上一级的
 
 ## 判断数据类型
 + 判断对象 ( typeof, instanceof, isPrototypeOf )
