@@ -113,6 +113,7 @@ show(fn) // 10
 ```
 
 ## Object 方法
++ assign 合并对象，有属性冲突则以后者为准
 + hasOwnProperty
 + isPrototypeOf
 + toLocaleString
