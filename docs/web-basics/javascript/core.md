@@ -157,14 +157,30 @@ Say.prototype.isPrototypeOf(sa) // true
 和 instanceof 的差异
 > "object instanceof AFunction"中,object 的原型链是针对 AFunction.prototype 进行检查的,而不是针对 AFunction 本身
 ``` js
-var super = {}
-var sub = Object.create(super);
+var subsuper = {}
+var sub = Object.create(subsuper);
 sub.someProp = 5;
 
 var sub = Object.create(sub);
 
-console.log(super.isPrototypeOf(sub));  // true
-console.log(sub instanceof super);      // TypeError
+console.log(subsuper.isPrototypeOf(sub));  // true
+console.log(sub instanceof subsuper);      // TypeError
+```
+
+## Object.create()
+用于创建一个新对象，使用现有的对象来作为新创建对象的原型（prototype）
+``` js
+var subsuper = {}
+var sub = Object.create(subsuper);
+sub.someProp = 5;
+console.log(subsuper.isPrototypeOf(sub));  // true
+```
+
+如果直接用此语法创建一个对象，那么此新的对象的原型是指向Object的。想要创建一个纯净的对象，可以加入额外参数
+``` js
+var sub = Object.create(); // {} 但是原型指向了 Object
+var sub2 = Object.create(null); // {} 没有任何指向
+var sub3 = Object.create(null, {name: 'cc'}); // {} 没有任何指向且自带name属性
 ```
 
 ## forof & forin
