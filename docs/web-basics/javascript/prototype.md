@@ -30,7 +30,7 @@ let person1 = new Person("a", 29, "Software Engineer");
 let person2 = new Person("a", 29, "Software Engineer");
 ```
 
-解决: 把函数放在外面,这样sayName只是指向了构造函数外部的一个地址<br>
+**解决:** 把函数放在外面,这样sayName只是指向了构造函数外部的一个地址<br>
 但是如果需要多个sayName会导致自定义类型引用的代码不能很好的聚集,可以通过原型链的方式解决
 ``` js
 let Person = function(name, age, job) {
@@ -44,7 +44,7 @@ let person1 = new Person("a", 29, "Software Engineer");
 let person2 = new Person("a", 29, "Software Engineer");
 ```
 
-最终解决: 利用`prototype`实现原型链
+**最终解决:** 利用`prototype`实现原型链
 ``` js
 let Person = function(name, age, job) {
   this.name = name;
@@ -84,7 +84,7 @@ return new F()
 可以用 `delete` 删除自身的这个属性,然后再去调用这个属性的时候会顺着 `__proto__` 去查找这个属性
 + isPrototypeOf()
 确定两个对象之间的关系,判断原型链中是否包含某个实例对象<br>
-**instanceof是判断某个实例对象是否能指向某个构造函数,但是instanceof在多窗口的情况下(例如iframe)并不是一个可靠的数组检测方法**
+**instanceof是判断某个实例对象是否能指向某个构造函数,但是instanceof在多窗口的情况下(例如iframe)并不是一个可靠的数组检测方法(isPrototypeOf也不可靠)**
 ``` js
 let a = new Person()
 let b = {}
