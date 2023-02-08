@@ -197,6 +197,11 @@
             "link": "render"
           }
         ]
+      },
+      {
+        "title": "webpack",
+        "link": "webpack",
+        "children": []
       }
     ]
   },
@@ -296,11 +301,6 @@
       {
         "title": "vuepress",
         "link": "vuepress",
-        "children": []
-      },
-      {
-        "title": "webpack",
-        "link": "webpack",
         "children": []
       }
     ]

@@ -54,6 +54,10 @@
       {
         "text": "vue",
         "link": "/web-basics/vue/core"
+      },
+      {
+        "text": "webpack",
+        "link": "/web-basics/webpack/core"
       }
     ]
   },
@@ -121,10 +125,6 @@
       {
         "text": "vuepress",
         "link": "/tools/vuepress/core"
-      },
-      {
-        "text": "webpack",
-        "link": "/tools/webpack/core"
       }
     ]
   },

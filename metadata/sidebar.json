@@ -205,6 +205,16 @@
         }
       ],
       "link": ""
+    },
+    {
+      "text": "webpack",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/webpack/core"
+        }
+      ],
+      "link": ""
     }
   ],
   "/graph/": [
@@ -350,16 +360,6 @@
         {
           "text": "core",
           "link": "/tools/vuepress/core"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "webpack",
-      "items": [
-        {
-          "text": "core",
-          "link": "/tools/webpack/core"
         }
       ],
       "link": ""
