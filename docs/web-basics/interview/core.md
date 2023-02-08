@@ -29,6 +29,7 @@
 + 基本正则
 + forin forof
 + class 和 function创建的原型有什么不一样
++ 大屏方案
 
 ### css
 + rem 怎么用
