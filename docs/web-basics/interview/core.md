@@ -27,6 +27,7 @@
 + 原型链的缺陷,解决办法
 + 设计模式讲几个
 + forin forof
++ class 和 function创建的原型有什么不一样
 
 ### css
 + rem 怎么用
