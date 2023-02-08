@@ -311,7 +311,7 @@ function identity<Type>(arg: Type[]): Type[] {
   return arg.slice(0);
 }
 
-identity(['345', 123]) // ts 在这里就不回正确推断
+identity(['345', 123]) // ts 在这里就不会正确推断
 ```
 
 ### 泛型类
