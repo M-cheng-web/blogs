@@ -24,7 +24,7 @@
 返回一个状态为成功的Promise对象
 
 ## 手写简易promise
-参考 <a href="/blog/writingcode/promise/index" rel="noreferrer">手写promise</a>
+参考 <a href="/blogs/writingcode/promise/core" rel="noreferrer">手写promise</a>
 
 ## promise 任务调度
 ``` js
