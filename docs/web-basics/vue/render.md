@@ -4,7 +4,7 @@
 [ast抽象语法树 https://github.com/M-cheng-web/vue-sound-ast](https://github.com/M-cheng-web/vue-sound-ast)
 
 [模板字符串引擎 https://github.com/M-cheng-web/vue-sound-mustache](https://github.com/M-cheng-web/vue-sound-mustache)<br>
-(这个并没有实际应用,只是扩展视野))
+(这个并没有实际应用,只是扩展视野)
 
 ## vue 的渲染过程
 模板语法 => 抽象语法树ast => 渲染函数(h函数) => 虚拟节点 => 界面
