@@ -79,89 +79,19 @@
       "link": ""
     },
     {
-      "text": "arithmetic",
+      "text": "vue",
       "items": [
         {
           "text": "core",
-          "link": "/web-basics/arithmetic/core"
+          "link": "/web-basics/vue/core"
         },
         {
-          "text": "bit-operation",
-          "link": "/web-basics/arithmetic/bit-operation"
+          "text": "mvvm",
+          "link": "/web-basics/vue/mvvm"
         },
         {
-          "text": "system",
-          "link": "/web-basics/arithmetic/system"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "css",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/css/core"
-        },
-        {
-          "text": "flex",
-          "link": "/web-basics/css/flex"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "interview",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/interview/core"
-        },
-        {
-          "text": "optimize",
-          "link": "/web-basics/interview/optimize"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "network",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/network/core"
-        },
-        {
-          "text": "tcp",
-          "link": "/web-basics/network/tcp"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "react",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/react/core"
-        },
-        {
-          "text": "react-router",
-          "link": "/web-basics/react/react-router"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "typescript",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/typescript/core"
-        },
-        {
-          "text": "start",
-          "link": "/web-basics/typescript/start"
+          "text": "render",
+          "link": "/web-basics/vue/render"
         }
       ],
       "link": ""
@@ -189,29 +119,99 @@
       "link": ""
     },
     {
-      "text": "vue",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/vue/core"
-        },
-        {
-          "text": "mvvm",
-          "link": "/web-basics/vue/mvvm"
-        },
-        {
-          "text": "render",
-          "link": "/web-basics/vue/render"
-        }
-      ],
-      "link": ""
-    },
-    {
       "text": "webpack",
       "items": [
         {
           "text": "core",
           "link": "/web-basics/webpack/core"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "css",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/css/core"
+        },
+        {
+          "text": "flex",
+          "link": "/web-basics/css/flex"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "typescript",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/typescript/core"
+        },
+        {
+          "text": "start",
+          "link": "/web-basics/typescript/start"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "network",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/network/core"
+        },
+        {
+          "text": "tcp",
+          "link": "/web-basics/network/tcp"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "interview",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/interview/core"
+        },
+        {
+          "text": "optimize",
+          "link": "/web-basics/interview/optimize"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "arithmetic",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/arithmetic/core"
+        },
+        {
+          "text": "bit-operation",
+          "link": "/web-basics/arithmetic/bit-operation"
+        },
+        {
+          "text": "system",
+          "link": "/web-basics/arithmetic/system"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "react",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/react/core"
+        },
+        {
+          "text": "react-router",
+          "link": "/web-basics/react/react-router"
         }
       ],
       "link": ""

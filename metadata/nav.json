@@ -24,40 +24,40 @@
         "link": "/web-basics/javascript/core"
       },
       {
-        "text": "arithmetic",
-        "link": "/web-basics/arithmetic/core"
-      },
-      {
-        "text": "css",
-        "link": "/web-basics/css/core"
-      },
-      {
-        "text": "interview",
-        "link": "/web-basics/interview/core"
-      },
-      {
-        "text": "network",
-        "link": "/web-basics/network/core"
-      },
-      {
-        "text": "react",
-        "link": "/web-basics/react/core"
-      },
-      {
-        "text": "typescript",
-        "link": "/web-basics/typescript/core"
+        "text": "vue",
+        "link": "/web-basics/vue/core"
       },
       {
         "text": "vite",
         "link": "/web-basics/vite/core"
       },
       {
-        "text": "vue",
-        "link": "/web-basics/vue/core"
-      },
-      {
         "text": "webpack",
         "link": "/web-basics/webpack/core"
+      },
+      {
+        "text": "css",
+        "link": "/web-basics/css/core"
+      },
+      {
+        "text": "typescript",
+        "link": "/web-basics/typescript/core"
+      },
+      {
+        "text": "network",
+        "link": "/web-basics/network/core"
+      },
+      {
+        "text": "interview",
+        "link": "/web-basics/interview/core"
+      },
+      {
+        "text": "arithmetic",
+        "link": "/web-basics/arithmetic/core"
+      },
+      {
+        "text": "react",
+        "link": "/web-basics/react/core"
       }
     ]
   },

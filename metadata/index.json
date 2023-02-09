@@ -71,90 +71,20 @@
         ]
       },
       {
-        "title": "arithmetic",
-        "link": "arithmetic",
+        "title": "vue",
+        "link": "vue",
         "children": [
           {
             "title": "core",
             "link": "core"
           },
           {
-            "title": "bit-operation",
-            "link": "bit-operation"
+            "title": "mvvm",
+            "link": "mvvm"
           },
           {
-            "title": "system",
-            "link": "system"
-          }
-        ]
-      },
-      {
-        "title": "css",
-        "link": "css",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "flex",
-            "link": "flex"
-          }
-        ]
-      },
-      {
-        "title": "interview",
-        "link": "interview",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "optimize",
-            "link": "optimize"
-          }
-        ]
-      },
-      {
-        "title": "network",
-        "link": "network",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "tcp",
-            "link": "tcp"
-          }
-        ]
-      },
-      {
-        "title": "react",
-        "link": "react",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "react-router",
-            "link": "react-router"
-          }
-        ]
-      },
-      {
-        "title": "typescript",
-        "link": "typescript",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "start",
-            "link": "start"
+            "title": "render",
+            "link": "render"
           }
         ]
       },
@@ -181,27 +111,97 @@
         ]
       },
       {
-        "title": "vue",
-        "link": "vue",
+        "title": "webpack",
+        "link": "webpack",
+        "children": []
+      },
+      {
+        "title": "css",
+        "link": "css",
         "children": [
           {
             "title": "core",
             "link": "core"
           },
           {
-            "title": "mvvm",
-            "link": "mvvm"
-          },
-          {
-            "title": "render",
-            "link": "render"
+            "title": "flex",
+            "link": "flex"
           }
         ]
       },
       {
-        "title": "webpack",
-        "link": "webpack",
-        "children": []
+        "title": "typescript",
+        "link": "typescript",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "start",
+            "link": "start"
+          }
+        ]
+      },
+      {
+        "title": "network",
+        "link": "network",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "tcp",
+            "link": "tcp"
+          }
+        ]
+      },
+      {
+        "title": "interview",
+        "link": "interview",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "optimize",
+            "link": "optimize"
+          }
+        ]
+      },
+      {
+        "title": "arithmetic",
+        "link": "arithmetic",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "bit-operation",
+            "link": "bit-operation"
+          },
+          {
+            "title": "system",
+            "link": "system"
+          }
+        ]
+      },
+      {
+        "title": "react",
+        "link": "react",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "react-router",
+            "link": "react-router"
+          }
+        ]
       }
     ]
   },

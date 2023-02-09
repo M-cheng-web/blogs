@@ -17,7 +17,14 @@
           { "link": "promise" },
           { "link": "array" }
         ]
-      }
+      },
+      { "link": "vue" },
+      { "link": "vite" },
+      { "link": "webpack" },
+      { "link": "css" },
+      { "link": "typescript" },
+      { "link": "network" },
+      { "link": "interview" }
     ]
   },
   {
