@@ -234,7 +234,7 @@ new promise((resolve, reject) => {
   // 除非创建错误
 
   // throw new Error('finally') // 错误会传递
-  
+
   // new promise 和 return 都不能传递给下个then
   // return 'finally'
   // return new promise((resolve, reject) => {
