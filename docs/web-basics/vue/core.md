@@ -1,6 +1,8 @@
 # vue
 <!-- ![框架简图](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/12343ec292ca49588fee20ec003d4966_tplv-k3u1fbpfcp-watermark.webp) -->
 
+https://vue3js.cn/interview/vue/show_if.html#%E4%B8%80%E3%80%81v-show%E4%B8%8Ev-if%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9
+
 ## 组件通信方式
 
 ## nextTick
