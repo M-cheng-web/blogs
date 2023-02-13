@@ -279,4 +279,4 @@ newCh = [
 21. 遍历删除,然后结果就变成了 [E, C, M], 中间只新建了M这个真实DOM,精彩!!!!
 
 ## 流程图
-![DIFF算法流程图](https://gitee.com/M-cheng-web/map-storage/raw/master/vue-img/diff%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+![diff算法流程图](https://cdn.staticaly.com/gh/M-cheng-web/image-provider@main/blog/diff算法流程图.32p1uz61oq40.webp)
