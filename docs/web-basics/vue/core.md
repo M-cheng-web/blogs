@@ -96,9 +96,9 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 + $forceUpdate (强制更新视图)
 
 ## router
-+ beforeEach afterEach
-+ beforeEnter
-+ beforeRouteEnter beofreRouteUpdate beforeRouteLeave
++ beforeEach afterEach (全局)
++ beforeEnter (单个路由独享)
++ beforeRouteEnter beofreRouteUpdate beforeRouteLeave (组件级别)
 
 ## key
 能帮助vue高效 diff,比如在一个 `for` 循环渲染出的列表中,当这个列表某几条数据发生更改时,会经历以下步骤
@@ -134,6 +134,34 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 8. 也就是这样的操作: `oldVnode.elm.innerText = newVnode.text`
 
 ## vue2与vue3差异
++ 支持有多个根节点
++ 响应监听proxy
++ Teleport (模板移动到任意DOM)
++ composition Api
++ v-model 用法已更改 可以有多个v-model
++ v-if 和 v-for 优先级更改为 v-if优先，但同时还是不建议一起用，会有警告
++ diff算法优化
++ 静态提升
+
+### diff算法优化
+vue3在diff算法中相比vue2增加了静态标记
+
+关于这个静态标记，其作用是为了会发生变化的地方添加一个flag标记，下次发生变化的时候直接找该地方进行比较
+
+### 静态提升
+Vue3中对不参与更新的元素，会做静态提升，只会被创建一次，在渲染时直接复用
+
+这样就免去了重复的创建节点，大型应用会受益于这个改动，免去了重复的创建操作，优化了运行时候的内存占用
+```vue
+<span>你好</span> // 这个就会做静态提升
+
+<div>{{ message }}</div>
+```
+
+### MVVM区别
++ Object.defineProperty只能遍历对象属性进行劫持
++ Proxy直接可以劫持整个对象，并返回一个新对象，我们可以只操作新的对象达到响应式目的
+
 ### slot
 + 在vue2.0中,被解析到 this.$slots.default[0].data.attrs 这个对象中
 + 在vue3.0中,被解析到 this.$slots.default()[0].props 这个对象中
@@ -171,11 +199,6 @@ this.originCanvas
 this.$originCanvas
 ```
 
-### 其他问题
-vue3的语法,怎么区分块呢? 还是万物都是函数式?
-
-vue3的语法,应该很容易导致接手一张别人写好的新页面时,很难一眼就知道页面初始做了写什么把? 要不然修改程序的时候,错误信息很隐晦的话,找错很难
-
 ### Teleport
 `<Teleport>` 接收一个 to prop 来指定传送的目标。to 的值可以是一个 CSS 选择器字符串，也可以是一个 DOM 元素对象。这段代码的作用就是告诉 Vue“把以下模板片段传送到 body 标签下”
 
@@ -187,5 +210,3 @@ vue3的语法,应该很容易导致接手一张别人写好的新页面时,很�
   </div>
 </Teleport>
 ```
-
-### watch & watchEffect
