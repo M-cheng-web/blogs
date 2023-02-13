@@ -85,6 +85,10 @@
           {
             "title": "render",
             "link": "render"
+          },
+          {
+            "title": "snabbdom",
+            "link": "snabbdom"
           }
         ]
       },

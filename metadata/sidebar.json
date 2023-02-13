@@ -92,6 +92,10 @@
         {
           "text": "render",
           "link": "/web-basics/vue/render"
+        },
+        {
+          "text": "snabbdom",
+          "link": "/web-basics/vue/snabbdom"
         }
       ],
       "link": ""
