@@ -206,6 +206,88 @@ var sub3 = Object.create(null, {name: 'cc'}); // {} 没有任何指向且自带n
 
 `===`就是比较值了,类型不同也不会转换(除非是 `null === undefined`),也会比较引用地址
 
+**在==中null和undefined相等，他们自身也与其自身相等，除此之外其他值都不和他们想等**
+
+``` js
+var a = "42";
+var b = 42;
+console.log(a == b); // true 会将字符串隐式转换为数字形式来进行比较
+console.log(a === b); // false
+
+var a = "42";
+var b = true;
+console.log(a == b); // false 会将布尔值隐式转换为数字形式来进行比较(Number(true) 等于 1，Number(false) 等于 0)
+console.log(a === b); // false
+
+// 重要: 在==中null和undefined相等，他们自身也与其自身相等，除此之外其他值都不和他们想等
+var a = null;
+var b = undefined;
+console.log(a == b); // true
+console.log(a === b); // false
+
+var a = 42;
+var b = [42];
+console.log(a == b); // true 会将数组转换为数字形式(Number([42]) 等于 42)
+console.log(a === b); // false
+
+var a = "42";
+var b = Object(a);
+console.log(a == b); // true 会将对象转换为数字形式(Number(Object('42')) 等于 42)
+console.log(a === b); // false
+
+var a = undefined;
+var b = Object(a);
+console.log(a == b); // false Number(Object(undefined))等于 NaN，但是NaN != NaN
+console.log(a === b); // false
+```
+
+```js
+2==[2] //true
+""==[null] //true
+0 == "\n" //true
+["0"] == ["0"] //false
+
+var a ={b:1}
+var b={b:1}
+a == b // false
+
+var a =function(){}
+var b =function(){}
+a == b // false
+```
+**上面是一些对引用类型的列子，也就是object、Array、function的，引用类型的存储方式是堆存储，所以变量a、b存放的只是他们的地址而已，自然是不想等的**
+
+更多的例子
+```js
+"0" == null; //false
+"0" == undefined; //false
+"0" == false; //true
+"0" == NAN; //false (Number(NAN) 还是等于 NAN)
+"0" == 0; //true
+"0" == ""; //false
+
+false == null; //false
+false == undefined; //false
+false == NAN; //false
+false == 0; //true
+false == ""; //true
+false == []; //true
+false == {}; //false
+
+"" == null; //false
+"" == undefined; //false
+"" == NAN; //false
+"" == 0; //true
+"" == []; //true Number([]) 等于 0
+"" == {}; //false Number({}) 等于 NaN
+
+0 == null; //false
+0 == undefined; //false
+0 == NAN; //false
+0 == []; //true
+0 == {}; //false
+```
+
 ## 事件机制/Event Loop
 ### 如何实现一个事件的发布订阅
 
