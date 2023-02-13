@@ -5,6 +5,57 @@ https://vue3js.cn/interview/vue/show_if.html#%E4%B8%80%E3%80%81v-show%E4%B8%8Ev-
 
 ## 组件通信方式
 
+## Vue.observable
+在非父子组件通信时，可以使用通常的bus或者使用vuex，但是实现的功能不是太复杂，而使用上面两个又有点繁琐。这时，observable就是一个很好的选择
+```js
+// 引入vue
+import Vue from 'vue'
+// 创建state对象，使用observable让state对象可响应
+export let state = Vue.observable({
+  name: '张三',
+  'age': 38
+})
+// 创建对应的方法
+export let mutations = {
+  changeName(name) {
+    state.name = name
+  },
+  setAge(age) {
+    state.age = age
+  }
+}
+```
+
+## 修饰符
+### 表单修饰符
++ lazy
++ trim
++ number
+
+### 事件修饰符
++ stop
++ prevent
++ self
++ once
++ capture (使事件触发从包含这个元素的顶层开始往下触发)
++ passive (在移动端，当我们在监听元素滚动事件的时候，会一直触发onscroll事件会让我们的网页变卡，因此我们使用这个修饰符的时候，相当于给onscroll事件整了一个.lazy修饰符)
++ native (让组件变成像html内置标签那样监听根元素的原生事件，否则组件上使用 v-on 只会监听自定义事件)
+```js
+<my-component v-on:click.native="doSomething"></my-component>
+```
+
+### 鼠标按钮修饰符
+鼠标按钮修饰符针对的就是左键、右键、中键点击，有如下：
+
+left 左键点击
+right 右键点击
+middle 中键点击
+```js
+<button @click.left="shout(1)">ok</button>
+<button @click.right="shout(1)">ok</button>
+<button @click.middle="shout(1)">ok</button>
+```
+
 ## nextTick
 nextTick 主要使用了宏任务和微任务,根据执行环境分别尝试采用
 + Promise
@@ -38,6 +89,11 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 
 + 根实例对象data可以是对象也可以是函数（根实例是单例），不会产生数据污染情况
 + 组件实例对象data必须为函数，目的是为了防止多个组件实例对象之间共用一个data，产生数据污染。采用函数的形式，initData时会将其作为工厂函数都会返回全新data对象
+
+## 给对象添加新属性
++ $Set
++ Object.assign (this.obj = Object.assign({}, this.obj, {age: 1}))
++ $forceUpdate (强制更新视图)
 
 ## router
 + beforeEach afterEach
