@@ -35,6 +35,23 @@
             |-- index.js
 ```
 
+## loader & plugin
+loader 用于对模块的"源代码"进行转换，在 import 或"加载"模块时预处理文件
+例如:
++ css-loader :允许将css文件通过require的方式引入，并返回css代码
++ less-loader: 处理less
++ sass-loader: 处理sass
++ html-minify-loader: 压缩HTML
+
+plugin赋予其各种灵活的功能，例如打包优化、资源管理、环境变量注入等，它们会运行在 webpack 的不同阶段（钩子 / 生命周期），贯穿了webpack整个编译周期(简单理解为针对于webpack的扩展)
+例如
++ HtmlWebpackPlugin :在打包结束后，⾃动生成⼀个 html ⽂文件，并把打包生成的js 模块引⼊到该 html 中
++ mini-css-extract-plugin :提取 CSS 到一个单独的文件中
+
+两者在运行时机上的区别
++ loader 运行在打包文件之前
++ plugins 在整个编译周期都起作用
+
 ## 基础配置
 + 打包样式
 + 打包html
