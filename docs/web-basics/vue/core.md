@@ -133,8 +133,8 @@ nextTick 就是利用任务队列的原理,为什么要用异步,因为数据更
 7. 将新虚拟DOM的内容赋值给旧虚拟DOM,并不会重新创建个新元素
 8. 也就是这样的操作: `oldVnode.elm.innerText = newVnode.text`
 
-## 其他
-### v2 和 v3 的 slot
+## vue2与vue3差异
+### slot
 + 在vue2.0中,被解析到 this.$slots.default[0].data.attrs 这个对象中
 + 在vue3.0中,被解析到 this.$slots.default()[0].props 这个对象中
 
@@ -175,3 +175,17 @@ this.$originCanvas
 vue3的语法,怎么区分块呢? 还是万物都是函数式?
 
 vue3的语法,应该很容易导致接手一张别人写好的新页面时,很难一眼就知道页面初始做了写什么把? 要不然修改程序的时候,错误信息很隐晦的话,找错很难
+
+### Teleport
+`<Teleport>` 接收一个 to prop 来指定传送的目标。to 的值可以是一个 CSS 选择器字符串，也可以是一个 DOM 元素对象。这段代码的作用就是告诉 Vue“把以下模板片段传送到 body 标签下”
+
+```html
+<Teleport to="body">
+  <div v-if="open" class="modal">
+    <p>Hello from the modal!</p>
+    <button @click="open = false">Close</button>
+  </div>
+</Teleport>
+```
+
+### watch & watchEffect
