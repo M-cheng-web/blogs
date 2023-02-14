@@ -299,3 +299,20 @@ if (a == 1 && a == 2 && a == 3) {
 + promise为什么不支持ie8, 用了babel-loader也不支持,这是为什么
 + babel-loader的原理是什么
 + 组件平级传递数据
+
+### 火石创造
++ Array.map() 与 Array.forEach() 区别
++ 事件循环
++ 异步队列（分别有哪些）
++ data为什么是函数返回对象
++ v-model原理，vue2和vue3中的区别，在select这种标签应该注意什么
++ nexttick原理，vue2和vue3的nexttick区别
++ vue2和vue3的 attes 和 listener 有什么改动
++ vue3和vue3具体还有哪些改动
++ vue的渲染流程
++ vue的diff算法具体怎么做的，vue2和vue3对于这块有什么改动
++ vue的ast语法树怎么生成的，具体附加了什么属性
++ $Set 与 数组劫持，具体劫持了哪些数组
++ wenpack怎么样加快打包
++ 组件库搭建需要注意什么
++ 说说你自己想说的
