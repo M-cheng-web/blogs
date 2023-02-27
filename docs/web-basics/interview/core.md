@@ -15,6 +15,32 @@ https://juejin.cn/post/6844903928442667015
 10. koa洋葱模型，Express服务怎么启动（优先级最后）
 11. 虚拟长列表解决方案
 
+## 埋点方案
++ 核心: navigator.sendBeacon
+
++ 请求监听:
+  + fetch拦截：劫持fetch函数
+	+ axios，ajax拦截：劫持XMLHttpRequest.prototype.open & XMLHttpRequest.prototype.send
+					以及监听 readystatechange 来捕获是否请求完成
+
++ 错误监听:
+	+ 监听 error 事件
+	+ 监听 unhandledrejection 事件来捕获promise异常
+	+ 劫持 console.error
+
++ 事件监听：
+	+ 监听 load 加载完成事件
+	+ 监听 beforeunload 卸载事件
+
++ 资源监听：
+	+ PerformanceObserver 实例监听异步加载资源 (优先)
+	+ MutationObserver 实例监听异步资源(上面的没有才用 MutationObserver)
+
++ 路由监听：
+	+ 劫持 history.pushState
+	+ 劫持 history.replaceState
+	+ 监听 popstate 与 hashchange （hash变化也会触发popstate事件,而且会先触发popstate事件，监听hashchange只是用来兜底的）
+
 ## 速记
 
 ### 项目常用/难点
