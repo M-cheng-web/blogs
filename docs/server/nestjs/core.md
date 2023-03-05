@@ -2,6 +2,19 @@
 
 [nest 中文文档](https://docs.nestjs.cn/8/introduction)
 
+问题
+1. Controller 中 host 有什么用 (子域路由)
+2. RxJS observable 流是什么，异步章节
+3. 模板代码生成器 https://docs.nestjs.cn/8/recipes?id=crud%e7%94%9f%e6%88%90%e5%99%a8
+4. 管道是什么
+5. 拦截器，守卫，中间件关系
+
+
+练习
+1. 爬虫
+2. 用户创建+登录
+3. 用户增删改查
+
 ## 开始
 ```
 // 安装全局nest脚手架
@@ -52,3 +65,24 @@ Nest 为所有标准的 HTTP 方法提供了相应的装饰器：@Put()、@Delet
 forRoutes() 可接受一个字符串、多个字符串、对象、一个控制器类甚至多个控制器类
 
 apply() 方法可以使用单个中间件，也可以使用多个参数来指定多个多个中间件
+
+## 异常过滤器
+内置的异常层负责处理整个应用程序中的所有抛出的异常。当捕获到未处理的异常时，最终用户将收到友好的响应。
+
+## 管道
+
+Nest 自带八个开箱即用的管道，即
+
+ValidationPipe
+ParseIntPipe
+ParseBoolPipe
+ParseArrayPipe
+ParseUUIDPipe
+DefaultValuePipe
+ParseEnumPipe
+ParseFloatPipe
+
+## 守卫
+守卫在每个中间件之后执行，但在任何拦截器或管道之前执行。
+
+
