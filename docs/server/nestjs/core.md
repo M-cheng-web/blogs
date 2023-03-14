@@ -1,5 +1,9 @@
 # nestjs
 
+:::tip
+目前只在写了demo和简单的项目，后面熟悉了再系统复习总结
+:::
+
 [nest 中文文档](https://docs.nestjs.cn/8/introduction)
 
 问题
