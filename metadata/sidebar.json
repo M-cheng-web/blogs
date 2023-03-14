@@ -79,6 +79,20 @@
       "link": ""
     },
     {
+      "text": "TypeScript",
+      "items": [
+        {
+          "text": "core",
+          "link": "/web-basics/typescript/core"
+        },
+        {
+          "text": "start",
+          "link": "/web-basics/typescript/start"
+        }
+      ],
+      "link": ""
+    },
+    {
       "text": "vue",
       "items": [
         {
@@ -142,20 +156,6 @@
         {
           "text": "flex",
           "link": "/web-basics/css/flex"
-        }
-      ],
-      "link": ""
-    },
-    {
-      "text": "typescript",
-      "items": [
-        {
-          "text": "core",
-          "link": "/web-basics/typescript/core"
-        },
-        {
-          "text": "start",
-          "link": "/web-basics/typescript/start"
         }
       ],
       "link": ""

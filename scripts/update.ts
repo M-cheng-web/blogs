@@ -26,11 +26,13 @@ async function getTitle(dir) {
  * 转换title
  * 此方法只转化提前定义好的二级标签的title
  * 例如 web-basis/javascript -> web-basis/JavaScript
+ * 例如 web-basis/typescript -> web-basis/TypeScript
  */
 function transitionTitle(title): String {
   // 需要转换的在这里定义
   const transitionMap = {
-    'javascript': 'JavaScript'
+    'javascript': 'JavaScript',
+    'typescript': 'TypeScript'
   }
   return transitionMap[title] || title
 }

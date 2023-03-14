@@ -71,6 +71,20 @@
         ]
       },
       {
+        "title": "TypeScript",
+        "link": "typescript",
+        "children": [
+          {
+            "title": "core",
+            "link": "core"
+          },
+          {
+            "title": "start",
+            "link": "start"
+          }
+        ]
+      },
+      {
         "title": "vue",
         "link": "vue",
         "children": [
@@ -130,20 +144,6 @@
           {
             "title": "flex",
             "link": "flex"
-          }
-        ]
-      },
-      {
-        "title": "typescript",
-        "link": "typescript",
-        "children": [
-          {
-            "title": "core",
-            "link": "core"
-          },
-          {
-            "title": "start",
-            "link": "start"
           }
         ]
       },

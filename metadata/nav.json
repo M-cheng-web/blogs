@@ -24,6 +24,10 @@
         "link": "/web-basics/javascript/core"
       },
       {
+        "text": "TypeScript",
+        "link": "/web-basics/typescript/core"
+      },
+      {
         "text": "vue",
         "link": "/web-basics/vue/core"
       },
@@ -38,10 +42,6 @@
       {
         "text": "css",
         "link": "/web-basics/css/core"
-      },
-      {
-        "text": "typescript",
-        "link": "/web-basics/typescript/core"
       },
       {
         "text": "network",
