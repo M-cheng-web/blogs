@@ -3,12 +3,12 @@
     "text": "mine",
     "items": [
       {
-        "text": "plan",
-        "link": "/mine/plan/core"
-      },
-      {
         "text": "saying",
         "link": "/mine/saying/core"
+      },
+      {
+        "text": "plan",
+        "link": "/mine/plan/core"
       },
       {
         "text": "litter",

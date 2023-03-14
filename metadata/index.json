@@ -4,13 +4,13 @@
     "link": "mine",
     "children": [
       {
-        "title": "plan",
-        "link": "plan",
+        "title": "saying",
+        "link": "saying",
         "children": []
       },
       {
-        "title": "saying",
-        "link": "saying",
+        "title": "plan",
+        "link": "plan",
         "children": []
       },
       {

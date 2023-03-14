@@ -1,21 +1,21 @@
 {
   "/mine/": [
     {
-      "text": "plan",
-      "items": [
-        {
-          "text": "core",
-          "link": "/mine/plan/core"
-        }
-      ],
-      "link": ""
-    },
-    {
       "text": "saying",
       "items": [
         {
           "text": "core",
           "link": "/mine/saying/core"
+        }
+      ],
+      "link": ""
+    },
+    {
+      "text": "plan",
+      "items": [
+        {
+          "text": "core",
+          "link": "/mine/plan/core"
         }
       ],
       "link": ""
