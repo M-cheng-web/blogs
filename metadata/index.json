@@ -21,6 +21,17 @@
     ]
   },
   {
+    "title": "open-source",
+    "link": "open-source",
+    "children": [
+      {
+        "title": "FastTracing",
+        "link": "fasttracing",
+        "children": []
+      }
+    ]
+  },
+  {
     "title": "web-basics",
     "link": "web-basics",
     "children": [

@@ -25,12 +25,14 @@ async function getTitle(dir) {
 /**
  * 转换title
  * 此方法只转化提前定义好的二级标签的title
+ * (同时也可以在md文件中指定title)
  * 例如 web-basis/javascript -> web-basis/JavaScript
  * 例如 web-basis/typescript -> web-basis/TypeScript
  */
 function transitionTitle(title): String {
   // 需要转换的在这里定义
   const transitionMap = {
+    'fasttracing': 'FastTracing',
     'javascript': 'JavaScript',
     'typescript': 'TypeScript'
   }
@@ -82,7 +84,8 @@ async function getRouterList() {
         routerItem.children[index - 1].children.unshift({ title: 'core', link: 'core' })
       } else {
         const title = await getTitle(join(cwd, 'core.md'))
-        routerItem.children[index - 1].title = title || childrenLink
+        routerItem.children[index - 1].title = title || transitionTitle(childrenLink)
+        // routerItem.children[index - 1].title = title || childrenLink
       }
     }
 

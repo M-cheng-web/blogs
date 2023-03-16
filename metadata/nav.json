@@ -17,6 +17,15 @@
     ]
   },
   {
+    "text": "open-source",
+    "items": [
+      {
+        "text": "FastTracing",
+        "link": "/open-source/fasttracing/core"
+      }
+    ]
+  },
+  {
     "text": "web-basics",
     "items": [
       {

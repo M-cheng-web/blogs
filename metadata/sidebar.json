@@ -31,6 +31,18 @@
       "link": ""
     }
   ],
+  "/open-source/": [
+    {
+      "text": "FastTracing",
+      "items": [
+        {
+          "text": "core",
+          "link": "/open-source/fasttracing/core"
+        }
+      ],
+      "link": ""
+    }
+  ],
   "/web-basics/": [
     {
       "text": "JavaScript",
