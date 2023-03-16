@@ -13,6 +13,7 @@
 + 面试最应该问的几个问题：https://www.ruanyifeng.com/blog/2012/08/questions_you_need_to_ask_in_an_interview.html
 + 暗水印 https://blog.csdn.net/petertanjinjie/article/details/123887802?spm=1001.2014.3001.5502
 + 很多有意思的库只知道一些可能性的概念，我想专门出一个系列来记录他们，去研究他们的原理
++ 流行框架与库的源码分析与最简实现 https://github.com/shfshanyue/mini-code
 
 ## 2022回顾 - 人生小低谷
 + 持续记录博客
