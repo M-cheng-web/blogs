@@ -14,6 +14,7 @@
 + 暗水印 https://blog.csdn.net/petertanjinjie/article/details/123887802?spm=1001.2014.3001.5502
 + 很多有意思的库只知道一些可能性的概念，我想专门出一个系列来记录他们，去研究他们的原理
 + 流行框架与库的源码分析与最简实现 https://github.com/shfshanyue/mini-code
++ Jenkins+Node+Vue 实战前端自动化部署平台 https://juejin.cn/post/7145027529789669384
 
 ## 2022回顾 - 人生小低谷
 + 持续记录博客
