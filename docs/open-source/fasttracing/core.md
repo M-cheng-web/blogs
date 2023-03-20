@@ -46,6 +46,8 @@
 
 
 ## 问题
+搞清楚这么多配置项，大的系统是怎么做的
+
 1. 搞清楚分支管理，工作留，怎么打出alpha，beta，rc，正式版本
 2. changelog (怎么快速回滚)
 3. commitlint
@@ -70,10 +72,118 @@
 22. lighthouse性能方向学习
 23. sdk过大，加载慢怎么办
 24. 设计类似生命周期的钩子一样的函数暴露出来
-25. 或许可以不用多包的形式,做个类似于热拔插的样子，谁要用什么自取，而且sdk可以帮忙用户在取了不应该取的东西给出报错
+25. 或许可以不用多包的形式,做个类似于热拔插的样子，谁要用什么自取，而且sdk可以帮忙用户在取了不应该取的东西给出报错（在这个层面上，应该提供两个入口，一个是简易入口、让用户选择想要哪些，一个是复杂入口、用户需要自己配置需要的功能项）
 26. 通过一个userId查询出用户的所有行为记录，以帮助开发者来复现用户的问题，如，用户细查，用户连线等
 27. 站在产品和运营角度，考虑他们对各个系统需要怎样的监控、统计
 28. img上传改为svg上传
+29. Sentry: 如果启用 SDK，Vue 将不会在内部调用其 logError。因此，Vue 渲染器中发生的错误将不会显示在开发人员控制台中。要保留此功能，请传递 logErrors:true 选项。
+30. Sentry: 设置环境变量
+31. Sentry: 没有设置事件发送到哪的地址就不会触发
+32. 区分多环境-链接事件地址不同
+33. 区分不同事件类型设置不同的地址(比如错误捕捉和埋点捕捉分开)
+34. Sentry：配置错误事件的采样率,事件是随机选择的（例如sampleRate: 0.25，后面可以提供一个方法供用户随时更改，或者说提供一个阈值sdk自己判断）
+35. debug:在捕获到错误时控制台输出
+36. Sentry:单个值在被截断之前可以具有的最大字符数（默认为 250）。
+37. Sentry:是否开启Hooks
+38. Sentry:此集成使用 Web 浏览器的在线和离线事件来检测何时没有可用的网络连接。如果离线，它会将事件保存到 Web 浏览器的客户端存储（通常是 IndexedDB），然后在网络连接恢复时自动上传事件。
+39. Sentry:能否在后台完整展示用户的开始到结束，可以播放视频一样展示用户在线的时候做了什么（可参考：npm install --save @sentry/rrweb rrweb）
+40. Sentry: release字段 是部署到环境中的代码版本(release: "my-project-name@2.3.12") 可以做到以下几点 +确定新版本中引入的问题和回归
++预测哪个提交导致了问题以及谁可能负责
++通过在提交消息中包含问题编号来解决问题
++部署代码时接收电子邮件通知
++此外，release用于将 source maps 应用于被压缩的 JavaScript 以查看原始的、未转换的源代码。
+41. 后台管理系统应该能统计所有的错误，所有的用户信息这些
+42. Sentry: 设置过滤规则，错误过滤，统计过滤等等
+``` js
+Sentry.init({
+  // ...
+  // beforeSend 这些生命周期应该多设置一些，多调研一些
+  beforeSend(event, hint) {
+    const error = hint.originalException;
+    if (
+      error &&
+      error.message &&
+      error.message.match(/database unavailable/i)
+    ) {
+      event.fingerprint = ["database-unavailable"];
+    }
+    return event;
+  },
+  // 设置这个也行，然后里面也能兼容正则
+  ignoreErrors: [
+    // Random plugins/extensions
+    "top.GLOBALS",
+    // See: http://blog.errorception.com/2012/03/tale-of-unfindable-js-error.html
+    "originalCreateNotification",
+    "canvas.co"
+  ]
+});
+```
+43. 放弃某些采集
+``` js
+Sentry.init({
+ tracesSampler: samplingContext => {
+    if ("...") {
+      // Drop this transaction, by setting its sample rate to 0%
+      return 0;
+    } else {
+      // Default sample rate for all others (replaces tracesSampleRate)
+      return 0.1;
+    }
+  };
+})
+```
+44. 本身提供了客户突然关闭网页的情况采集，但可以暴露一个生命周期来告诉程序员来做些什么
+``` js
+Sentry.close(2000).then(function() {
+  // perform something after close
+});
+```
+45. 针对敏感数据不想采集应该提供多个方式让用户去控制
+46. 对错误的拦截的精细度可以让用户控制，由大到小
+47. Sentry 提供了一个方便的 Webpack 插件，可以配置 source maps 并自动将它们上传到 Sentry(@sentry/webpack-plugin) (这个好像很难,Sentry做了很多)
+
+
+1. Sentry SDK 有两个配置选项来控制发送到 Sentry 的 transaction 量，让您可以获取具有代表性的样本：
+
+统一采样率（tracesSampleRate）：
+
+提供均匀的事务横截面，无论它们在您的应用程序中的哪个位置或在什么情况下发生。
+
+使用默认继承(inheritance)和优先(precedence)行为
+
+采样函数（tracesSampler）其中：
+
+以不同的速率采样不同的 transaction
+
+完全过滤掉一些 transaction
+
+修改默认优先级和继承行为
+
+
+优先级
+transaction 以多种方式结束抽样决策。
+
+根据 tracesSampleRate 中设置的静态采样率随机采样
+
+根据 tracesSampler 采样函数返回的采样率随机采样
+
+tracesSampler 返回的绝对决策（100% 机会或 0% 机会）
+
+如果 transaction 有父级，继承其父级的抽样决策
+
+绝对决策传递给 startTransaction
+
+当有可能不止一个发挥作用时，以下优先规则适用：
+
+如果将抽样决策传递给 startTransaction（请参阅上面的强制抽样决策），则将使用该决策，而不管其他任何事情
+
+如果定义了 tracesSampler，则将使用其决策。它可以选择保留或忽略任何父采样决策，或使用采样上下文数据来做出自己的决策或为 transaction 选择采样率。
+
+如果未定义 tracesSampler，但存在父采样决策，则将使用父采样决策。
+
+如果未定义 tracesSampler 并且没有父采样决策，则将使用 tracesSampleRate。
+
 
 ## 参考
 [学习]https://juejin.cn/post/7007607369962094599#heading-2
@@ -92,6 +202,7 @@
 - [有赞天网]https://tech.youzan.com/mobileskynet/
 - [字节埋点]https://juejin.cn/post/7195496297150709821
 - [性能检测名词]https://zhuanlan.zhihu.com/p/411409442
+- [Sentry-很多api可以参考]https://mp.weixin.qq.com/s/_ubxtWBEyzfPtc20TSJp1w
 
 其他参考
 - [growingIO]https://cloud.tencent.com/developer/article/1860008
