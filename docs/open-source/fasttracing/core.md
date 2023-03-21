@@ -1,24 +1,10 @@
 # 埋点sdk
 
-## 计划
+## 开发计划
 1. 3月份熟悉sentry操作以及功能点
 2. 3月份熟悉神策操作以及功能点
 3. 3月份列出历史版本以及未来版本的功能点(参考所有资料后总结出自己想要做出的样子)
 
-## 项目名
-### 组织名: FastTracing
-+ 采集端项目名: web-tracing (此项目涵盖所有采集端。vue项目采集端、uniapp项目采集端、react项目采集端、nuxt项目采集端、next项目采集端、electron项目采集端)
-+ 后台管理系统项目名: web-tracing-admin
-+ 服务端系统项目名(java): web-tracing-manager
-+ 服务端系统项目名(nestjs): web-tracing-manager-nestjs
-
-### 采集端的sdk名列表(其他项目不需要npm包)
-+ @web-tracing/vue
-+ @web-tracing/uniapp
-+ @web-tracing/react
-+ @web-tracing/nuxt
-+ @web-tracing/nest
-+ @web-tracing/electron
 
 ## 项目具体分析
 ### 核心系统(rollup + ts + lerna -> pnpm + vuepress -> vitepress)
@@ -32,17 +18,8 @@
 8. readme 中英文版
 
 ### 后台管理系统(vue3 + ts + vite)
-1. 从后台看埋点采集情况，相当于个演示官网
-2. 同时也是给使用者快速上手的后台模板
 3. 功能场景：当业务新增一张页面，原型图页面上有10个按钮，应该给这10个按钮点击附上10个全局唯一ID，然后这个id会给到前端，前端要把这个ID当做事件参数id给埋点系统（思考一下为什么需要此场景，还有什么更优解）
 
-### 服务端系统(docker + nestjs + typeorm + mysql)
-1. 用来记录前端传递过来的数据，落库
-2. 同时也是给使用者快速上手的服务端模板
-
-### 服务端系统JAVA版(docker + java + mysql)
-1. 用来记录前端传递过来的数据，落库
-2. 同时也是给使用者快速上手的服务端模板
 
 
 ## 问题
@@ -142,6 +119,14 @@ Sentry.close(2000).then(function() {
 45. 针对敏感数据不想采集应该提供多个方式让用户去控制
 46. 对错误的拦截的精细度可以让用户控制，由大到小
 47. Sentry 提供了一个方便的 Webpack 插件，可以配置 source maps 并自动将它们上传到 Sentry(@sentry/webpack-plugin) (这个好像很难,Sentry做了很多)
+48. 用户在频繁发送请求，在阈值附近，这时候是否提供策略来等过后再发送采集数据
+49. 客户使用时，登录了可以给出一个 setUserId，没有登录则用sdk自身随机创建的,setUserId后则将随机id和这个绑定 (核心问题还是怎么辨别唯一用户 - 可参考canvas 指纹追踪技术(Canvas指纹在相同设备的不同浏览器打开会不尽相同) - 这东西可以防止恶意刷票等行为，想想是吧，当然最后尽量和真实用户绑定在一起) 或者 通过浏览器的 可见配置、设置 等有辨识度的信息（比如语言、UA、地理位置等），经过一系列计算可以获取到一个唯一值 —— 浏览器指纹(这个可以作为一个降级策略)
+50. 上面的指纹追踪，应该是一个真实用户绑定多个指纹，比如用户有多台设备。但是当切换真实用户时，我们能不能从哪个真实用户停留时间长或者其他维度来分析这台设备到底是谁的。或者把关系变为多对多也是可行的
+51. 监听用户键盘输入，这东西实现了会不会有风险。。。。。
+52. 关于用户设备这方面的采集也可以深入，提供给需要的公司来分辨用户的电脑硬件这些，然后指定不同的广告（也是个不错的思路）
+53. 针对判断是否为同一个用户的功能，可以专门出一个sdk，github有蛮多这种开源，多参考一下 （https://juejin.cn/post/6844903970180169742#heading-1）(小满视频: https://www.bilibili.com/video/BV1dS4y1y7vd/?p=102&vd_source=7313597670b28c3c44c50e326d82d040)
+54. 按钮的多种事件的监听，例如双击，点击，按下，松手这种 (https://blog.csdn.net/qq1195566313/article/details/125958100?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167937849516800222893893%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=167937849516800222893893&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-125958100-null-null.blog_rank_default&utm_term=%E5%9F%8B%E7%82%B9&spm=1018.2226.3001.4450)
+55. 性能监控 (https://mp.weixin.qq.com/s/QZQ8-48MD3zgGmSrr_oWwQ)
 
 
 1. Sentry SDK 有两个配置选项来控制发送到 Sentry 的 transaction 量，让您可以获取具有代表性的样本：
@@ -183,6 +168,28 @@ tracesSampler 返回的绝对决策（100% 机会或 0% 机会）
 如果未定义 tracesSampler，但存在父采样决策，则将使用父采样决策。
 
 如果未定义 tracesSampler 并且没有父采样决策，则将使用 tracesSampleRate。
+
+
+
+支持的浏览器
+Sentry 的 JavaScript SDK 支持以下浏览器：
+Android：4.4, 5.0, 6.0, 7.1, 8.1, 9.0, 10.0
+Firefox：latest
+Chrome：latest
+IE：IE 10, IE 11
+iPhone：iOS 12, IOS 13
+Edge：latest
+Safari：latest
+支持 <= IE 11
+在 5.7.0 版本之前，我们的 JavaScript SDK 需要一些 polyfills 用于旧版浏览器，如 IE 11 及更低版本。如果您正在使用它，请在加载我们的 SDK 之前升级到最新版本或添加下面的脚本标签。
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CString.prototype.includes%2CNumber.isNaN"></script>
+我们需要以下 polyfill：
+Promise
+Object.assign
+Number.isNaN
+String.prototype.includes
+此外，请记住在 HTML 页面顶部定义有效的 HTML doctype，以确保 IE 不会进入兼容模式(compatibility mode)。
 
 
 ## 参考
