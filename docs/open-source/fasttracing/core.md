@@ -5,9 +5,7 @@
 2. 3月份熟悉神策操作以及功能点
 3. 3月份列出历史版本以及未来版本的功能点(参考所有资料后总结出自己想要做出的样子)
 
-
-## 项目具体分析
-### 核心系统(rollup + ts + lerna -> pnpm + vuepress -> vitepress)
+## 核心实现
 1. 埋点核心代码实现
 2. ts重构
 3. 流程应该再优化一下
@@ -16,16 +14,13 @@
 6. api文档和核心代码融合
 7. 能达到让后台管理配置采集哪些数据的功能
 8. readme 中英文版
-
-### 后台管理系统(vue3 + ts + vite)
-3. 功能场景：当业务新增一张页面，原型图页面上有10个按钮，应该给这10个按钮点击附上10个全局唯一ID，然后这个id会给到前端，前端要把这个ID当做事件参数id给埋点系统（思考一下为什么需要此场景，还有什么更优解）
-
+9. 能不能做到给其他网站插入监控。。（找持久 xss 然后找 shell，基本各种 shell 都有，网站输入个东西都能拿到）
 
 
 ## 问题
 搞清楚这么多配置项，大的系统是怎么做的
 
-1. 搞清楚分支管理，工作留，怎么打出alpha，beta，rc，正式版本
+1. 搞清楚分支管理，工作留，怎么打出alpha，beta，rc，正式版本(https://juejin.cn/post/6870767903889686541)
 2. changelog (怎么快速回滚)
 3. commitlint
 4. eslint
@@ -127,6 +122,11 @@ Sentry.close(2000).then(function() {
 53. 针对判断是否为同一个用户的功能，可以专门出一个sdk，github有蛮多这种开源，多参考一下 （https://juejin.cn/post/6844903970180169742#heading-1）(小满视频: https://www.bilibili.com/video/BV1dS4y1y7vd/?p=102&vd_source=7313597670b28c3c44c50e326d82d040)
 54. 按钮的多种事件的监听，例如双击，点击，按下，松手这种 (https://blog.csdn.net/qq1195566313/article/details/125958100?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167937849516800222893893%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=167937849516800222893893&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-125958100-null-null.blog_rank_default&utm_term=%E5%9F%8B%E7%82%B9&spm=1018.2226.3001.4450)
 55. 性能监控 (https://mp.weixin.qq.com/s/QZQ8-48MD3zgGmSrr_oWwQ)
+56. 功能场景：当业务新增一张页面，原型图页面上有10个按钮，应该给这10个按钮点击附上10个全局唯一ID，然后这个id会给到前端，前端要把这个ID当做事件参数id给埋点系统（思考一下为什么需要此场景，还有什么更优解）
+57. 一些关键性的api，例如监听网络状态的方法可以交由用户去替代，而不是写死sdk中，万一发生了更新或者不兼容了用户还能避过
+58. LDAP登录
+59. 在获取首屏数据时，应该增加一个标识来证明是用户刷新的首屏，否则第一次采集到的首屏和第二次采集到的数据肯定不一样
+
 
 
 1. Sentry SDK 有两个配置选项来控制发送到 Sentry 的 transaction 量，让您可以获取具有代表性的样本：
@@ -202,7 +202,9 @@ String.prototype.includes
 - https://github.com/xy-sea/web-see
 - https://opensource.sensorsdata.cn/category/opensource/
 - https://github.com/wangweianger/zanePerfor
+- https://github.com/wangweianger/web-report-sdk
 - https://github.com/getsentry
+- [元素曝光埋点]https://github.com/dcison/element-dig
 
 文档参考
 - https://zhuanlan.zhihu.com/p/96215664
