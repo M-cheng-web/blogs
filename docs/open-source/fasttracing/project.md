@@ -13,7 +13,7 @@
 + 路由采集
 
 #### 计划兼容前端项目/平台
-+ vue项目采集端
++ vue项目采集端(vue2+vue3)
 + uniapp项目采集端(支付宝小程序+微信小程序)
 + react项目采集端
 + nuxt项目采集端
@@ -46,6 +46,7 @@
 采集端才有SDK
 
 + @web-tracing/vue
++ @web-tracing/vue3
 + @web-tracing/uniapp
 + @web-tracing/react
 + @web-tracing/nuxt
