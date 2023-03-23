@@ -22,8 +22,15 @@
 22. 怎么满足用户对接自己后端或者直接给服务端，一个是用自己封装好的axios，一个是用sdk自带的image传这种(可以在真正发送的时候，暴露回调给用户,甚至这个也可以限定格式什么的)
 23. 用户一定要可以控制什么时候加载sdk（涉及到隐私协议，同意之后再采集）
 24. 客户在公司的4,5个网站之间跳转，怎么标识这是同一个客户，可以借鉴神策的多域名打通
-25. 最终能不能达到，事件类型和参数用户都能自定义，而且能拿到现有的事件以及参数并且自定义
-26. 
+25. 最终能不能达到，事件类型和参数用户都能自定义，而且能拿到现有的事件以及参数并且自定义(链式调用)
+26. 未来希望能对代码层面进行监控(看看有没有github，引进来，给用户提示)
+27. 支持动态设定一个按钮是否采集，比如属性后面挂一个false就是先不采集
+28. try-catch 的异常我们能否自动捕捉(比如babel的ast节点中的catch节点类型，找到它，然后在traverse去添加上报函数)
+29. jsx & tsx 的检测
+30. 内部：内部全局变量 GLOBAL_OBJ 的概念
+30. 内部：fill(XMLHttpRequest.prototype, 'send', _wrapXHR); 这种替代方法不错
+31. 内部：沿用 hub 的概念（单例模式，获取的都是同一个,getCurrentHub  getHubAndOptions）
+32. 内部：劫持的方法应该也统一，封装一下
 
 插件式热加载
 ``` js
@@ -36,6 +43,19 @@ sensors.init({
 })
 ```
 
+
+``` js
+function fill(obj, name, replacement, track) {
+  if (obj == null) return;
+  var orig = obj[name];
+  obj[name] = replacement(orig);
+  obj[name].__raven__ = true;
+  obj[name].__orig__ = orig;
+  if (track) {
+    track.push([obj, name, orig]);
+  }
+}
+```
 
 
 ## 问题
@@ -298,7 +318,7 @@ wd.clear('业务标题');
 
 ### 请求
 + 没有加上区分 post 和 get
-+ axios请求也要加上去，可配置，有些后端是不支持的
++ axios请求也要加上去，可配置，有些后端是不支持的，fetch，XHR也可以加上
 
 ### 代码
 优化一下代码,还是感觉比较凌乱
