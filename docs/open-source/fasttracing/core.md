@@ -25,7 +25,7 @@
 25. 最终能不能达到，事件类型和参数用户都能自定义，而且能拿到现有的事件以及参数并且自定义(链式调用)
 26. 未来希望能对代码层面进行监控(看看有没有github，引进来，给用户提示)
 27. 支持动态设定一个按钮是否采集，比如属性后面挂一个false就是先不采集
-28. try-catch 的异常我们能否自动捕捉(比如babel的ast节点中的catch节点类型，找到它，然后在traverse去添加上报函数)
+28. try-catch 的异常我们能否自动捕捉(比如babel的ast节点中的catch节点类型，找到它，然后在traverse去添加上报函数,好像可以用 sentry的 Wrap函数? https://hellogithub2014.github.io/2018/07/22/sentry-source-code/)
 29. jsx & tsx 的检测
 30. 内部：内部全局变量 GLOBAL_OBJ 的概念
 30. 内部：fill(XMLHttpRequest.prototype, 'send', _wrapXHR); 这种替代方法不错
@@ -167,6 +167,8 @@ Sentry.close(2000).then(function() {
 13. 一些关键性的api，例如监听网络状态的方法可以交由用户去替代，而不是写死sdk中，万一发生了更新或者不兼容了用户还能避过
 14. LDAP登录
 15. 在获取首屏数据时，应该增加一个标识来证明是用户刷新的首屏，否则第一次采集到的首屏和第二次采集到的数据肯定不一样
+16. 页面白屏检测
+17. 错误录屏+sourcemap(录屏后最好加个延迟，万一用户需要让使用者同意才能发这种)
 
 
 
@@ -238,9 +240,9 @@ String.prototype.includes
 
 技术参考
 - 神策 https://github.com/sensorsdata
-- https://github.com/clouDr-f2e/monitor
-- https://github.com/getsentry/sentry
-- https://github.com/xy-sea/web-see
+- sentry https://github.com/getsentry/sentry
+- https://github.com/clouDr-f2e/monitor(拉到本地了，可参考结构，他的功能不多，埋点没有，但是有钩子)
+- https://github.com/xy-sea/web-see(拉到本地了，功能不错，比monitor好，写法很整齐，非常易懂，厉害)
 - https://opensource.sensorsdata.cn/category/opensource/
 - https://github.com/wangweianger/zanePerfor
 - https://github.com/wangweianger/web-report-sdk
@@ -253,6 +255,7 @@ String.prototype.includes
 - [字节埋点]https://juejin.cn/post/7195496297150709821
 - [性能检测名词]https://zhuanlan.zhihu.com/p/411409442
 - [Sentry-很多api可以参考]https://mp.weixin.qq.com/s/_ubxtWBEyzfPtc20TSJp1w
+- [阿里云案例-推荐指数MAX]https://mp.weixin.qq.com/s/YiKRY_LDURY0uONtEhkUfg
 
 其他参考
 - [growingIO]https://cloud.tencent.com/developer/article/1860008
