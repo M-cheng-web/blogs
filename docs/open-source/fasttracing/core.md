@@ -1,5 +1,14 @@
 # 埋点sdk
+关于埋点的随时记录
 
+## 编写过程中需参考
+30. 内部：内部全局变量 GLOBAL_OBJ 的概念
+30. 内部：fill(XMLHttpRequest.prototype, 'send', _wrapXHR); 这种替代方法不错
+31. 内部：沿用 hub 的概念（单例模式，获取的都是同一个,getCurrentHub  getHubAndOptions）
+32. 内部：劫持的方法应该也统一，封装一下
+
+
+## 方案参考
 1. ts重构
 3. 流程应该再优化一下
 4. 所用到的api应该再去调研一下，看看兼容性，有兼容性问题要做降级策略
@@ -27,10 +36,6 @@
 27. 支持动态设定一个按钮是否采集，比如属性后面挂一个false就是先不采集
 28. try-catch 的异常我们能否自动捕捉(比如babel的ast节点中的catch节点类型，找到它，然后在traverse去添加上报函数,好像可以用 sentry的 Wrap函数? https://hellogithub2014.github.io/2018/07/22/sentry-source-code/)
 29. jsx & tsx 的检测
-30. 内部：内部全局变量 GLOBAL_OBJ 的概念
-30. 内部：fill(XMLHttpRequest.prototype, 'send', _wrapXHR); 这种替代方法不错
-31. 内部：沿用 hub 的概念（单例模式，获取的都是同一个,getCurrentHub  getHubAndOptions）
-32. 内部：劫持的方法应该也统一，封装一下
 
 插件式热加载
 ``` js
@@ -70,7 +75,6 @@ function fill(obj, name, replacement, track) {
 7. 服务端可以暴露一个delete的接口，服务器自动删除老数据
 8. 无埋点和全埋点
 9. 做这个可能得去看看学习性能篇章了
-10. 得详细诺列出和旧版的不一样
 11. 服务端怎么处理能查询2年以前的数据这种，怎么快查
 12. 页面区域曝光度功能(牵扯到算法追踪规范？)
 13. 埋点在线测试功能
@@ -250,25 +254,20 @@ String.prototype.includes
 - [元素曝光埋点]https://github.com/dcison/element-dig
 
 文档参考
-- https://zhuanlan.zhihu.com/p/96215664
 - [有赞天网]https://tech.youzan.com/mobileskynet/
-- [字节埋点]https://juejin.cn/post/7195496297150709821
+- [字节埋点-推荐指数MAX]https://juejin.cn/post/7195496297150709821
 - [性能检测名词]https://zhuanlan.zhihu.com/p/411409442
 - [Sentry-很多api可以参考]https://mp.weixin.qq.com/s/_ubxtWBEyzfPtc20TSJp1w
 - [阿里云案例-推荐指数MAX]https://mp.weixin.qq.com/s/YiKRY_LDURY0uONtEhkUfg
 
 其他参考
 - [growingIO]https://cloud.tencent.com/developer/article/1860008
-- [神策]https://mp.weixin.qq.com/s?__biz=MzIxMjE1ODAzOA==&mid=2650630727&idx=1&sn=52715f9297bb8933ac95a680eded6149&chksm=8f43997eb834106812dd9afaf244d59af3e87ec4a906b3b079554b030567a55338bea39e829d&token=733598983&lang=zh_CN&scene=21#wechat_redirect
 - [sourcemap解码]https://www.webfunny.cn/blog/post/89
-- [成熟产品]https://www.walkingfunny.com/
+- [成熟产品-偏服务端]https://www.walkingfunny.com/
 
 + 流量分析的监控有：百度统计、谷歌分析、GrowingIo、友盟
 + 错误统计的监控有：sentry、fundebug、frontJs、岳鹰
 + 当然还有一些前端监控产品：OneApm、听云
-
-## 已有功能点
-
 
 
 ## 待做功能点
