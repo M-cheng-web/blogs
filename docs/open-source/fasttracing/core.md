@@ -1,6 +1,18 @@
 # 埋点sdk
 关于埋点的随时记录
 
++ 检查公网ip（开启了翻墙会被识别为翻墙后的ip）: http://myip.kkcha.com/
++ js检查ip（开启了翻墙不会被混淆） https://github.com/joeymalvinni/webrtc-ip
++ 这个能根据ip拿到具体地址（第一次进入会告诉你当前的ip） http://www.cip.cc/117.147.32.195 (http://www.cip.cc/ 后面拼你的ip，它会给你结果,暂时没找到api)
+
+浏览器不是有个geolocation对象吗
+直接就能拿到经纬度，不过是84坐标系的
+
+有的，比较常用的是高德地图API和百度地图API，它们可以通过IP地址查询到对应的地理位置信息。
+其中，高德地图API查询IP地址的接口为：https://restapi.amap.com/v5/ip
+百度地图API查询IP地址的接口为：https://api.map.baidu.com/location/ip
+使用这些API，您可以根据IP地址获取到城市、省份等位置信息，方便进行页面定位或相关业务处理。
+
 ## 编写过程中需参考
 30. 内部：内部全局变量 GLOBAL_OBJ 的概念
 30. 内部：fill(XMLHttpRequest.prototype, 'send', _wrapXHR); 这种替代方法不错
