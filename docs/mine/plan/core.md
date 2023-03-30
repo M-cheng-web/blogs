@@ -17,6 +17,7 @@
 + Jenkins+Node+Vue 实战前端自动化部署平台 https://juejin.cn/post/7145027529789669384
 + 刻度线 https://github.com/gorkys/vue-ruler-tool
 + ui自动生成 https://juejin.cn/post/7215772473166217272
++ 等尘埃落定，该好好复习下基础啦 https://github.com/USTC-Resource/USTC-Course （中国科学技术大学课程）
 
 ## 2022回顾 - 人生小低谷
 + 持续记录博客
