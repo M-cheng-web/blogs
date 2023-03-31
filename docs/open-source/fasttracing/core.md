@@ -5,6 +5,8 @@
 + js检查ip（开启了翻墙不会被混淆） https://github.com/joeymalvinni/webrtc-ip
 + 这个能根据ip拿到具体地址（第一次进入会告诉你当前的ip） http://www.cip.cc/117.147.32.195 (http://www.cip.cc/ 后面拼你的ip，它会给你结果,暂时没找到api)
 
+Grafana+Prometheus的详解以及使用(埋点) (https://zhuanlan.zhihu.com/p/351995351)
+
 浏览器不是有个geolocation对象吗
 直接就能拿到经纬度，不过是84坐标系的
 
