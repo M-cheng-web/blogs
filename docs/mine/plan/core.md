@@ -18,6 +18,7 @@
 + 刻度线 https://github.com/gorkys/vue-ruler-tool
 + ui自动生成 https://juejin.cn/post/7215772473166217272
 + 等尘埃落定，该好好复习下基础啦 https://github.com/USTC-Resource/USTC-Course （中国科学技术大学课程）
++ 超大图片的秒开技术探索
 
 ## 2022回顾 - 人生小低谷
 + 持续记录博客
