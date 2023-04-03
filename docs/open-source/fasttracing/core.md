@@ -245,7 +245,7 @@ Safari：latest
 支持 <= IE 11
 在 5.7.0 版本之前，我们的 JavaScript SDK 需要一些 polyfills 用于旧版浏览器，如 IE 11 及更低版本。如果您正在使用它，请在加载我们的 SDK 之前升级到最新版本或添加下面的脚本标签。
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CString.prototype.includes%2CNumber.isNaN"></script>
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CString.prototype.includes%2CNumber.isNaN"></script> -->
 我们需要以下 polyfill：
 Promise
 Object.assign
