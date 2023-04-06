@@ -14,6 +14,7 @@
 + Jenkins+Node+Vue 实战前端自动化部署平台 https://juejin.cn/post/7145027529789669384
 + ui自动生成 https://juejin.cn/post/7215772473166217272
 + 等尘埃落定，该好好复习下基础啦 https://github.com/USTC-Resource/USTC-Course （中国科学技术大学课程）(数据结构可以重头复习下)
++ 优化一下Jenkins打包，不想每次改了一点点代码就从头打包
 
 ### 待学习库
 很多有意思的库只知道一些可能性的概念，我想专门出一个系列来记录他们，去研究他们的原理
