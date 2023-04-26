@@ -8,6 +8,8 @@
 + Grafana+Prometheus的详解以及使用(埋点) (https://zhuanlan.zhihu.com/p/351995351)
 + 腾讯云RUM(埋点) (https://cloud.tencent.com/product/rum)
 
++ 这个好像满足插件化的思路 https://juejin.cn/post/7210970258369708092?utm_source=gold_browser_extension#heading-0
+
 浏览器不是有个geolocation对象吗
 直接就能拿到经纬度，不过是84坐标系的
 
