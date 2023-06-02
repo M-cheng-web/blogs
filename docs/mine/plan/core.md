@@ -24,6 +24,7 @@
 + 算法+数据结构 https://github.com/labuladong/fucking-algorithm
 + 后面做个栏目收集一些图片什么的把 例如 https://start.gtimg.com/web/www/static/resource/engine-bg.d9c83f08.mp4
 + https://github.com/pomber/stargazer 用这个库生成star视频
++ https://www.bilibili.com/read/cv21266100 前端友好的Docker和Kubernetes教程，通过Node.js应用来循序渐进的学习Dockerfile、Docker Compose、Kubernetes知识
 
 ### 上传图片自动切割工具
 现在我公司的官网有h5和pc两套，分别都有各自的老年版，现在的问题是后台配置图片的时候，很多地方的图片可能要配四张同样的图片不同的尺寸，这种我前端能怎么解决呢，能自动的话最好，或者说可以自己搭建个平台自动生产这些图片 (简单来说，如果我们技术不提供任何便捷的话，运营得切图，把一张图切成四种大小分辨率，然后再分别上传到图片管理里面)
