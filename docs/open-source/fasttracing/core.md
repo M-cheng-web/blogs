@@ -10,6 +10,8 @@
 
 + 这个好像满足插件化的思路 https://juejin.cn/post/7210970258369708092?utm_source=gold_browser_extension#heading-0
 
++ 对比各个监控系统的文章 https://juejin.cn/post/7234057613775536185?utm_source=gold_browser_extension#heading-12
+
 浏览器不是有个geolocation对象吗
 直接就能拿到经纬度，不过是84坐标系的
 
